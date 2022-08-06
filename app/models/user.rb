@@ -7,5 +7,9 @@ class User < ApplicationRecord
   validates :username, presence: true
   validates :name, presence: true
 
+  has_many :meals, through: :pets
+  has_many :medicines, through: :pets
+  has_many :appointments, through: :pets
+
   # add (1) attached photo
 end
