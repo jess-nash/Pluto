@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_06_063046) do
+ActiveRecord::Schema.define(version: 2022_08_06_080928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,11 +111,9 @@ ActiveRecord::Schema.define(version: 2022_08_06_063046) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "pet_id", null: false
     t.string "name"
     t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["pet_id"], name: "index_users_on_pet_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -125,5 +123,4 @@ ActiveRecord::Schema.define(version: 2022_08_06_063046) do
   add_foreign_key "pets", "journal_entries"
   add_foreign_key "pets", "meals"
   add_foreign_key "pets", "medicines"
-  add_foreign_key "users", "pets"
 end
