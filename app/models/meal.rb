@@ -5,5 +5,5 @@ class Meal < ApplicationRecord
   validates :description, length: { in: 2..50 }
   validates :time, length: { in: 2..50 }
 
-  # add (multiple) attached photo(s)
+  has_many_attached :photos
 end

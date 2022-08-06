@@ -4,5 +4,5 @@ class Appointment < ApplicationRecord
   validates :name, presence: true
   validates :time, presence: true
 
-  # add (multiple) attached photo(s)
+  has_many_attached :photos
 end

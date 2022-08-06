@@ -5,5 +5,5 @@ class Medicine < ApplicationRecord
   validates :dosage, presence: true, length: { in: 2..100 }
   validates :description, length: { in: 2..1_000 }
 
-  # add (multiple) attached photo(s)
+  has_many_attached :photos
 end
