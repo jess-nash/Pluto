@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   validates :username, presence: true
   validates :name, presence: true
+
+  # add (1) attached photo
 end
