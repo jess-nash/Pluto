@@ -4,5 +4,5 @@ class JournalEntry < ApplicationRecord
   validates :name, presence: true, uniqueness: true, length: { in: 2..30 }
   validates :content, presence: true, length: { in: 5..1_000 }
 
-  # add (many) attached photo(s)
+  has_many_attached :photos
 end
