@@ -8,5 +8,5 @@ class Pet < ApplicationRecord
 
   validates :name, presence: true, uniqueness: { scope: :user }, length: { maximum: 30 }
 
-  # add (1) attached photo
+  has_one_attached :photo
 end
