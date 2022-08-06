@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 2022_08_06_054210) do
   end
 
   create_table "meals", force: :cascade do |t|
-    t.string "name"
     t.string "meal_type"
     t.text "description"
     t.string "serving_size"
@@ -42,6 +41,7 @@ ActiveRecord::Schema.define(version: 2022_08_06_054210) do
     t.boolean "important", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
   create_table "medicines", force: :cascade do |t|
