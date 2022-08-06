@@ -1,6 +1,7 @@
 class Pet < ApplicationRecord
-  belongs_to :family
+  has_many :families
   has_many :users, through: :families
+  # , as: :owners
   has_many :medicines
   has_many :meals
   has_many :journal_entries

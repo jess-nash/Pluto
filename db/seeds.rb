@@ -17,7 +17,6 @@ ken = User.create(
   name: "Ken",
   email: "ken@gmail.com",
   password: password,
-  reset_password_token: "ken",
   username: "Ken"
 )
 file = URI.open("https://avatars.githubusercontent.com/u/100769790?v=4")
@@ -27,7 +26,6 @@ jessica = User.create(
   name: "Jessica",
   email: "jessica@gmail.com",
   password: password,
-  reset_password_token: "jessica",
   username: "Jessica"
 )
 file = URI.open("https://avatars.githubusercontent.com/u/97200803?v=4")
@@ -37,7 +35,6 @@ tyler = User.create(
   name: "Tyler",
   email: "tyler@gmail.com",
   password: password,
-  reset_password_token: "tyler",
   username: "Tyler"
 )
 file = URI.open("https://avatars.githubusercontent.com/u/101543224?v=4")
@@ -47,17 +44,12 @@ nicole = User.create(
   name: "Nicole",
   email: "nicole@gmail.com",
   password: password,
-  reset_password_token:"nicole",
   username: "Nicole"
 )
 file = URI.open("https://avatars.githubusercontent.com/u/74501096?v=4")
 nicole.photo.attach(io: file, filename: 'nicole.jpg', content_type: 'image/jpg')
 
-puts "saving users..."
-ken.save
-jessica.save
-tyler.save
-nicole.save
+puts "users created!"
 
 puts "adding pets..."
 pets = [
@@ -84,7 +76,6 @@ pets = [
   {
     name: "Shitzu",
     description: "I went to a zoo and they only had one dog there. It was a...",
-    age: 13,
     weight: 2,
     user: tyler,
     url: ""
@@ -112,8 +103,6 @@ pets = [
   {
     name: "Doggobot",
     description: "Why does he have such cold dead eyes...",
-    age: 100,
-    weight: 1000,
     chip_number: "LW848",
     user: jessica,
     url: ""
