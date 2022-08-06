@@ -5,4 +5,6 @@ class Pet < ApplicationRecord
   has_many :appointments
 
   validates :name, presence: true, uniqueness: true, length: { maximum: 30 }
+
+  # add (1) attached photo
 end
