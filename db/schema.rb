@@ -10,10 +10,70 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_04_123100) do
+ActiveRecord::Schema.define(version: 2022_08_06_021541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "appointment_type"
+    t.datetime "time"
+    t.string "location"
+    t.boolean "important", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "journal_entries", force: :cascade do |t|
+    t.string "name"
+    t.text "content"
+    t.date "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "meals", force: :cascade do |t|
+    t.string "meal_type"
+    t.text "description"
+    t.string "serving_size"
+    t.string "time", default: [], array: true
+    t.boolean "important", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "medicines", force: :cascade do |t|
+    t.string "name"
+    t.string "dosage"
+    t.date "start_date"
+    t.date "end_date"
+    t.date "expiration_date"
+    t.text "description"
+    t.string "medicine_type"
+    t.boolean "important", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pets", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.integer "weight"
+    t.text "description"
+    t.string "chip_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "meal_id", null: false
+    t.bigint "medicine_id", null: false
+    t.bigint "appointment_id", null: false
+    t.bigint "journal_entry_id", null: false
+    t.index ["appointment_id"], name: "index_pets_on_appointment_id"
+    t.index ["journal_entry_id"], name: "index_pets_on_journal_entry_id"
+    t.index ["meal_id"], name: "index_pets_on_meal_id"
+    t.index ["medicine_id"], name: "index_pets_on_medicine_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +83,17 @@ ActiveRecord::Schema.define(version: 2022_08_04_123100) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "pet_id", null: false
+    t.string "name"
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["pet_id"], name: "index_users_on_pet_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "pets", "appointments"
+  add_foreign_key "pets", "journal_entries"
+  add_foreign_key "pets", "meals"
+  add_foreign_key "pets", "medicines"
+  add_foreign_key "users", "pets"
 end
