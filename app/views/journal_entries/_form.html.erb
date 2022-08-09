@@ -1,0 +1,6 @@
+<%=  simple_form_for [ @pet, @journal_entry ] do |f| %>
+  <%= f.input :name, placeholder: 'title' %>
+  <%= f.iput :content, as: :text, placeholder: 'Write something...' %>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit 'Create' %>
+<% end %>
