@@ -1,6 +1,7 @@
 class JournalEntriesController < ApplicationController
   def new
     @journal_entry = JournalEntry.new
+    @pet = Pet.find(params[:pet_id])
     authorize @journal_entry
   end
 
@@ -19,6 +20,6 @@ class JournalEntriesController < ApplicationController
   private
 
   def journal_entry_params
-    params.require(:journal_entry).permit(:name, :content, :photo)
+    params.require(:journal_entry).permit(:name, :content, photos: [])
   end
 end
