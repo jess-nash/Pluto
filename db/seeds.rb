@@ -9,6 +9,7 @@ require 'open-uri'
 puts "cleaning database..."
 Pet.destroy_all
 User.destroy_all
+JournalEntry.destroy_all
 
 puts "Seeding database with Plutonians..."
 password = "123456"
@@ -60,106 +61,134 @@ tyler.save
 nicole.save
 
 puts "adding pets..."
-pets = [
-  {
-    name: "Miel",
-    description: "Miichan is the cutest kitty ever. I wub her so so much ♥ ♥ ♥",
-    age: 2,
-    weight: 7,
-    chip_number: "LW123",
-    user: nicole,
-    url: ""
-  },
+# pets = [
+#   {
+#     name: "Miel",
+#     description: "Miichan is the cutest kitty ever. I wub her so so much ♥ ♥ ♥",
+#     age: 2,
+#     weight: 7,
+#     chip_number: "LW123",
+#     user: nicole,
+#     url: ""
+#   },
 
-  {
-    name: "TJ",
-    description: "Tyler Jr is my favoritest thing in the entire world. He protects me when I'm scared of the clown that lives under my bed.",
-    age: 8,
-    weight: 20,
-    chip_number: "LW456",
-    user: tyler,
-    url: ""
-  },
+#   {
+#     name: "TJ",
+#     description: "Tyler Jr is my favoritest thing in the entire world. He protects me when I'm scared of the clown that lives under my bed.",
+#     age: 8,
+#     weight: 20,
+#     chip_number: "LW456",
+#     user: tyler,
+#     url: ""
+#   },
 
-  {
-    name: "Shitzu",
-    description: "I went to a zoo and they only had one dog there. It was a...",
-    age: 13,
-    weight: 2,
-    user: tyler,
-    url: ""
-  },
+#   {
+#     name: "Shitzu",
+#     description: "I went to a zoo and they only had one dog there. It was a...",
+#     age: 13,
+#     weight: 2,
+#     user: tyler,
+#     url: ""
+#   },
 
-  {
-    name: "Basura",
-    description: "I don't even like it. Hamtaro looking ass",
-    age: 1,
-    weight: 1,
-    user: tyler,
-    url: ""
-  },
+#   {
+#     name: "Basura",
+#     description: "I don't even like it. Hamtaro looking ass",
+#     age: 1,
+#     weight: 1,
+#     user: tyler,
+#     url: ""
+#   },
 
-  {
-    name: "Catapult",
-    description: "She likes flying through the air.",
-    age: 5,
-    weight: 5,
-    chip_number: "LW789",
-    user: jessica,
-    url: ""
-  },
+#   {
+#     name: "Catapult",
+#     description: "She likes flying through the air.",
+#     age: 5,
+#     weight: 5,
+#     chip_number: "LW789",
+#     user: jessica,
+#     url: ""
+#   },
 
-  {
-    name: "Doggobot",
-    description: "Why does he have such cold dead eyes...",
-    age: 100,
-    weight: 1000,
-    chip_number: "LW848",
-    user: jessica,
-    url: ""
-  },
+#   {
+#     name: "Doggobot",
+#     description: "Why does he have such cold dead eyes...",
+#     age: 100,
+#     weight: 1000,
+#     chip_number: "LW848",
+#     user: jessica,
+#     url: ""
+#   },
 
-  {
-    name: "Miel",
-    description: "Miichan is the cutest doggo ever. I wub him so so much ♥ ♥ ♥",
-    age: 7,
-    weight: 14,
-    chip_number: "LW484",
-    user: ken,
-    url: ""
-  },
+#   {
+#     name: "Miel",
+#     description: "Miichan is the cutest doggo ever. I wub him so so much ♥ ♥ ♥",
+#     age: 7,
+#     weight: 14,
+#     chip_number: "LW484",
+#     user: ken,
+#     url: ""
+#   },
 
-  {
-    name: "Valkyrie",
-    description: "This cat is lowkey evil",
-    age: 6,
-    weight: 10,
-    user: ken,
-    url: ""
-  }
-]
+#   {
+#     name: "Valkyrie",
+#     description: "This cat is lowkey evil",
+#     age: 6,
+#     weight: 10,
+#     user: ken,
+#     url: ""
+#   }
+# ]
 
-i = 1
-pets.each do |pet_info|
-  pet = Pet.new(
-    name: pet_info[:name],
-    description: pet_info[:description],
-    age: pet_info[:age],
-    weight: pet_info[:weight],
-    user: pet_info[:user],
-    chip_number: pet_info[:chip_number]
-  )
+# i = 1
+# pets.each do |pet_info|
+#   pet = Pet.new(
+#     name: pet_info[:name],
+#     description: pet_info[:description],
+#     age: pet_info[:age],
+#     weight: pet_info[:weight],
+#     user: pet_info[:user],
+#     chip_number: pet_info[:chip_number]
+#   )
 
-  puts "getting photo for pets..."
-  downloaded_image = URI.open(pet_info[:url])
-  pet.photo.attach(io: downloaded_image, filename: "pet#{i}.png", content_type: "image/png")
-  i += 1
-  if pet.save
-    puts "#{pet.name} was saved!"
-  else
-    p pet.errors.messages
-  end
+#   puts "getting photo for pets..."
+#   downloaded_image = URI.open(pet_info[:url])
+#   pet.photo.attach(io: downloaded_image, filename: "pet#{i}.png", content_type: "image/png")
+#   i += 1
+#   if pet.save
+#     puts "#{pet.name} was saved!"
+#   else
+#     p pet.errors.messages
+#   end
 
-  puts "Seeded successfully!"
+#   puts "Seeded successfully!"
 
-end
+# end
+puts "adding journals..."
+
+journal1 = JournalEntry.create(
+  name: Faker::Lorem.sentence(word_count: 3),
+  content: Faker::JapaneseMedia::StudioGhibli.quote
+)
+file = URI.open("https://api.kyivindependent.com/storage/2021/12/loveyoustepan.-instagram-1024x683.jpg")
+journal1.photos.attach(io: file, filename: 'journal.jpg', content_type: 'image/jpg')
+
+journal2 = JournalEntry.create(
+  name: Faker::Lorem.sentence(word_count: 5),
+  content: Faker::JapaneseMedia::StudioGhibli.quote
+)
+file = URI.open("https://i.imgur.com/LRoLTlK.jpeg")
+journal2.photos.attach(io: file, filename: 'journal.jpg', content_type: 'image/jpg')
+
+journal3 = JournalEntry.create(
+  name: Faker::Lorem.sentence(word_count: 2),
+  content: Faker::JapaneseMedia::StudioGhibli.quote
+)
+# file = URI.open("https://i.imgur.com/xBntSnV.jpeg")
+# journal3.photos.attach(io: file, filename: 'journal.jpg', content_type: 'image/jpg')
+
+puts "saving journals..."
+
+journal1.save
+journal2.save
+journal3.save
