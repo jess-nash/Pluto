@@ -6,5 +6,4 @@ Rails.application.routes.draw do
     get "/profile", to: "pets#profile", as: :profile
     resources :journal_entries, only: [:index, :new, :create]
   end
-
 end
