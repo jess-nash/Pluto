@@ -1,7 +1,7 @@
 class PetsController < ApplicationController
 
   def index
-    @pets = current_user.pets
+    @pets = policy_scope(Pet)
   end
 
   def profile

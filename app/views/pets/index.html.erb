@@ -1,3 +1,17 @@
-<div class="container">
-<h1>Hi</h1>
-</div>
+<h1>Your family</h1>
+
+<% @pets.each do |pet| %>
+  <div class="container">
+    <div class="top">
+      <img class="pet-avatar" src="" alt="pet-picture">
+      <div class="pet">
+        <h2 class="pet-name"><%= pet.name %></h2>
+      </div>
+    </div>
+    <div class="content">
+      <p class="entry">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+<% end %>
