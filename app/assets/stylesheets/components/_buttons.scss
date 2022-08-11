@@ -1,0 +1,93 @@
+.button {
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  margin: 10px;
+}
+
+.sm {
+  height: 40px;
+  width: 50px;
+  font-size: 25px;
+}
+
+.lg {
+  font-size: 35px;
+  padding-top: 20px;
+  height: 90px;
+  width: 90px;
+}
+
+.btn-main-lp {
+  border: 1px solid $d-purple;
+  color: $d-purple;
+  height: 40px;
+  line-height: 40px; //this somehow vert aligns (must be same meight as div)
+  width: 225px;
+  background-color: $l-purple;
+  position: relative;
+}
+
+.btn-main-lp::before {
+  border-radius: 10px;
+  content: "log out";
+  border: 1px solid $d-purple;
+  height: 40px;
+  line-height: 40px;
+  width: 225px;
+  top: -8px;
+  left: 8px;
+  position: absolute;
+  background-color: white;
+}
+
+.btn-main-lp:active::before {
+  top: 0px;
+  left: 0px;
+  transition: 0.3s;
+}
+
+.btn-main-db-lg {
+  border: 1px solid $d-purple;
+  color: white;
+  height: 40px;
+  line-height: 40px; //this somehow vert aligns (must be same meight as div)
+  width: 360px;
+  background-color: white;
+  position: relative;
+}
+
+.btn-main-db-lg::before {
+  border-radius: 10px;
+  content: "log in";
+  border: 1px solid $d-purple;
+  height: 40px;
+  line-height: 40px;
+  width: 360px;
+  top: -8px;
+  left: 8px;
+  position: absolute;
+  background-color: $d-blue;
+}
+
+.btn-main-db-lg:active::before {
+  top: 0px;
+  left: 0px;
+  transition: 0.3s;
+}
+
+.select-menu {
+  height: 40px;
+  padding: 5px;
+  cursor: pointer;
+  border-color: black;
+  border-radius: 10px;
+}
+
+.sm-select {
+  width: 125px;
+}
+
+.mid-select {
+  width: 170px;
+}
