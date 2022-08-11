@@ -1,4 +1,5 @@
 class JournalEntriesController < ApplicationController
+<<<<<<< HEAD
   def new
     @journal_entry = JournalEntry.new
     @pet = Pet.find(params[:pet_id])
@@ -21,5 +22,10 @@ class JournalEntriesController < ApplicationController
 
   def journal_entry_params
     params.require(:journal_entry).permit(:name, :content, photos: [])
+=======
+  def index
+    @journals = policy_scope(Journal).order(created_at: :desc)
+    @journals_as_owner = current_user.journals_as_owner
+>>>>>>> main
   end
 end
