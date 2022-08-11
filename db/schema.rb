@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_06_081144) do
+ActiveRecord::Schema.define(version: 2022_08_09_121815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,15 +52,8 @@ ActiveRecord::Schema.define(version: 2022_08_06_081144) do
     t.boolean "important", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "families", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.bigint "pet_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["pet_id"], name: "index_families_on_pet_id"
-    t.index ["user_id"], name: "index_families_on_user_id"
+    t.index ["pet_id"], name: "index_appointments_on_pet_id"
   end
 
   create_table "journal_entries", force: :cascade do |t|
@@ -68,6 +61,8 @@ ActiveRecord::Schema.define(version: 2022_08_06_081144) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "pet_id", null: false
+    t.index ["pet_id"], name: "index_journal_entries_on_pet_id"
   end
 
   create_table "meals", force: :cascade do |t|
@@ -79,6 +74,8 @@ ActiveRecord::Schema.define(version: 2022_08_06_081144) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
+    t.bigint "pet_id", null: false
+    t.index ["pet_id"], name: "index_meals_on_pet_id"
   end
 
   create_table "medicines", force: :cascade do |t|
@@ -92,6 +89,17 @@ ActiveRecord::Schema.define(version: 2022_08_06_081144) do
     t.boolean "important", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "pet_id", null: false
+    t.index ["pet_id"], name: "index_medicines_on_pet_id"
+  end
+
+  create_table "ownerships", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "pet_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pet_id"], name: "index_ownerships_on_pet_id"
+    t.index ["user_id"], name: "index_ownerships_on_user_id"
   end
 
   create_table "pets", force: :cascade do |t|
@@ -102,14 +110,6 @@ ActiveRecord::Schema.define(version: 2022_08_06_081144) do
     t.string "chip_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "meal_id", null: false
-    t.bigint "medicine_id", null: false
-    t.bigint "appointment_id", null: false
-    t.bigint "journal_entry_id", null: false
-    t.index ["appointment_id"], name: "index_pets_on_appointment_id"
-    t.index ["journal_entry_id"], name: "index_pets_on_journal_entry_id"
-    t.index ["meal_id"], name: "index_pets_on_meal_id"
-    t.index ["medicine_id"], name: "index_pets_on_medicine_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -128,10 +128,10 @@ ActiveRecord::Schema.define(version: 2022_08_06_081144) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "families", "pets"
-  add_foreign_key "families", "users"
-  add_foreign_key "pets", "appointments"
-  add_foreign_key "pets", "journal_entries"
-  add_foreign_key "pets", "meals"
-  add_foreign_key "pets", "medicines"
+  add_foreign_key "appointments", "pets"
+  add_foreign_key "journal_entries", "pets"
+  add_foreign_key "meals", "pets"
+  add_foreign_key "medicines", "pets"
+  add_foreign_key "ownerships", "pets"
+  add_foreign_key "ownerships", "users"
 end

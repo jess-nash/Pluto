@@ -1,12 +1,61 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+
+.shadow-nav {
+  background-color: black;
+  opacity: 30%;
+  z-index: 1000;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  display: none;
+}
+nav {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.pet-icon-container {
+ display: flex;
+ justify-content: flex-end;
+
 }
 
-.navbar-lewagon .navbar-brand img {
+.current-pet-icon {
+  height: 40px;
   width: 40px;
+  border-radius: 50%;
+  border: solid 1px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  inset: 0 0 0 30%;
+}
+
+.nav-popout {
+  height: 325px;
+  width: 250px;
+  border: solid 1px $d-purple;
+  border-radius: 10px;
+  background-color: white;
+  display: none;
+}
+
+
+.dp {
+  color: $d-purple;
+  font-size: 20px;
+}
+
+.nav-item {
+  display: flex;
+  padding: 10px;
+  color: $d-purple;
+}
+
+.nav-description {
+  margin: 20px;
+}
+
+.nav-item > .button {
+  border: 1px solid $d-purple;
 }
