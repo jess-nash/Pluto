@@ -10,7 +10,7 @@ puts "cleaning database..."
 Ownership.destroy_all
 Pet.destroy_all
 User.destroy_all
-
+JournalEntry.destroy_all
 
 def create_users
 
@@ -153,7 +153,34 @@ puts "pets created!"
 puts "creating family"
 create_ownerships(users, pets)
 puts "family created"
+puts "adding journals..."
 
+journal1 = JournalEntry.create(
+  name: Faker::Lorem.sentence(word_count: 3),
+  content: Faker::JapaneseMedia::StudioGhibli.quote
+)
+file = URI.open("https://api.kyivindependent.com/storage/2021/12/loveyoustepan.-instagram-1024x683.jpg")
+journal1.photos.attach(io: file, filename: 'journal.jpg', content_type: 'image/jpg')
+
+journal2 = JournalEntry.create(
+  name: Faker::Lorem.sentence(word_count: 5),
+  content: Faker::JapaneseMedia::StudioGhibli.quote
+)
+file = URI.open("https://i.imgur.com/LRoLTlK.jpeg")
+journal2.photos.attach(io: file, filename: 'journal.jpg', content_type: 'image/jpg')
+
+journal3 = JournalEntry.create(
+  name: Faker::Lorem.sentence(word_count: 2),
+  content: Faker::JapaneseMedia::StudioGhibli.quote
+)
+# file = URI.open("https://i.imgur.com/xBntSnV.jpeg")
+# journal3.photos.attach(io: file, filename: 'journal.jpg', content_type: 'image/jpg')
+
+puts "saving journals..."
+
+journal1.save
+journal2.save
+journal3.save
 
 # miel = Pet.create!(
 #   name: "Miel",

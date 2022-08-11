@@ -1,8 +1,9 @@
 class PetPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
+    #scope.where(user[:user])
     def resolve
-      scope.where(user: user)
+      scope.all
     end
   end
 
@@ -20,5 +21,9 @@ class PetPolicy < ApplicationPolicy
 
   def destroy?
     record.user == user
+  end
+
+  def profile?
+    true
   end
 end
