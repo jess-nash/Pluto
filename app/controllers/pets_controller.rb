@@ -1,5 +1,9 @@
 class PetsController < ApplicationController
 
+  def index
+    @pets = policy_scope(Pet)
+  end
+
   def show
     @pet = Pet.find(params[:id])
     authorize @pet
