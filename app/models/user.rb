@@ -15,4 +15,6 @@ class User < ApplicationRecord
   has_many :appointments, through: :pets
 
   has_one_attached :photo
+
+  has_many :journal_entries_as_owner, through: :pets, source: :journal_entries
 end
