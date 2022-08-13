@@ -1,11 +1,19 @@
 <div class="journal-index">
-  <%= render 'shared/buttons/backbtn' %>
+  <%= link_to pet_journal_entries_path(@pet) do %>
+    <%= render 'shared/buttons/backbtn' %>
+  <% end %>
 </div>
+
+
 <div class="container mobile-margins">
-  <%#= link_to 'Back', journal_entries_path %>
-  <div class="journal-entry">
-    <div class="journal-entry-form">
-      <%= render 'form', journal_entry: @journal_entry %>
+  <div class="journal-new-header">
+    <%= cl_image_tag(@pet.ownerships.first.user.photo.key, class: "journal-user") %>
+    <div class="pet-and-date">
+      <h2 class="pet-name"> New Journal Entry for <%= @pet.name %></h2>
+      <small class="journal-date"> Today, <%= Date.new.to_formatted_s(:short) %> </small>
     </div>
+  </div>
+  <div class="journal-entry-form">
+    <%= render 'form', journal_entry: @journal_entry %>
   </div>
 </div>
