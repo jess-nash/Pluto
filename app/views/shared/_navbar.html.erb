@@ -35,14 +35,15 @@
         </div>
       <% end %>
     <%# sign in btn needs to be fixed %>
+
     <% if user_signed_in? %>
-      <%= link_to new_user_session_path do %>
+      <%= link_to destroy_user_session_path, method: "delete" do %>
         <div class="button center btn-main-lp" data-content= "log out">
         </div>
       <% end %>
     <% else %>
-      <%= link_to destroy_user_session_path, method: "delete" do %>
-        <div class="button center btn-main-lp" data-content= "sign in">
+      <%= link_to new_user_session_path do %>
+        <div class="button center btn-main-lp" data-content= "log in">
         </div>
       <% end %>
     <% end %>

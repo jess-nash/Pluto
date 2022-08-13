@@ -1,3 +1,18 @@
-<div class="container">
-<%= @pet.name %> !!!!!!!!!
+<div class="mobile-center mobile-margins">
+  <img class="pet-prof-icon" src="https://i.guim.co.uk/img/media/26392d05302e02f7bf4eb143bb84c8097d09144b/446_167_3683_2210/master/3683.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=11e949fc5d06576bc8b80ec192896753" alt="Pet Avatar">
+  <h2><%= @pet.name %></h2>
+  <div class="pet-summary">
+    <div class="age&weight">
+      <span class="age"><%= @pet.age %> years old</span>
+      <span class="weight">| <%= @pet.weight %> lbs</span>
+    </div>
+    <p class="chipnum">Chip Number: <%= @pet.chip_number %></p>
+    <p class="pet-bio"><%= @pet.description %></p>
+  </div>
+</div>
+<div >
+
+<div class="prof-journal-imgs">
+  <img class="img-box-sizing" src="https://i.imgur.com/XuijCUO.jpg" alt="">
+  <img class="img-box-sizing" src="https://i.imgur.com/kJBrdtd.jpg" alt="">
 </div>

@@ -1,0 +1,25 @@
+.pet-summary {
+  overflow: auto;
+  padding: 16px;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+.pet-prof-icon {
+  height: 200px;
+  border-radius: 50%;
+}
+
+.mobile-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img-box-sizing {
+  height: 136px;
+  width: 136px;
+  margin: 8px;
+  border-radius: 10px;
+  object-fit: cover;
+}
