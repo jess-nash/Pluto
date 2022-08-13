@@ -1,7 +1,8 @@
-<div class="journal-index">
-  <%= render 'shared/buttons/backbtn' %>
-</div>
-
+<%= link_to pets_path do%>
+  <div class="journal-index">
+    <%= render 'shared/buttons/backbtn' %>
+  </div>
+<% end %>
 
 <% @journals_as_owner.each do |journal| %>
   <div class="journal-container mobile-margins">
