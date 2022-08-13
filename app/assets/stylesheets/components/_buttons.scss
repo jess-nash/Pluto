@@ -31,7 +31,7 @@
 
 .btn-main-lp::before {
   border-radius: 10px;
-  content: "log out";
+  content: attr(data-content);
   border: 1px solid $d-purple;
   height: 40px;
   line-height: 40px;
