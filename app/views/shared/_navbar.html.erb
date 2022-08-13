@@ -6,30 +6,46 @@
   </div>
 
   <div class="nav-popout">
-    <div class="nav-item">
-      <div class="sm button">
-        <i class="dp fa-solid fa-house-chimney-window"></i>
-      </div>
-      <p class="nav-description">My Pet family</p>
-    </div>
+    <%= link_to pets_path do%>
+        <div class="nav-item">
+          <div class="sm button">
+            <i class="dp fa-solid fa-house-chimney-window"></i>
+          </div>
+          <p class="nav-description">My Pet family</p>
+        </div>
+    <% end %>
+    <% if @pet %>
+      <%= link_to pet_path(@pet) do%>
+        <div class="nav-item">
+          <div class="sm button">
+            <i class="dp fa-solid fa-paw"></i>
+          </div>
+          <p class="nav-description"><%= @pet.name %>'s page</p>
+        </div>
+      <% end %>
+    <% end %>
+    <%# needs to be edited once we figure out how to manage users %>
 
-    <div class="nav-item">
-      <div class="sm button">
-        <i class="dp fa-solid fa-paw"></i>
-      </div>
-      <p class="nav-description">Miel's page</p>
-    </div>
-
-    <div class="nav-item">
-      <div class="sm button">
-        <i class="dp fa-solid fa-user-gear"></i>
-      </div>
-      <p class="nav-description">User Profiles</p>
-    </div>
-
-    <div class="button center btn-main-lp">
-    </div>
-
+      <%= link_to root_path do%>
+        <div class="nav-item">
+          <div class="sm button">
+            <i class="dp fa-solid fa-user-gear"></i>
+          </div>
+          <p class="nav-description">User Profiles</p>
+        </div>
+      <% end %>
+    <%# sign in btn needs to be fixed %>
+    <% if user_signed_in? %>
+      <%= link_to new_user_session_path do %>
+        <div class="button center btn-main-lp" data-content= "log out">
+        </div>
+      <% end %>
+    <% else %>
+      <%= link_to destroy_user_session_path, method: "delete" do %>
+        <div class="button center btn-main-lp" data-content= "sign in">
+        </div>
+      <% end %>
+    <% end %>
 
   </div>
 </nav>

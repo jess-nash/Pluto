@@ -3,17 +3,19 @@
 <div class="family">
   <% @pets.each do |pet| %>
     <div class="family-container">
-      <div class="family-container-top">
-        <img class="pet-avatar" src="" alt="pet-picture">
-        <div class="family-pet">
-          <h2 class="family-pet-name"><%= pet.name %></h2>
+      <%= link_to pet_path(pet), class: "text-decoration-none text-dark" do %>
+        <div class="family-container-top">
+          <%= cl_image_tag pet.photo.key, class: "pet-avatar"%>
+          <div class="family-pet">
+            <h2 class="family-pet-name"><%= pet.name %></h2>
+          </div>
         </div>
-      </div>
-      <div class="family-pet-content">
-        <p class="pet-description">
-        <%= pet.description %>
-        </p>
-      </div>
+        <div class="family-container-bottom">
+          <p class="pet-description">
+          <%= pet.description %>
+          </p>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>
