@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   has_many :ownerships
+
   has_many :pets, through: :ownerships
   has_many :meals, through: :pets
   has_many :medicines, through: :pets
