@@ -4,12 +4,12 @@
   <% @pets.each do |pet| %>
     <div class="family-container">
       <div class="family-container-top">
-        <img class="pet-avatar" src="" alt="pet-picture">
+        <img class="pet-avatar" src="https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=389&q=80" alt="pet-picture">
         <div class="family-pet">
           <h2 class="family-pet-name"><%= pet.name %></h2>
         </div>
       </div>
-      <div class="family-pet-content">
+      <div class="family-container-bottom">
         <p class="pet-description">
         <%= pet.description %>
         </p>
