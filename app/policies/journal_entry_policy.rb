@@ -9,5 +9,4 @@ class JournalEntryPolicy < ApplicationPolicy
   def create?
     return true
   end
-
 end
