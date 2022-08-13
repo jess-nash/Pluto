@@ -64,7 +64,7 @@ def create_pets
       age: 2,
       weight: 7,
       chip_number: "LW123",
-      url: ""
+      url: "https://images.unsplash.com/photo-1618826411640-d6df44dd3f7a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
     },
 
     {
@@ -73,14 +73,14 @@ def create_pets
       age: 8,
       weight: 20,
       chip_number: "LW456",
-      url: ""
+      url: "https://images.unsplash.com/photo-1620001796685-adf7110fe1a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
     },
 
     {
       name: "Shitzu",
       description: "I went to a zoo and they only had one dog there. It was a...",
       weight: 2,
-      url: ""
+      url: "https://images.unsplash.com/photo-1588178393136-4b0950f78c38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
     },
 
     {
@@ -88,7 +88,7 @@ def create_pets
       description: "I don't even like it. Hamtaro looking ass",
       age: 1,
       weight: 1,
-      url: ""
+      url: "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1476&q=80"
     },
 
     {
@@ -97,14 +97,14 @@ def create_pets
       age: 5,
       weight: 5,
       chip_number: "LW789",
-      url: ""
+      url: "https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
     },
 
     {
       name: "Doggobot",
       description: "Why does he have such cold dead eyes...",
       chip_number: "LW848",
-      url: ""
+      url: "https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
     },
 
     {
@@ -113,7 +113,7 @@ def create_pets
       age: 7,
       weight: 14,
       chip_number: "LW484",
-      url: ""
+      url: "https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=662&q=80"
     },
 
     {
@@ -121,11 +121,12 @@ def create_pets
       description: "This cat is lowkey evil",
       age: 6,
       weight: 10,
-      url: ""
+      url: "https://images.unsplash.com/photo-1492370284958-c20b15c692d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=749&q=80"
     }
   ]
 
   pet_instances = []
+  i = 1
   pets.each do |pet_info|
     pet_instances << Pet.create!(
       name: pet_info[:name],
@@ -134,6 +135,9 @@ def create_pets
       weight: pet_info[:weight],
       chip_number: pet_info[:chip_number]
     )
+    downloaded_image = URI.open(pet_info[:url])
+    pet_instances.last.photo.attach(io: downloaded_image, filename: "pet#{i}.png", content_type: "image/png")
+    i += 1
   end
   pet_instances
 end

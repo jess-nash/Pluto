@@ -1,9 +1,9 @@
 .family-pet {
-  margin: 0;
+  margin: auto;
 }
 
 .family-pet-name {
-  padding: 5px 0px 0px 15px;
+  padding: -16px 0px 0px 0px;
 }
 
 // .date {
@@ -12,15 +12,26 @@
 
 .family-container {
   overflow: auto;
-  width: 275px;
+  width: 340px;
   border: 1px solid black;
   border-radius: 10px;
-  margin: 32px auto;
+  margin: 32px 0;
 }
 
 .family-container-top {
-  padding: 10px 5px;
+  padding: 8px 24px;
   display: flex;
+}
+
+.pet-avatar {
+  object-fit: cover;
+  height: 72px;
+  width: 72px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+  margin: 8px 8px;
+  object-position: 50% 50%;
 }
 
 // .user {
@@ -35,8 +46,12 @@
 //   display: inline;
 // }
 
-.family-pet-content {
-  padding: 5px 15px;
+.family-container-bottom {
+  padding: 8px 24px;
+}
+
+.pet-description {
+  text-align: center;
 }
 // .more-text {
 //   display: none;
