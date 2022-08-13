@@ -1,7 +1,36 @@
-<img class= "pet-avatar" src="@pet.photo" alt="Pet Avatar">
-<%= @pet.name %>
-
-<%= link_to 'Journal Entries' %>
-<%= link_to 'Meals' %>
-<%= link_to 'Medicine' %>
-<%= link_to 'Appointments' %>
+<div class="mobile-margins">
+  <div class="container col-6">
+    <div class="row">
+      <div class="d-flex justify-content-center">
+        <div class="pet-info ">
+          <% if @pet.photo.present? %>
+            <%= cl_image_tag @pet.photo.key, class: "pet-avatar" %>
+          <% else  %>
+            <img class= "avatar-large" src="@pet.photo" alt="Pet Avatar">
+          <% end %>
+          <h2><%="#{@pet.name}'s Home" %></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dashboard-nav">
+    <div class="container">
+      <div class="row">
+        <div class="d-flex">
+          <div class="col-sm"> <%= link_to 'Journal Entries', pet_journal_entries_path(@pet), :class => 'journal dashboard-nav-btn' %></div>
+          <div class="col-sm"> <%= link_to 'Meals', pet_journal_entries_path(@pet), :class => 'meals dashboard-nav-btn' %></div>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard-nav">
+      <div class="container">
+        <div class="row">
+          <div class="d-flex">
+            <div class="col-sm"> <%= link_to 'Medicine', pet_journal_entries_path(@pet), :class => 'medicine dashboard-nav-btn' %></div>
+            <div class="col-sm"> <%= link_to 'Appointments', pet_journal_entries_path(@pet), :class => 'appointments dashboard-nav-btn' %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
