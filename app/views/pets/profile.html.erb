@@ -1,4 +1,9 @@
-<%= render 'shared/buttons/backbtn' %>
+<%= link_to pets_path do%>
+  <div class="journal-index">
+    <%= render 'shared/buttons/backbtn' %>
+  </div>
+<% end %>
+
 
 <div class="mobile-center mobile-margins">
   <%= cl_image_tag @pet.photo.key, class: "pet-prof-icon" %>
