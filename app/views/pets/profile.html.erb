@@ -1,9 +1,7 @@
 <%= render 'shared/buttons/backbtn' %>
 
 <div class="mobile-center mobile-margins">
-  <%= link_to pet_path(pet), class: "text-decoration-none text-dark" do %>
-    <%= cl_image_tag @pet.photo.key, class: "pet-prof-icon" %>
-  <% end %>
+  <%= cl_image_tag @pet.photo.key, class: "pet-prof-icon" %>
   <h2><%= @pet.name %></h2>
   <div class="pet-summary">
     <div class="age&weight">
