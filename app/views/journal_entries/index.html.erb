@@ -21,11 +21,13 @@
         <b> <%= journal.name %></b>
       </h2>
       <p class="journal-entry">
-      Making my way downtown. Walking fast Faces pass. And Im home-bound <span class="see-more"><b>See More </b></span><span class="more-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae sce</span>
+        <%= journal.content %>
       </p>
     </div>
     <div class="journal-img">
-      <img class="journal-photo" src="https://vetstreet.brightspotcdn.com/dims4/default/18f82ff/2147483647/thumbnail/645x380/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2F1e%2F1c6420a7f811e0a0d50050568d634f%2Ffile%2FPoodle-miniature-1-645mk062811.jpg" alt="">
+      <% if journal.photos.present? %>
+        <%= cl_image_tag(journal.photos.first.key, class: "journal-photo") %>
+      <% end %>
     </div>
   </div>
 <% end %>

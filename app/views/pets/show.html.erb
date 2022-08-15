@@ -4,7 +4,10 @@
       <div class="d-flex justify-content-center">
         <div class="pet-info ">
           <% if @pet.photo.present? %>
-            <%= cl_image_tag @pet.photo.key, class: "pet-avatar" %>
+            <%= link_to pet_path(@pet), class: "text-decoration-none text-dark" do %>
+              <%= cl_image_tag @pet.photo.key, class: "pet-avatar" %>
+            <% end %>
+
           <% else  %>
             <img class= "avatar-large" src="@pet.photo" alt="Pet Avatar">
           <% end %>
