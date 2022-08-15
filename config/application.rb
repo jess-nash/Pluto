@@ -6,6 +6,8 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
+
 module Pluto
   class Application < Rails::Application
     config.generators do |generate|
@@ -23,5 +25,8 @@ module Pluto
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    # changes timezone for all date files to JST
+    config.time_zone = "Asia/Tokyo"
+    config.active_record.default_timezone = :local
   end
 end
