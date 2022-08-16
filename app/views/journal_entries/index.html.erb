@@ -12,7 +12,7 @@
     <div class="journal-top">
       <%= cl_image_tag(journal.pet.ownerships.first.user.photo.key, class: "journal-user") %>
       <div class="user-and-date">
-        <h2 class="user-name"> <%= journal.pet.ownerships.first.user.name %></h2>
+        <h2 class="user-name"> <%= journal.pet.ownerships.first.user.name%></h2>
         <small class="journal-date"> <%= journal.created_at.to_formatted_s(:short) %> </small>
       </div>
     </div>
