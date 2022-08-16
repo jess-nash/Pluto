@@ -1,17 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 puts "cleaning database..."
 Ownership.destroy_all
 JournalEntry.destroy_all
 Pet.destroy_all
 User.destroy_all
-
+Appointment.destroy_all
 
 def create_users
 
@@ -149,43 +142,70 @@ def create_ownerships(users, pets)
   end
 end
 
+def create_journals
+  journal1 = JournalEntry.create(
+    name: Faker::Lorem.sentence(word_count: 3),
+    content: Faker::JapaneseMedia::StudioGhibli.quote,
+    pet: Pet.last
+  )
+  file = URI.open("https://api.kyivindependent.com/storage/2021/12/loveyoustepan.-instagram-1024x683.jpg")
+  journal1.photos.attach(io: file, filename: 'journal.jpg', content_type: 'image/jpg')
+
+  journal2 = JournalEntry.create(
+    name: Faker::Lorem.sentence(word_count: 5),
+    content: Faker::JapaneseMedia::StudioGhibli.quote,
+    pet: Pet.first
+  )
+  file = URI.open("https://i.imgur.com/LRoLTlK.jpeg")
+  journal2.photos.attach(io: file, filename: 'journal.jpg', content_type: 'image/jpg')
+
+  journal3 = JournalEntry.create(
+    name: Faker::Lorem.sentence(word_count: 2),
+    content: Faker::JapaneseMedia::StudioGhibli.quote,
+    pet: Pet.first
+  )
+  file = URI.open("https://i.imgur.com/xBntSnV.jpeg")
+  journal3.photos.attach(io: file, filename: 'journal.jpg', content_type: 'image/jpg')
+end
+
+def create_appointments
+  apt1 = Appointment.create(
+    name: "name",
+    description: "wow!",
+    appointment_type: "danger",
+    time: Date.today,
+    location: "place",
+    pet: Pet.first
+  )
+
+  # apt2 = Appointment.create(
+  #   name: "name",
+  #   description: "wow!",
+  #   appointment_type: "danger",
+  #   time: Date.today,
+  #   location: "place",
+  #   pet: Pet.sample
+  # )
+end
+
 puts "Seeding database with Plutonians..."
 users = create_users
 puts "users created!"
+
 puts "adding pets..."
 pets = create_pets
 puts "pets created!"
-puts "creating family"
+
+puts "creating family..."
 create_ownerships(users, pets)
-puts "family created"
+puts "family created!"
+
 puts "adding journals..."
+create_journals
+puts "journals created!"
 
-journal1 = JournalEntry.create(
-  name: Faker::Lorem.sentence(word_count: 3),
-  content: Faker::JapaneseMedia::StudioGhibli.quote,
-  pet: Pet.last
-)
-file = URI.open("https://api.kyivindependent.com/storage/2021/12/loveyoustepan.-instagram-1024x683.jpg")
-journal1.photos.attach(io: file, filename: 'journal.jpg', content_type: 'image/jpg')
+puts "creating appointments for your babies..."
+create_appointments
+puts "appointments created!"
 
-journal2 = JournalEntry.create(
-  name: Faker::Lorem.sentence(word_count: 5),
-  content: Faker::JapaneseMedia::StudioGhibli.quote,
-  pet: Pet.first
-)
-file = URI.open("https://i.imgur.com/LRoLTlK.jpeg")
-journal2.photos.attach(io: file, filename: 'journal.jpg', content_type: 'image/jpg')
-
-journal3 = JournalEntry.create(
-  name: Faker::Lorem.sentence(word_count: 2),
-  content: Faker::JapaneseMedia::StudioGhibli.quote,
-  pet: Pet.first
-)
-# file = URI.open("https://i.imgur.com/xBntSnV.jpeg")
-# journal3.photos.attach(io: file, filename: 'journal.jpg', content_type: 'image/jpg')
-
-puts "saving journals..."
-
-journal1.save
-journal2.save
-journal3.save
+puts "Database complete!"
