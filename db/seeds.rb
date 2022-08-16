@@ -2,9 +2,9 @@ require 'open-uri'
 puts "cleaning database..."
 Ownership.destroy_all
 JournalEntry.destroy_all
+Appointment.destroy_all
 Pet.destroy_all
 User.destroy_all
-Appointment.destroy_all
 
 def create_users
 
