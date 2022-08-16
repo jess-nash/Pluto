@@ -1,11 +1,19 @@
 <div class="mobile-margins">
-  <div class="pet-info ">
-    <% if @pet.photo.present? %>
-      <%= link_to cl_image_tag @pet.photo.key, profile_path(@pet), class: "pet-avatar" %>
-    <% else  %>
-      <img class= "avatar-large" src="@pet.photo" alt="Pet Avatar">
-    <% end %>
-    <h2><%="#{@pet.name}'s Home" %></h2>
+  <div class="container col-6">
+    <div class="row">
+      <div class="d-flex justify-content-center">
+        <div class="pet-info ">
+          <% if @pet.photo.present? %>
+            <%= link_to profile_path(@pet) do %>
+              <%= cl_image_tag @pet.photo.key, class: "pet-avatar" %>
+            <% end %>
+          <% else  %>
+            <img class= "avatar-large" src="@pet.photo" alt="Pet Avatar">
+          <% end %>
+          <h2><%="#{@pet.name}'s Home" %></h2>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="dashboard-nav">
     <div class="top_dashboard_btn">

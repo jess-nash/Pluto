@@ -13,7 +13,7 @@ menuToggle.addEventListener('click', () => {
 });
 
 shadowNav.addEventListener('click', () => {
-  if (openedNav.style.display = "block") {
+  if (openedNav.style.display === "block") {
     openedNav.style.display = "none";
     shadowNav.style.display = "none";
   }
