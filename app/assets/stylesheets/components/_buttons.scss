@@ -1,9 +1,14 @@
 .button {
-  border: 1px solid black;
+  border: 1px solid $d-purple;
   background-color: white;
   border-radius: 10px;
   text-align: center;
   margin: 10px;
+}
+
+a > .button {
+  //change button color here!
+  color: black;
 }
 
 .sm {
