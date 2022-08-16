@@ -20,6 +20,11 @@
 <div >
 
 <div class="prof-journal-imgs">
-  <img class="img-box-sizing" src="https://i.imgur.com/XuijCUO.jpg" alt="">
-  <img class="img-box-sizing" src="https://i.imgur.com/kJBrdtd.jpg" alt="">
+  <%# <img class="img-box-sizing" src="https://i.imgur.com/XuijCUO.jpg" alt="">
+  <img class="img-box-sizing" src="https://i.imgur.com/kJBrdtd.jpg" alt=""> %>
+  <% @pet.journal_entries.each do |journal| %>
+      <% if journal.photos.present? %>
+        <%= cl_image_tag(journal.photos.first.key, class: "img-box-sizing") %>
+      <% end %>
+<% end %>
 </div>
