@@ -189,3 +189,110 @@ puts "saving journals..."
 journal1.save
 journal2.save
 journal3.save
+
+
+def create_meals
+  meals = [
+    {
+      name: "Petsmile morning cuisine",
+      meal_type: "Dry food",
+      description: "Chicken flavored. Best given first thing in the morning",
+      serving_size: "50 grams",
+      time: ["Breakfast", "Lunch"],
+      url: "https://images.unsplash.com/photo-1589924691995-400dc9ecc119?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
+    },
+
+    {
+      name: "BisKitt",
+      meal_type: "Dry food",
+      description: "Le Wagon's signature treat for your pet",
+      serving_size: "1 stick",
+      time: ["Snack"],
+      url: "https://images.unsplash.com/photo-1592468257342-8375cb556a69?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
+    },
+
+    {
+      name: "Butcher's natural nutrition",
+      meal_type: "Wet food",
+      description: "Serving size says 20g, but 40 works better",
+      serving_size: "20 grams",
+      time: ["Lunch"],
+      url: "https://images.unsplash.com/photo-1597843786186-826cc3489f56?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+    },
+
+    {
+      name: "Steak",
+      meal_type: "Dry food",
+      description: "Good ol' steak",
+      serving_size: "200 g",
+      time: ["Lunch", "Dinner"],
+      url: "https://images.unsplash.com/photo-1613454320437-0c228c8b1723?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    },
+
+    {
+      name: "Homemade treat",
+      meal_type: "Dry food",
+      description: "Sugar water flour",
+      serving_size: "1 treat",
+      time: ["Snack"],
+      url: "https://images.unsplash.com/photo-1582798358481-d199fb7347bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    },
+
+    {
+      name: "Yann's Organic pellets",
+      meal_type: "Dry food",
+      description: "Some energetic Frenchman in a V-neck sold these to me",
+      serving_size: "1 pound",
+      time: ["Dinner"],
+      url: "https://images.unsplash.com/photo-1596854236500-a0b80b17154e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1031&q=80"
+    },
+
+    {
+      name: "Yann's Organic pet jerky",
+      meal_type: "Dry food",
+      description: "Some energetic Frenchman in a V-neck sold this to me",
+      serving_size: "2 pieces",
+      time: ["Snack"],
+      url: "https://images.unsplash.com/photo-1566802516196-1bb541e324e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
+    },
+
+    {
+      name: "Pet friendly chips",
+      meal_type: "Dry food",
+      description: "Little sus but whatever",
+      serving_size: "1 pack",
+      time: ["Lunch", "Dinner"],
+      url: "https://images.unsplash.com/photo-1614633836648-68ddff9f7553?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80"
+    }
+  ]
+
+  meal_instances = []
+  i = 1
+  meals.each do |meal_info|
+    meal_instances << Meal.new(
+      name: meal_info[:name],
+      description: meal_info[:description],
+      meal_type: meal_info[:meal_type],
+      serving_size: meal_info[:serving_size],
+      time: meal_info[:time]
+    )
+    downloaded_image = URI.open(meal_info[:url])
+    meal_instances.last.photos.attach(io: downloaded_image, filename: "meal#{i}.png", content_type: "image/png")
+    i += 1
+  end
+  meal_instances
+end
+
+def create_meals_for_pets(pets, meals)
+  meals.each_with_index do |meal, i|
+    meal.pet = pets[i]
+    meal.save!
+  end
+end
+
+puts "creating meals"
+meals = create_meals
+puts "meals created"
+puts "adding a meal to a pet"
+create_meals_for_pets(pets, meals)
+puts "meal added to a pet"
