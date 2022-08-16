@@ -9,6 +9,7 @@ require 'open-uri'
 puts "cleaning database..."
 Ownership.destroy_all
 JournalEntry.destroy_all
+Meal.destroy_all
 Pet.destroy_all
 User.destroy_all
 
@@ -283,7 +284,7 @@ def create_meals
   meal_instances
 end
 
-def create_meals_for_pets(pets, meals)
+def add_meals_to_pets(pets, meals)
   meals.each_with_index do |meal, i|
     meal.pet = pets[i]
     meal.save!
@@ -294,5 +295,5 @@ puts "creating meals"
 meals = create_meals
 puts "meals created"
 puts "adding a meal to a pet"
-create_meals_for_pets(pets, meals)
+add_meals_to_pets(pets, meals)
 puts "meal added to a pet"
