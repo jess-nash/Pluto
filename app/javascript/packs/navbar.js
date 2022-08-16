@@ -3,7 +3,8 @@ const openedNav = document.querySelector('.nav-popout');
 const shadowNav = document.querySelector('.shadow-nav');
 
 menuToggle.addEventListener('click', () => {
-  if (openedNav.style.display === "none") {
+  console.log(openedNav.style.display)
+  if (openedNav.style.display === "none" || openedNav.style) {
     openedNav.style.display = "block";
     shadowNav.style.display = "block";
   } else {
