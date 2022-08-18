@@ -1,0 +1,27 @@
+<div class="flex-box">
+  <%= link_to pet_appointments_path(@pet) do %>
+    <%= render 'shared/buttons/backbtn' %>
+  <% end %>
+</div>
+
+<div class="container appointment-show">
+  <div class="appointment-header">
+    <% if @appointment.time > DateTime.now %>
+      <h2 class="appointment-visit-for">Upcoming visit for <%= @appointment.pet.name %> </h2>
+    <% elsif @appointment.time.month == DateTime.now.month && @appointment.time.day == DateTime.now.day%>
+      <p class="appointment-visit-for">Today's visit for <%= @appointment.pet.name %> </p>
+    <% else %>
+      <p class="appointment-visit-for">Past visit for <%= @appointment.pet.name %> </p>
+    <% end %>
+    <small class="appointment-date"> <%= @appointment.time.to_formatted_s(:long_ordinal) %> </small>
+  </div>
+  <div class="appointment-info">
+    <h1><%= @appointment.name %></h1>
+    <p><%= @appointment.location %> <i class="fas fa-location-dot"></i></p>
+    <p>Appointment type: <%= @appointment.appointment_type %></p>
+    <br>
+    <p><%= @appointment.description %></p>
+    <%# change this image to linked img VVVV %>
+    <img src="https://cf-s3.petcoach.co/question_photo_normal_thumb/uploads/questions/374188/images/7714715163b43ca3659a97d213df5d531e81a1de.jpeg" alt="" class="apt-img">
+  </div>
+</div>

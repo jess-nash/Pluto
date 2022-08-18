@@ -171,7 +171,7 @@ def create_journals
 end
 
 def create_appointments
-  Appointment.create(
+  ap1 = Appointment.create(
     name: "Annual checkup",
     description: "just our yearly checkup to make sure my baby is healthy",
     appointment_type: "checkup",
@@ -200,8 +200,8 @@ def create_appointments
 
   Appointment.create(
     name: "ear infection visit",
-    description: "",
-    appointment_type: "",
+    description: "baby's ear is looking a little strange",
+    appointment_type: "concern",
     time: DateTime.now + [*-30..30].sample,
     location: Faker::Address.full_address,
     pet: Pet.all.sample
@@ -209,7 +209,7 @@ def create_appointments
 
   Appointment.create(
     name: "annual checkup",
-    description: "",
+    description: "making sure baby is healthy",
     appointment_type: "checkup",
     time: DateTime.now + [*-30..30].sample,
     location: Faker::Address.full_address,
@@ -218,8 +218,26 @@ def create_appointments
 
   Appointment.create(
     name: "vaccines",
-    description: "",
+    description: "get my baby all vaccines ",
     appointment_type: "vaccine",
+    time: DateTime.now + [*-30..30].sample,
+    location: Faker::Address.full_address,
+    pet: Pet.all.sample
+  )
+
+  Appointment.create(
+    name: "nose rash",
+    description: "idk where this came from! started yesterday",
+    appointment_type: "concern",
+    time: DateTime.now + [*-30..30].sample,
+    location: Faker::Address.full_address,
+    pet: Pet.all.sample
+  )
+
+  Appointment.create(
+    name: "Biting paw",
+    description: "baby won't stop biting her paw",
+    appointment_type: "concern",
     time: DateTime.now + [*-30..30].sample,
     location: Faker::Address.full_address,
     pet: Pet.all.sample
