@@ -16,23 +16,13 @@
     </div>
   </div>
   <div class="dashboard-nav">
-    <div class="container">
-      <div class="row">
-        <div class="d-flex">
-          <div class="col-sm"> <%= link_to 'Journal Entries', pet_journal_entries_path(@pet), :class => 'journal dashboard-nav-btn' %></div>
-          <div class="col-sm"> <%= link_to 'Meals', pet_journal_entries_path(@pet), :class => 'meals dashboard-nav-btn' %></div>
-        </div>
-      </div>
+    <div class="top_dashboard_btn">
+      <%= link_to 'Journal Entries', pet_journal_entries_path(@pet), :class => 'journal-btn dashboard-nav-btn' %>
+      <%= link_to 'Meals', pet_journal_entries_path(@pet), :class => 'meals-btn dashboard-nav-btn' %>
     </div>
-    <div class="dashboard-nav">
-      <div class="container">
-        <div class="row">
-          <div class="d-flex">
-            <div class="col-sm"> <%= link_to 'Medicine', pet_journal_entries_path(@pet), :class => 'medicine dashboard-nav-btn' %></div>
-            <div class="col-sm"> <%= link_to 'Appointments', pet_journal_entries_path(@pet), :class => 'appointments dashboard-nav-btn' %></div>
-          </div>
-        </div>
-      </div>
+    <div class="btm_dashboard-btn">
+      <%= link_to 'Medicine', pet_journal_entries_path(@pet), :class => 'medicine-btn dashboard-nav-btn' %>
+      <%= link_to 'Appointments', pet_journal_entries_path(@pet), :class => 'appointments-btn dashboard-nav-btn' %>
     </div>
   </div>
 </div>
