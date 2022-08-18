@@ -13,7 +13,11 @@
   </head>
 
   <body>
+  <% if user_signed_in? %>
+    <% unless controller_name == "pages" %>
+  <% end %>
     <%= render 'shared/navbar' %>
+    <% end %>
       <div class="container">
         <%= yield %>
       </div>

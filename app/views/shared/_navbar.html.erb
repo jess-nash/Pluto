@@ -2,7 +2,11 @@
 </div>
 <nav>
   <div class="pet-icon-container">
-    <img class="current-pet-icon" src="https://www.burgesspetcare.com/wp-content/uploads/2021/08/Hamster.jpg" alt="current pet icon">
+    <% if @pet %>
+      <%= cl_image_tag(@pet.photo.key, class: "current-pet-icon") %>
+    <% elsif user_signed_in? %>
+      <%= cl_image_tag(current_user.photo.key, class: "current-pet-icon") %>
+    <% end  %>
   </div>
 
   <div class="nav-popout">

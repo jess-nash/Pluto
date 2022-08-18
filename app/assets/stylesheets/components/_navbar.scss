@@ -36,7 +36,7 @@ nav a {
 }
 
 .nav-popout {
-  height: 325px;
+  overflow: auto;
   width: 250px;
   border: solid 1px $d-purple;
   border-radius: 10px;

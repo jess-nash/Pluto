@@ -1,1 +1,36 @@
 // Specific CSS for your home-page
+.landing-format {
+  padding-top: 125px;
+}
+.main-title {
+  color: $l-purple;
+  font-size: 100px;
+}
+.mini-title {
+  color: white;
+}
+.landing-text {
+  margin-bottom: 50px;;
+}
+.home-sky-bg {
+  height: 100vh;
+  background: linear-gradient(#3E1E99, #81C8EF);
+}
+
+.pluto-icon {
+  height: 200px;
+  width: 200px;
+}
+
+.login {
+  color: white;
+}
+
+.login > a {
+  color: $d-blue;
+  font-weight: bold;
+}
+.get-started {
+  margin-top: 0;
+  margin-left: 20%;
+}
