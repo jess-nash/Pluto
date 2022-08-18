@@ -1,0 +1,85 @@
+
+.meal-index .button {
+  position: fixed;
+  z-index: 999;
+  margin: 0;
+  top: 1rem;
+  left: 1rem;
+}
+
+
+.meal-container h2 {
+  font-size: 18px;
+}
+
+.meal-container p {
+  font-size: 16px;
+  margin: 10px 0px 10px 0px;
+}
+
+// .user-name {
+//   margin: 0;
+// }
+
+.meal-time {
+  padding: 5px 0px 0px 15px;
+}
+
+.meal-item {
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-bottom: 4px;
+  background-color: white;
+  padding: 4px;
+  text-align: center;
+}
+
+// .meal-date {
+//   margin: 0;
+// }
+
+.meal-container {
+  overflow: auto;
+  width: 275px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.meal-top {
+  padding: 10px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+// .meal-user {
+//   height: 50px;
+//   width: 50px;
+//   border-radius: 50%;
+// }
+
+.see-more {
+  color: $d-purple;
+  cursor: pointer;
+  display: inline;
+}
+
+.meal-content {
+  padding: 5px 10px;
+}
+.more-text {
+  display: none;
+}
+
+.meal-photo {
+  width: 100%;
+  height: 185px;
+  object-fit: cover;
+  border-top: solid 1px;
+  display: block;
+}
+
+.flex-box {
+  display:flex;
+}
