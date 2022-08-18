@@ -1,0 +1,15 @@
+<div class="meal-index">
+  <%= link_to pet_meals_path(@pet) do %>
+    <%= render 'shared/buttons/backbtn' %>
+  <% end %>
+</div>
+
+
+<div class="container mobile-margins">
+  <div class="meal-new-header">
+      <h2 class="pet-name"> Create a new meal for <%= @pet.name %></h2>
+  </div>
+  <div class="meal-form">
+    <%= render 'form', meal: @meal %>
+  </div>
+</div>
