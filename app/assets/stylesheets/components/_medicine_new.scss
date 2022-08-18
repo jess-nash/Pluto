@@ -1,0 +1,45 @@
+.medicine-new-header {
+  padding: 10px 5px 25px 5px;
+  display: flex;
+
+  .medicine-user {
+    height: 70px;
+    width: 70px;
+  }
+}
+
+.rounded-box {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.pet-and-date {
+  padding: 5px 0px 0px 15px;
+  .pet-name {
+    font-size: 20px;
+  }
+
+  .medicine-date {
+    font-size: 16px;
+  }
+}
+
+.medicine-form {
+  .title-input {
+    // font-size: 20px;
+    // height: 45px;
+    // text-align: center;
+  }
+
+  .description-input {
+    // height: 300px;
+  }
+
+  .photo-upload {
+
+  }
+
+  .medicine-submit {
+
+  }
+}
