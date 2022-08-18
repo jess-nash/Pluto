@@ -1,0 +1,33 @@
+<%= simple_form_for [@pet, @meal] do |f| %>
+  <div class="name-input">
+    <%= f.input :name, placeholder: 'Meal name', label: 'Meal name', input_html: { class: 'rounded-box title-box' } %>
+  </div>
+
+  <div class="meal-type-input">
+    <%= f.input :meal_type, as: :select, label: 'Meal type', collection: ["Dry food", "Wet food"], prompt: "Select meal type", input_html: { class: 'rounded-box write-something-box' } %>
+  </div>
+
+  <div class="serving-size-input">
+    <%= f.input :serving_size, as: :string, label: 'Serving size', placeholder: 'Write something...', input_html: { class: 'rounded-box write-something-box' } %>
+  </div>
+
+  <div class="description-input">
+    <%= f.input :description, as: :text, label: 'Description', placeholder: 'Write something...', input_html: { class: 'rounded-box write-something-box' } %>
+  </div>
+
+  <div class="time-input">
+    <%= f.input :time, as: :check_boxes, label: 'Serving time', collection: ["Breakfast", "Lunch", "Dinner", "Snack"], input_html: { class: 'rounded-box write-something-box' } %>
+  </div>
+
+  <div class="photo-upload">
+    <%= f.input :photos, as: :file, label: 'Picture', input_html: { multiple: true, class: 'rounded-box' } %>
+  </div>
+
+  <div class="important">
+    <%= f.input :important, as: :boolean, label: 'Enable notifications', input_html: { multiple: true, class: 'rounded-box' } %>
+  </div>
+
+  <div class="meal-submit">
+    <%= f.submit 'Create' %>
+  </div>
+<% end %>
