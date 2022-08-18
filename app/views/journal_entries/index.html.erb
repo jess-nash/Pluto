@@ -7,7 +7,7 @@
   <% end %>
 </div>
 
-<% @journals_as_owner.each do |journal| %>
+<% @journal_entries.each do |journal| %>
   <div class="journal-container mobile-margins">
     <div class="journal-top">
       <%= cl_image_tag(journal.pet.ownerships.first.user.photo.key, class: "journal-user") %>

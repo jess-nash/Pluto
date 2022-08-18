@@ -1,8 +1,8 @@
 class JournalEntriesController < ApplicationController
   def index
     @journals = policy_scope(JournalEntry)
-    @journals_as_owner = current_user.journal_entries_as_owner.order(created_at: :desc)
     @pet = Pet.find(params[:pet_id])
+    @journal_entries = @pet.journal_entries.order(created_at: :desc)
   end
 
   def new
