@@ -169,23 +169,59 @@ def create_journals
 end
 
 def create_appointments
-  apt1 = Appointment.create(
-    name: "name",
-    description: "wow!",
-    appointment_type: "danger",
-    time: Date.today,
-    location: "place",
-    pet: Pet.first
+  Appointment.create(
+    name: "Annual checkup",
+    description: "just our yearly checkup to make sure my baby is healthy",
+    appointment_type: "checkup",
+    time: DateTime.now + [*-30..30].sample,
+    location: Faker::Address.full_address,
+    pet: Pet.all.sample
   )
 
-  # apt2 = Appointment.create(
-  #   name: "name",
-  #   description: "wow!",
-  #   appointment_type: "danger",
-  #   time: Date.today,
-  #   location: "place",
-  #   pet: Pet.sample
-  # )
+  Appointment.create(
+    name: "Teeth cleaning",
+    description: "get them teeth all shiny!",
+    appointment_type: "checkup",
+    time: DateTime.now + [*-30..30].sample,
+    location: Faker::Address.full_address,
+    pet: Pet.all.sample
+  )
+
+  Appointment.create(
+    name: "rabies vaccine",
+    description: "",
+    appointment_type: "vaccine",
+    time: DateTime.now + [*-30..30].sample,
+    location: Faker::Address.full_address,
+    pet: Pet.all.sample
+  )
+
+  Appointment.create(
+    name: "ear infection visit",
+    description: "",
+    appointment_type: "",
+    time: DateTime.now + [*-30..30].sample,
+    location: Faker::Address.full_address,
+    pet: Pet.all.sample
+  )
+
+  Appointment.create(
+    name: "annual checkup",
+    description: "",
+    appointment_type: "checkup",
+    time: DateTime.now + [*-30..30].sample,
+    location: Faker::Address.full_address,
+    pet: Pet.all.sample
+  )
+
+  Appointment.create(
+    name: "vaccines",
+    description: "",
+    appointment_type: "vaccine",
+    time: DateTime.now + [*-30..30].sample,
+    location: Faker::Address.full_address,
+    pet: Pet.all.sample
+  )
 end
 
 puts "Seeding database with Plutonians..."
