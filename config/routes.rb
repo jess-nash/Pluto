@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :pets, only: [:index, :show] do
     resources :journal_entries, only: [:index, :new, :create]
     resources :meals, only: [:index, :new, :create]
+    resources :medicines, only: [:index, :new, :show]
+    resources :appointments, only: [:index, :show]
   end
   # yann said remove get from resources
   get "/pets/:pet_id/profile", to: "pets#profile", as: :profile
