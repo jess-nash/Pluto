@@ -1,0 +1,16 @@
+<div class="flex-box">
+  <%= link_to pet_path(@pet) do %>
+    <%= render 'shared/buttons/backbtn' %>
+  <% end %>
+  <%= link_to new_pet_medicine_path(@pet) do %>
+    <%= render 'shared/buttons/plusbtn' %>
+  <% end %>
+</div>
+
+<h1><%= "#{@pet.name}'s Medicine" %></h1>
+
+<% @medicine.each do |i| %>
+  <%= i.name %>
+  <%= i.dosage %>
+  <%= i.description %>
+<% end %>

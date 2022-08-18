@@ -5,6 +5,11 @@ class MedicinesController < ApplicationController
     authorize @medicine
   end
 
+  def index
+    @medicine = policy_scope(Medicine)
+    @pet = Pet.find(params[:pet_id])
+  end
+
   def create
     @medicine = Medicine.new(medicine_params)
     @pet = Pet.find(params[:pet_id])
