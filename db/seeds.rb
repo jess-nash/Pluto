@@ -173,9 +173,9 @@ end
 def create_appointments
    apt1 = Appointment.create(
     name: "Annual checkup",
-    description: "just our yearly checkup to make sure my baby is healthy",
+    description: "Just our yearly checkup to make sure my baby is healthy. Wanted to make sure we are meeting our weight goals for this year as well.",
     appointment_type: "checkup",
-    time: (DateTime.now - (rand * 21)).at_beginning_of_hour,
+    time: Faker::Time.between_dates(from: Date.today - (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
     pet: Pet.first
   )
@@ -184,9 +184,9 @@ def create_appointments
 
   apt2 = Appointment.create(
     name: "Teeth cleaning",
-    description: "It's been a while since he's had his teeth cleaned.",
+    description: "Monthly teeth cleaning and reminder to tell vet that her other vet said my baby should have all their teeth removed by next year.",
     appointment_type: "checkup",
-    time: DateTime.now + (rand * 21),
+    time: Faker::Time.between_dates(from: Date.today + (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
     pet: Pet.second
   )
@@ -195,9 +195,9 @@ def create_appointments
 
   apt3 = Appointment.create(
     name: "Rabies vaccine",
-    description: "",
+    description: "Don’t forget to bring in the medical forms for immigration so my baby can go home with me! Ask if there’s any other vaccines recommended for pet travel.",
     appointment_type: "vaccine",
-    time: DateTime.now - (rand * 21),
+    time: Faker::Time.between_dates(from: Date.today - (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
     pet: Pet.third
   )
@@ -206,9 +206,9 @@ def create_appointments
 
   apt4 = Appointment.create(
     name: "Ear infection visit",
-    description: "baby's ear is looking a little strange",
+    description: "It looks like baby’s ear is very inflamed??? It’s very red and they keep scratching it. Baby had an infection last year I’m worried it came back.",
     appointment_type: "concern",
-    time: DateTime.now + (rand * 21),
+    time: Faker::Time.between_dates(from: Date.today + (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
     pet: Pet.fourth
   )
@@ -217,9 +217,9 @@ def create_appointments
 
   apt5 = Appointment.create(
     name: "Annual checkup",
-    description: "Making sure baby is healthy",
+    description: "Just our yearly checkup to make sure my baby is healthy. They’ve haven’t a lot of an appetite lately so ask the doctor about it.",
     appointment_type: "checkup",
-    time: DateTime.now - (rand * 21),
+    time: Faker::Time.between_dates(from: Date.today - (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
     pet: Pet.fifth
   )
@@ -228,9 +228,9 @@ def create_appointments
 
   apt6 = Appointment.create(
     name: "Vaccines",
-    description: "Get my baby all vaccines ",
+    description: "Get doctor to sign necessary vaccination documents so we can fly home together in the fall! Don’t forget!!!",
     appointment_type: "vaccine",
-    time: DateTime.now + (rand * 21),
+    time: Faker::Time.between_dates(from: Date.today + (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
     pet: Pet.fifth
   )
@@ -239,9 +239,9 @@ def create_appointments
 
   apt7 = Appointment.create(
     name: "Nose rash",
-    description: "idk where this came from! started yesterday",
+    description: "This keeps coming back?? I used the cream the doctor gave me and it’ll go away for a hot second and then come back days later. Maybe he can help me find the underlying reason??",
     appointment_type: "concern",
-    time: DateTime.now - (rand * 21),
+    time: Faker::Time.between_dates(from: Date.today - (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
     pet: Pet.last
   )
@@ -250,9 +250,9 @@ def create_appointments
 
   apt8 = Appointment.create(
     name: "Biting paw",
-    description: "baby won't stop biting her paw",
+    description: "I really don’t know what’s going on. They’ve also been biting my elbows lately? Does the doctor recommend an increase in snacks and cuddles?",
     appointment_type: "concern",
-    time: DateTime.now + (rand * 21),
+    time: Faker::Time.between_dates(from: Date.today + (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
     pet: Pet.last
   )
