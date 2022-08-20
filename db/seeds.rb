@@ -171,7 +171,7 @@ def create_journals
 end
 
 def create_appointments
-  ap1 = Appointment.create(
+   Appointment.create(
     name: "Annual checkup",
     description: "just our yearly checkup to make sure my baby is healthy",
     appointment_type: "checkup",
