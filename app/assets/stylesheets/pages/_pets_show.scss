@@ -1,5 +1,7 @@
-.top-dashboard-btn, .btm-dashboard-btn {
+.dashboard-btns {
   display: flex;
+  justify-content: space-between;
+  padding: 15px;
 }
 
 .pet-home-header {
@@ -10,4 +12,30 @@
 
 .pet-header {
   padding-bottom: 15px;
+}
+
+.dashboard-btn {
+  height: 150px;
+  width: 150px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+
+  .journal-btn {
+    color: white;
+  }
+
+  .meals-btn {
+
+  }
+
+  .medicine-btn {
+
+  }
+
+  .appointments-btn {
+
+  }
 }
