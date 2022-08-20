@@ -18,7 +18,7 @@ class MealsController < ApplicationController
     authorize @meal
 
     if @meal.save
-      redirect_to pet_meals_path, notice: 'New journal entry was written!'
+      redirect_to pet_meals_path, notice: 'New meal was added!'
     else
       render :new
     end
@@ -27,6 +27,6 @@ class MealsController < ApplicationController
   private
 
   def meal_params
-    params.require(:meal).permit(:meal_type, photos: [])
+    params.require(:meal).permit(:name, :meal_type, :serving_size, :description, :important, time: [], photos: [])
   end
 end
