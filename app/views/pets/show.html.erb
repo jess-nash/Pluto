@@ -14,6 +14,7 @@
       <img class= "avatar-large" src="@pet.photo" alt="Pet Avatar">
     <% end %>
   </div>
+
   <div class="p-3">
     <h2><%="#{@pet.name}'s Home" %></h2>
   </div>
@@ -25,6 +26,7 @@
     <%= link_to 'Meals', pet_meals_path(@pet), :class => 'meals-btn dashboard-nav-btn' %>
   </div>
   <div class="btm_dashboard-btn">
-    <%= link_to 'Medicine', pet_journal_entries_path(@pet), :class => 'medicine-btn dashboard-nav-btn' %>
+    <%= link_to 'Medicine', pet_medicines_path(@pet), :class => 'medicine-btn dashboard-nav-btn' %>
     <%= link_to 'Appointments', pet_appointments_path(@pet), :class => 'appointments-btn dashboard-nav-btn' %>
   </div>
+</div>
