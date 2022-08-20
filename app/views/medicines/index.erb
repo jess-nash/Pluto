@@ -9,8 +9,10 @@
 
 <h1><%= "#{@pet.name}'s Medicine" %></h1>
 
-<% @medicine.each do |i| %>
-  <%= i.name %>
-  <%= i.dosage %>
-  <%= i.description %>
+<% @medicines.each do |medicine| %>
+  <%= link_to medicine_path(medicine) do %>
+    <%= medicine.name %>
+    <%= medicine.dosage %>
+    <%= medicine.description %>
+  <% end %>
 <% end %>
