@@ -20,6 +20,10 @@
     <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
     <meta name="twitter:image:src" content="<%= meta_image %>">
 
+    <!-- for mobile apping it-->
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+    <%= render 'shared/ios_pwa_links' %>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/789041a997.js" crossorigin="anonymous"></script>
@@ -38,5 +42,6 @@
       <div class="container">
         <%= yield %>
       </div>
+    <%= javascript_pack_tag 'mobile-click'%>
   </body>
 </html>
