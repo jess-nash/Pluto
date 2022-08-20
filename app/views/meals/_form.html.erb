@@ -16,7 +16,7 @@
   </div>
 
   <div class="time-input">
-    <%= f.input :time, as: :check_boxes, label: 'Serving time', collection: ["Breakfast", "Lunch", "Dinner", "Snack"], input_html: { class: 'rounded-box write-something-box' } %>
+    <%= f.input :time, as: :check_boxes, label: 'Serving time', collection: ["Breakfast", "Lunch", "Dinner", "Snack"], input_html: { class: 'rounded-box write-something-box', value: [] }, include_hidden: false %>
   </div>
 
   <div class="photo-upload">

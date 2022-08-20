@@ -171,77 +171,93 @@ def create_journals
 end
 
 def create_appointments
-   Appointment.create(
+   apt1 = Appointment.create(
     name: "Annual checkup",
-    description: "just our yearly checkup to make sure my baby is healthy",
+    description: "Just our yearly checkup to make sure my baby is healthy. Wanted to make sure we are meeting our weight goals for this year as well.",
     appointment_type: "checkup",
-    time: DateTime.now + [*-30..30].sample,
+    time: Faker::Time.between_dates(from: Date.today - (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.first
   )
+  file = URI.open("https://wgme.com/resources/media2/16x9/full/1015/center/80/af3bde07-4879-48d9-be20-62fc30332bbf-large16x9_fakevaccinedoc.jpg")
+  apt1.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 
-  Appointment.create(
+  apt2 = Appointment.create(
     name: "Teeth cleaning",
-    description: "get them teeth all shiny!",
+    description: "Monthly teeth cleaning and reminder to tell vet that her other vet said my baby should have all their teeth removed by next year.",
     appointment_type: "checkup",
-    time: DateTime.now + [*-30..30].sample,
+    time: Faker::Time.between_dates(from: Date.today + (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.second
   )
+  file = URI.open("https://images.squarespace-cdn.com/content/v1/5b8b5ec92714e5fbeb8d0846/1579627917903-7THOO6QN86AAJE17II1O/IMG_2814.jpg")
+  apt2.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 
-  Appointment.create(
-    name: "rabies vaccine",
-    description: "",
+  apt3 = Appointment.create(
+    name: "Rabies vaccine",
+    description: "Don’t forget to bring in the medical forms for immigration so my baby can go home with me! Ask if there’s any other vaccines recommended for pet travel.",
     appointment_type: "vaccine",
-    time: DateTime.now + [*-30..30].sample,
+    time: Faker::Time.between_dates(from: Date.today - (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.third
   )
+  file = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJbXH7XUJnIsNeOXLKk2BkRqmYZXPptBuBAJnmTFb2I_BGyp6uY4YBtGanak-EZGCvZ50&usqp=CAU")
+  apt3.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 
-  Appointment.create(
-    name: "ear infection visit",
-    description: "baby's ear is looking a little strange",
+  apt4 = Appointment.create(
+    name: "Ear infection visit",
+    description: "It looks like baby’s ear is very inflamed??? It’s very red and they keep scratching it. Baby had an infection last year I’m worried it came back.",
     appointment_type: "concern",
-    time: DateTime.now + [*-30..30].sample,
+    time: Faker::Time.between_dates(from: Date.today + (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.fourth
   )
+  file = URI.open("https://preview.redd.it/lld5rmounr651.jpg?width=640&crop=smart&auto=webp&s=0aecfc140f2f57671816e1baa9b24b9aff5950a7")
+  apt4.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 
-  Appointment.create(
-    name: "annual checkup",
-    description: "making sure baby is healthy",
+  apt5 = Appointment.create(
+    name: "Annual checkup",
+    description: "Just our yearly checkup to make sure my baby is healthy. They’ve haven’t a lot of an appetite lately so ask the doctor about it.",
     appointment_type: "checkup",
-    time: DateTime.now + [*-30..30].sample,
+    time: Faker::Time.between_dates(from: Date.today - (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.fifth
   )
+  file = URI.open("https://cdn0.opinion-corp.com/review-media/pictures/4c/b2/261022/vetco-clinics_they-messed-up-my-records-201801291178621_4cb2-medium.jpeg")
+  apt5.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 
-  Appointment.create(
-    name: "vaccines",
-    description: "get my baby all vaccines ",
+  apt6 = Appointment.create(
+    name: "Vaccines",
+    description: "Get doctor to sign necessary vaccination documents so we can fly home together in the fall! Don’t forget!!!",
     appointment_type: "vaccine",
-    time: DateTime.now + [*-30..30].sample,
+    time: Faker::Time.between_dates(from: Date.today + (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.fifth
   )
+  file = URI.open("http://brewermaine.gov/wp-content/uploads/2017/01/Vet.jpg")
+  apt6.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 
-  Appointment.create(
-    name: "nose rash",
-    description: "idk where this came from! started yesterday",
+  apt7 = Appointment.create(
+    name: "Nose rash",
+    description: "This keeps coming back?? I used the cream the doctor gave me and it’ll go away for a hot second and then come back days later. Maybe he can help me find the underlying reason??",
     appointment_type: "concern",
-    time: DateTime.now + [*-30..30].sample,
+    time: Faker::Time.between_dates(from: Date.today - (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.last
   )
+  file = URI.open("https://www.dogjaunt.com/files/2014/11/IMG_3786-6-375x500.jpg")
+  apt7.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 
-  Appointment.create(
+  apt8 = Appointment.create(
     name: "Biting paw",
-    description: "baby won't stop biting her paw",
+    description: "I really don’t know what’s going on. They’ve also been biting my elbows lately? Does the doctor recommend an increase in snacks and cuddles?",
     appointment_type: "concern",
-    time: DateTime.now + [*-30..30].sample,
+    time: Faker::Time.between_dates(from: Date.today + (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.last
   )
+  file = URI.open("https://live.staticflickr.com/6055/6301607331_5f1f8674d4_b.jpg")
+  apt8.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 end
 
 def create_medicine
