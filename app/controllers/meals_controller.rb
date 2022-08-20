@@ -1,8 +1,7 @@
 class MealsController < ApplicationController
   def index
-    @pet_meal = policy_scope(Meal)
     @pet = Pet.find(params[:pet_id])
-    @meals = @pet.meals.order(created_at: :desc)
+    @meals = policy_scope(Meal).where(pet: @pet).order(created_at: :desc)
   end
 
   def new
