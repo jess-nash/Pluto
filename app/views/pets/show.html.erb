@@ -1,28 +1,40 @@
-<div class="mobile-margins">
-  <div class="container col-6">
-    <div class="row">
-      <div class="d-flex justify-content-center">
-        <div class="pet-info ">
-          <% if @pet.photo.present? %>
-            <%= link_to profile_path(@pet) do %>
-              <%= cl_image_tag @pet.photo.key, class: "pet-avatar" %>
-            <% end %>
-          <% else  %>
-            <img class= "avatar-large" src="@pet.photo" alt="Pet Avatar">
-          <% end %>
-          <h2><%="#{@pet.name}'s Home" %></h2>
-        </div>
-      </div>
+<div class="nav-buttons">
+  <%= link_to pets_path do %>
+    <%= render 'shared/buttons/backbtn' %>
+  <% end %>
+</div>
+
+<div class="container pet-home-header">
+  <div class="pet-photo">
+    <% if @pet.photo.present? %>
+      <%= link_to profile_path(@pet) do %>
+        <%= cl_image_tag @pet.photo.key, class: "pet-prof-icon" %>
+      <% end %>
+    <% else  %>
+      <img class= "avatar-large" src="@pet.photo" alt="Pet Avatar">
+    <% end %>
+  </div>
+
+  <div class="p-3">
+    <h2><%="#{@pet.name}'s Home" %></h2>
+  </div>
+</div>
+
+<div class="dashboard-nav">
+  <div class="dashboard-btns">
+    <div class="dashboard-btn journal-btn">
+      <%= link_to 'Journal Entries', pet_journal_entries_path(@pet), class:"journal-btn" %>
+    </div>
+    <div class="dashboard-btn meals-btn">
+      <%= link_to 'Meals', pet_meals_path(@pet), class:"meals-btn" %>
     </div>
   </div>
-  <div class="dashboard-nav">
-    <div class="top_dashboard_btn">
-      <%= link_to 'Journal Entries', pet_journal_entries_path(@pet), :class => 'journal-btn dashboard-nav-btn' %>
-      <%= link_to 'Meals', pet_meals_path(@pet), :class => 'meals-btn dashboard-nav-btn' %>
+  <div class="dashboard-btns">
+    <div class="dashboard-btn medicine-btn">
+    <%= link_to 'Medicine', pet_medicines_path(@pet), class:"medicine-btn" %>
     </div>
-    <div class="btm_dashboard-btn">
-      <%= link_to 'Medicine', pet_medicines_path(@pet), :class => 'medicine-btn dashboard-nav-btn' %>
-      <%= link_to 'Appointments', pet_appointments_path(@pet), :class => 'appointments-btn dashboard-nav-btn' %>
+    <div class="dashboard-btn appointments-btn">
+      <%= link_to 'Appointments', pet_appointments_path(@pet), class:"appointments-btn" %>
     </div>
   </div>
 </div>
