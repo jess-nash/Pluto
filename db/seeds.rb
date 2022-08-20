@@ -230,6 +230,7 @@ def create_medicine
   ivermectin = Medicine.create(
     name: "ivermectin",
     dosage: "3 spoonfuls",
+    medicine_type: "liquid",
     start_date: Faker::Date.forward(days: 1),
     end_date: Faker::Date.forward(days: 7),
     expiration_date: Faker::Date.forward(days: 250),
@@ -242,7 +243,8 @@ def create_medicine
 
   antibiotics = Medicine.create(
     name: "Ashmore antibiotics",
-    dosage: "2 pills daily",
+    dosage: "2 daily",
+    medicine_type: "pills",
     start_date: Faker::Date.forward(days: 1),
     end_date: Faker::Date.forward(days: 7),
     expiration_date: Faker::Date.forward(days: 250),
@@ -255,7 +257,8 @@ def create_medicine
 
   dewormer = Medicine.create(
     name: "Ashmore dewormer",
-    dosage: "3 pills daily",
+    dosage: "3 daily",
+    medicine_type: "pills",
     start_date: Faker::Date.forward(days: 1),
     end_date: Faker::Date.forward(days: 7),
     expiration_date: Faker::Date.forward(days: 250),
@@ -264,11 +267,12 @@ def create_medicine
     pet: Pet.all.sample
   )
   file = URI.open("https://media.wbur.org/wp/2019/11/AP_110513055670-1000x722.jpg")
-  antibiotics.photos.attach(io: file, filename: 'medicine.jpg', content_type: 'image/jpg')
+  dewormer.photos.attach(io: file, filename: 'medicine.jpg', content_type: 'image/jpg')
 
   apoquel = Medicine.create(
     name: "Apoquel",
-    dosage: "1 pill at breakfast",
+    dosage: "1 at breakfast",
+    medicine_type: "pill",
     start_date: Faker::Date.forward(days: 1),
     end_date: Faker::Date.forward(days: 7),
     expiration_date: Faker::Date.forward(days: 250),
@@ -281,7 +285,8 @@ def create_medicine
 
   nexgard = Medicine.create(
     name: "nexgard",
-    dosage: "1 pill at breakfast",
+    dosage: "1 at breakfast",
+    medicine_type: "pills",
     start_date: Faker::Date.forward(days: 1),
     end_date: Faker::Date.forward(days: 7),
     expiration_date: Faker::Date.forward(days: 250),
@@ -294,7 +299,8 @@ def create_medicine
 
   heartgard = Medicine.create(
     name: "heartgard",
-    dosage: "1 chewable in the late afternoon",
+    dosage: "1 in the late afternoon",
+    medicine_type: "chewable",
     start_date: Faker::Date.forward(days: 1),
     end_date: Faker::Date.forward(days: 7),
     expiration_date: Faker::Date.forward(days: 250),
@@ -307,7 +313,8 @@ def create_medicine
 
   simparica = Medicine.create(
     name: "simparica",
-    dosage: "1 chewable in the late afternoon",
+    dosage: "1 in the late afternoon",
+    medicine_type: "chewable",
     start_date: Faker::Date.forward(days: 1),
     end_date: Faker::Date.forward(days: 7),
     expiration_date: Faker::Date.forward(days: 250),
@@ -320,7 +327,8 @@ def create_medicine
 
   bravecto = Medicine.create(
     name: "bravecto",
-    dosage: "6 pills, once every hour from 13:00-18:00",
+    dosage: "once every hour from 13:00-18:00",
+    medicine_type: "pills",
     start_date: Faker::Date.forward(days: 1),
     end_date: Faker::Date.forward(days: 7),
     expiration_date: Faker::Date.forward(days: 250),
