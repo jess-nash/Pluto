@@ -1,4 +1,4 @@
-<div class="flex-box">
+<div class="nav-buttons">
   <%= link_to pet_appointments_path(@pet) do %>
     <%= render 'shared/buttons/backbtn' %>
   <% end %>
@@ -25,15 +25,11 @@
     <% if @appointment.important %>
       <p><u>Notifications are enabled for this appointment.<u></p>
     <% end %>
-    <%# change this image to linked img VVVV %>
     <div class="appointment-img">
         <% if @appointment.photos.present? %>
           <% @appointment.photos.each do |photo|  %>
             <%= cl_image_tag(photo.key, class: "apt-img") %>
           <% end %>
-        <% else %>
-        <%# remove this else block once photos are added to appo seeds %>
-          <img class= "apt-img" src="https://s3.amazonaws.com/jo.www.bucket/neighborhoodcats/nodes/images/700/default/Vet_eartip_intro.jpg?1462051746" alt="">
         <% end %>
       </div>
   </div>

@@ -1,0 +1,26 @@
+.appointment-new-header {
+  padding: 10px 5px 10px 5px;
+  display: flex;
+}
+
+.rounded-box {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.datetime-input {
+  font-size: 16px;
+
+  .datetime-box {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+}
+
+// .location-input {
+//   width: 50%;
+// }
+
+// .appointment-type-input {
+//   width: 50%;
+// }

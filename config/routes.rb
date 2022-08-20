@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :journal_entries, only: [:index, :new, :create]
     resources :meals, only: [:index, :new, :create]
     resources :medicines, only: [:index, :new]
-    resources :appointments, only: [:index, :show]
+    resources :appointments, only: [:index, :show, :new, :create]
   end
 
   resources :medicines, only: [:show]
