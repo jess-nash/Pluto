@@ -171,77 +171,93 @@ def create_journals
 end
 
 def create_appointments
-   Appointment.create(
+   apt1 = Appointment.create(
     name: "Annual checkup",
     description: "just our yearly checkup to make sure my baby is healthy",
     appointment_type: "checkup",
-    time: DateTime.now + [*-30..30].sample,
+    time: (DateTime.now - (rand * 21)).at_beginning_of_hour,
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.first
   )
+  file = URI.open("https://wgme.com/resources/media2/16x9/full/1015/center/80/af3bde07-4879-48d9-be20-62fc30332bbf-large16x9_fakevaccinedoc.jpg")
+  apt1.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 
-  Appointment.create(
+  apt2 = Appointment.create(
     name: "Teeth cleaning",
-    description: "get them teeth all shiny!",
+    description: "It's been a while since he's had his teeth cleaned.",
     appointment_type: "checkup",
-    time: DateTime.now + [*-30..30].sample,
+    time: DateTime.now + (rand * 21),
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.second
   )
+  file = URI.open("https://images.squarespace-cdn.com/content/v1/5b8b5ec92714e5fbeb8d0846/1579627917903-7THOO6QN86AAJE17II1O/IMG_2814.jpg")
+  apt2.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 
-  Appointment.create(
-    name: "rabies vaccine",
+  apt3 = Appointment.create(
+    name: "Rabies vaccine",
     description: "",
     appointment_type: "vaccine",
-    time: DateTime.now + [*-30..30].sample,
+    time: DateTime.now - (rand * 21),
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.third
   )
+  file = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJbXH7XUJnIsNeOXLKk2BkRqmYZXPptBuBAJnmTFb2I_BGyp6uY4YBtGanak-EZGCvZ50&usqp=CAU")
+  apt3.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 
-  Appointment.create(
-    name: "ear infection visit",
+  apt4 = Appointment.create(
+    name: "Ear infection visit",
     description: "baby's ear is looking a little strange",
     appointment_type: "concern",
-    time: DateTime.now + [*-30..30].sample,
+    time: DateTime.now + (rand * 21),
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.fourth
   )
+  file = URI.open("https://preview.redd.it/lld5rmounr651.jpg?width=640&crop=smart&auto=webp&s=0aecfc140f2f57671816e1baa9b24b9aff5950a7")
+  apt4.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 
-  Appointment.create(
-    name: "annual checkup",
-    description: "making sure baby is healthy",
+  apt5 = Appointment.create(
+    name: "Annual checkup",
+    description: "Making sure baby is healthy",
     appointment_type: "checkup",
-    time: DateTime.now + [*-30..30].sample,
+    time: DateTime.now - (rand * 21),
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.fifth
   )
+  file = URI.open("https://cdn0.opinion-corp.com/review-media/pictures/4c/b2/261022/vetco-clinics_they-messed-up-my-records-201801291178621_4cb2-medium.jpeg")
+  apt5.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 
-  Appointment.create(
-    name: "vaccines",
-    description: "get my baby all vaccines ",
+  apt6 = Appointment.create(
+    name: "Vaccines",
+    description: "Get my baby all vaccines ",
     appointment_type: "vaccine",
-    time: DateTime.now + [*-30..30].sample,
+    time: DateTime.now + (rand * 21),
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.fifth
   )
+  file = URI.open("http://brewermaine.gov/wp-content/uploads/2017/01/Vet.jpg")
+  apt6.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 
-  Appointment.create(
-    name: "nose rash",
+  apt7 = Appointment.create(
+    name: "Nose rash",
     description: "idk where this came from! started yesterday",
     appointment_type: "concern",
-    time: DateTime.now + [*-30..30].sample,
+    time: DateTime.now - (rand * 21),
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.last
   )
+  file = URI.open("https://www.dogjaunt.com/files/2014/11/IMG_3786-6-375x500.jpg")
+  apt7.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 
-  Appointment.create(
+  apt8 = Appointment.create(
     name: "Biting paw",
     description: "baby won't stop biting her paw",
     appointment_type: "concern",
-    time: DateTime.now + [*-30..30].sample,
+    time: DateTime.now + (rand * 21),
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.last
   )
+  file = URI.open("https://live.staticflickr.com/6055/6301607331_5f1f8674d4_b.jpg")
+  apt8.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 end
 
 def create_medicine
