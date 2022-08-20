@@ -1,0 +1,5 @@
+meta_product_name: "Pluto"
+meta_title: "Pluto - For happier and healthier pet families"
+meta_description: "A one stop app that contains your pets medical records, appointments, diet information, and a pet journal."
+meta_image: "pluto.png" # should exist in `app/assets/images/`
+twitter_account: "@team-pluto"   # required for Twitter Cards
