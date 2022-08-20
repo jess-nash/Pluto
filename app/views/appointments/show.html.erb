@@ -1,0 +1,40 @@
+<div class="flex-box">
+  <%= link_to pet_appointments_path(@pet) do %>
+    <%= render 'shared/buttons/backbtn' %>
+  <% end %>
+</div>
+
+<div class="container appointment-show">
+  <div class="appointment-top">
+    <% if @appointment.time > DateTime.now %>
+      <p class="appointment-visit-for">Upcoming visit for <%= @appointment.pet.name %> </p>
+    <% elsif @appointment.time.month == DateTime.now.month && @appointment.time.day == DateTime.now.day%>
+      <p class="appointment-visit-for">Today's visit for <%= @appointment.pet.name %> </p>
+    <% else %>
+      <p class="appointment-visit-for">Past visit for <%= @appointment.pet.name %> </p>
+    <% end %>
+    <small class="appointment-date"> <%= @appointment.time.to_formatted_s(:long_ordinal) %> </small>
+  </div>
+  <div class="appointment-content">
+    <h1 class="appointment-name"><%= @appointment.name %></h1>
+    <p class="appointment-location"><%= @appointment.location %> <i class="fa-solid fa-location-dot"></i></p>
+    <p class="appointment-type">Appointment type: <%= @appointment.appointment_type %></p>
+
+    <p class="appointment-description"><%= @appointment.description %></p>
+
+    <% if @appointment.important %>
+      <p><u>Notifications are enabled for this appointment.<u></p>
+    <% end %>
+    <%# change this image to linked img VVVV %>
+    <div class="appointment-img">
+        <% if @appointment.photos.present? %>
+          <% @appointment.photos.each do |photo|  %>
+            <%= cl_image_tag(photo.key, class: "apt-img") %>
+          <% end %>
+        <% else %>
+        <%# remove this else block once photos are added to appo seeds %>
+          <img class= "apt-img" src="https://s3.amazonaws.com/jo.www.bucket/neighborhoodcats/nodes/images/700/default/Vet_eartip_intro.jpg?1462051746" alt="">
+        <% end %>
+      </div>
+  </div>
+</div>
