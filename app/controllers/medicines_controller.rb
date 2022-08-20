@@ -17,7 +17,7 @@ class MedicinesController < ApplicationController
     authorize @medicine
 
     if @medicine.save
-      redirect_to pet_medicine_path, notice: 'New medicine was added!'
+      redirect_to pet_medicines_path, notice: 'New medicine was added!'
     else
       render :new
     end
