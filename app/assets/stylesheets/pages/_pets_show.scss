@@ -1,3 +1,13 @@
 .top-dashboard-btn, .btm-dashboard-btn {
   display: flex;
 }
+
+.pet-home-header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.pet-header {
+  padding-bottom: 15px;
+}

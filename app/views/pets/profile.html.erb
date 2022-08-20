@@ -1,13 +1,12 @@
-<%= link_to pet_path(@pet) do%>
-  <div class="journal-index">
+<div class="nav-buttons">
+  <%= link_to pet_path(@pet) do%>
     <%= render 'shared/buttons/backbtn' %>
   </div>
 <% end %>
 
-
-<div class="mobile-center mobile-margins">
+<div class="mobile-center">
   <%= cl_image_tag @pet.photo.key, class: "pet-prof-icon" %>
-  <h2 class="text-center p-4"><%= @pet.name %></h2>
+  <h2 class="text-center p-3"><%= @pet.name %></h2>
   <div class="pet-summary">
     <div class="age&weight">
       <span class="age"><%= @pet.age %> years old</span>
