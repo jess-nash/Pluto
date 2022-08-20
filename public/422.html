@@ -1,67 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The change you wanted was rejected (422)</title>
+  <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
+    @import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400&display=swap');
+    footer {
+      margin-top: 10vh;
+    }
+    .spacey {
+      background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://i.imgur.com/jmhYTkW.jpg');
+      font-family: 'Silkscreen', cursive;
+    }
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+    .dialog {
+      margin: 50px;
+      color: white;
+      text-align: center;
+    }
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    .rocket {
+      margin-top: 100px;
+      position: relative;
+    }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
+    .rocket img {
+      border-radius: 9999px;
+      height: 100%;
+      position: relative;
+      width: 100%;
+      z-index: 2;
+    }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    @keyframes cycle-colors {
+      0% { border-color: hsl(0, 100%, 50%); }
+      25% { border-color: hsl(90, 100%, 50%); }
+      50% { border-color: hsl(180, 100%, 50%); }
+      75% { border-color: hsl(270, 100%, 50%); }
+      100% { border-color: hsl(360, 100%, 50%); }
+    }
+
+    @keyframes pulse {
+      to {
+        opacity: 0;
+        transform: scale(1);
+      }
+    }
+
+    .rocket::before,
+    .rocket::after {
+      animation: pulse 2s linear infinite;
+      border: #fff solid 8px;
+      border-radius: 9999px;
+      box-sizing: border-box;
+      content: ' ';
+      height: 140%;
+      left: -20%;
+      opacity: .6;
+      position: absolute;
+      top: -20%;
+      transform: scale(0.714);
+      width: 140%;
+      z-index: 1;
+    }
+
+    .rocket::after {
+      animation-delay: 1s;
+    }
   </style>
 </head>
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/422.html -->
+<body class="spacey">
+  <!-- This file lives in public/404.html -->
   <div class="dialog">
     <div>
-      <h1>The change you wanted was rejected.</h1>
-      <p>Maybe you tried to change something you didn't have access to.</p>
+      <h1>Oops, looks like you fell off Pluto and landed on Planet 422.</h1>
+      <p>You may have mistyped the address or the page may have moved.</p>
+      <p>But don't worry, we have a rocket ready to take you back to your pluto home!</p>
+      <a href="https://team-pluto.herokuapp.com/">
+        <div class="rocket">
+          <img src="/images/rocket.png" alt="rocket home">
+        </div>
+      </a>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <footer>
+      <small><a href="https://www.freepik.com/vectors/galaxy-wallpaper">Galaxy wallpaper vector created by freepik - www.freepik.com</a></small>
+    </footer>
+
   </div>
 </body>
 </html>

@@ -171,65 +171,100 @@ def create_journals
 end
 
 def create_appointments
-  Appointment.create(
+   apt1 = Appointment.create(
     name: "Annual checkup",
-    description: "just our yearly checkup to make sure my baby is healthy",
+    description: "Just our yearly checkup to make sure my baby is healthy. Wanted to make sure we are meeting our weight goals for this year as well.",
     appointment_type: "checkup",
-    time: DateTime.now + [*-30..30].sample,
+    time: Faker::Time.between_dates(from: Date.today - (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.first
   )
+  file = URI.open("https://wgme.com/resources/media2/16x9/full/1015/center/80/af3bde07-4879-48d9-be20-62fc30332bbf-large16x9_fakevaccinedoc.jpg")
+  apt1.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 
-  Appointment.create(
+  apt2 = Appointment.create(
     name: "Teeth cleaning",
-    description: "get them teeth all shiny!",
+    description: "Monthly teeth cleaning and reminder to tell vet that her other vet said my baby should have all their teeth removed by next year.",
     appointment_type: "checkup",
-    time: DateTime.now + [*-30..30].sample,
+    time: Faker::Time.between_dates(from: Date.today + (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.second
   )
+  file = URI.open("https://images.squarespace-cdn.com/content/v1/5b8b5ec92714e5fbeb8d0846/1579627917903-7THOO6QN86AAJE17II1O/IMG_2814.jpg")
+  apt2.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 
-  Appointment.create(
-    name: "rabies vaccine",
-    description: "",
+  apt3 = Appointment.create(
+    name: "Rabies vaccine",
+    description: "Don’t forget to bring in the medical forms for immigration so my baby can go home with me! Ask if there’s any other vaccines recommended for pet travel.",
     appointment_type: "vaccine",
-    time: DateTime.now + [*-30..30].sample,
+    time: Faker::Time.between_dates(from: Date.today - (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.third
   )
+  file = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJbXH7XUJnIsNeOXLKk2BkRqmYZXPptBuBAJnmTFb2I_BGyp6uY4YBtGanak-EZGCvZ50&usqp=CAU")
+  apt3.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 
-  Appointment.create(
-    name: "ear infection visit",
-    description: "",
-    appointment_type: "",
-    time: DateTime.now + [*-30..30].sample,
+  apt4 = Appointment.create(
+    name: "Ear infection visit",
+    description: "It looks like baby’s ear is very inflamed??? It’s very red and they keep scratching it. Baby had an infection last year I’m worried it came back.",
+    appointment_type: "concern",
+    time: Faker::Time.between_dates(from: Date.today + (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.fourth
   )
+  file = URI.open("https://preview.redd.it/lld5rmounr651.jpg?width=640&crop=smart&auto=webp&s=0aecfc140f2f57671816e1baa9b24b9aff5950a7")
+  apt4.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 
-  Appointment.create(
-    name: "annual checkup",
-    description: "",
+  apt5 = Appointment.create(
+    name: "Annual checkup",
+    description: "Just our yearly checkup to make sure my baby is healthy. They’ve haven’t a lot of an appetite lately so ask the doctor about it.",
     appointment_type: "checkup",
-    time: DateTime.now + [*-30..30].sample,
+    time: Faker::Time.between_dates(from: Date.today - (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.fifth
   )
+  file = URI.open("https://cdn0.opinion-corp.com/review-media/pictures/4c/b2/261022/vetco-clinics_they-messed-up-my-records-201801291178621_4cb2-medium.jpeg")
+  apt5.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 
-  Appointment.create(
-    name: "vaccines",
-    description: "",
+  apt6 = Appointment.create(
+    name: "Vaccines",
+    description: "Get doctor to sign necessary vaccination documents so we can fly home together in the fall! Don’t forget!!!",
     appointment_type: "vaccine",
-    time: DateTime.now + [*-30..30].sample,
+    time: Faker::Time.between_dates(from: Date.today + (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
     location: Faker::Address.full_address,
-    pet: Pet.all.sample
+    pet: Pet.fifth
   )
+  file = URI.open("http://brewermaine.gov/wp-content/uploads/2017/01/Vet.jpg")
+  apt6.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
+
+  apt7 = Appointment.create(
+    name: "Nose rash",
+    description: "This keeps coming back?? I used the cream the doctor gave me and it’ll go away for a hot second and then come back days later. Maybe he can help me find the underlying reason??",
+    appointment_type: "concern",
+    time: Faker::Time.between_dates(from: Date.today - (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
+    location: Faker::Address.full_address,
+    pet: Pet.last
+  )
+  file = URI.open("https://www.dogjaunt.com/files/2014/11/IMG_3786-6-375x500.jpg")
+  apt7.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
+
+  apt8 = Appointment.create(
+    name: "Biting paw",
+    description: "I really don’t know what’s going on. They’ve also been biting my elbows lately? Does the doctor recommend an increase in snacks and cuddles?",
+    appointment_type: "concern",
+    time: Faker::Time.between_dates(from: Date.today + (rand * 30), to: Date.today, period: :day).at_beginning_of_hour,
+    location: Faker::Address.full_address,
+    pet: Pet.last
+  )
+  file = URI.open("https://live.staticflickr.com/6055/6301607331_5f1f8674d4_b.jpg")
+  apt8.photos.attach(io: file, filename: 'appointment.jpg', content_type: 'image/jpg')
 end
 
 def create_medicine
   ivermectin = Medicine.create(
     name: "ivermectin",
     dosage: "3 spoonfuls",
+    medicine_type: "liquid",
     start_date: Faker::Date.forward(days: 1),
     end_date: Faker::Date.forward(days: 7),
     expiration_date: Faker::Date.forward(days: 250),
@@ -242,7 +277,8 @@ def create_medicine
 
   antibiotics = Medicine.create(
     name: "Ashmore antibiotics",
-    dosage: "2 pills daily",
+    dosage: "2 daily",
+    medicine_type: "pills",
     start_date: Faker::Date.forward(days: 1),
     end_date: Faker::Date.forward(days: 7),
     expiration_date: Faker::Date.forward(days: 250),
@@ -255,7 +291,8 @@ def create_medicine
 
   dewormer = Medicine.create(
     name: "Ashmore dewormer",
-    dosage: "3 pills daily",
+    dosage: "3 daily",
+    medicine_type: "pills",
     start_date: Faker::Date.forward(days: 1),
     end_date: Faker::Date.forward(days: 7),
     expiration_date: Faker::Date.forward(days: 250),
@@ -264,11 +301,12 @@ def create_medicine
     pet: Pet.all.sample
   )
   file = URI.open("https://media.wbur.org/wp/2019/11/AP_110513055670-1000x722.jpg")
-  antibiotics.photos.attach(io: file, filename: 'medicine.jpg', content_type: 'image/jpg')
+  dewormer.photos.attach(io: file, filename: 'medicine.jpg', content_type: 'image/jpg')
 
   apoquel = Medicine.create(
     name: "Apoquel",
-    dosage: "1 pill at breakfast",
+    dosage: "1 at breakfast",
+    medicine_type: "pill",
     start_date: Faker::Date.forward(days: 1),
     end_date: Faker::Date.forward(days: 7),
     expiration_date: Faker::Date.forward(days: 250),
@@ -281,7 +319,8 @@ def create_medicine
 
   nexgard = Medicine.create(
     name: "nexgard",
-    dosage: "1 pill at breakfast",
+    dosage: "1 at breakfast",
+    medicine_type: "pills",
     start_date: Faker::Date.forward(days: 1),
     end_date: Faker::Date.forward(days: 7),
     expiration_date: Faker::Date.forward(days: 250),
@@ -294,7 +333,8 @@ def create_medicine
 
   heartgard = Medicine.create(
     name: "heartgard",
-    dosage: "1 chewable in the late afternoon",
+    dosage: "1 in the late afternoon",
+    medicine_type: "chewable",
     start_date: Faker::Date.forward(days: 1),
     end_date: Faker::Date.forward(days: 7),
     expiration_date: Faker::Date.forward(days: 250),
@@ -307,7 +347,8 @@ def create_medicine
 
   simparica = Medicine.create(
     name: "simparica",
-    dosage: "1 chewable in the late afternoon",
+    dosage: "1 in the late afternoon",
+    medicine_type: "chewable",
     start_date: Faker::Date.forward(days: 1),
     end_date: Faker::Date.forward(days: 7),
     expiration_date: Faker::Date.forward(days: 250),
@@ -320,7 +361,8 @@ def create_medicine
 
   bravecto = Medicine.create(
     name: "bravecto",
-    dosage: "6 pills, once every hour from 13:00-18:00",
+    dosage: "once every hour from 13:00-18:00",
+    medicine_type: "pills",
     start_date: Faker::Date.forward(days: 1),
     end_date: Faker::Date.forward(days: 7),
     expiration_date: Faker::Date.forward(days: 250),

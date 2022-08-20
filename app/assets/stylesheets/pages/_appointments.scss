@@ -1,5 +1,5 @@
 
-.journal-index .button {
+.appointment-index .button {
   position: fixed;
   z-index: 999;
   margin: 0;
@@ -7,43 +7,40 @@
   left: 1rem;
 }
 
-
-.journal-container h2 {
-  font-size: 18px;
+.appointment-name {
+  font-weight: bold;
+  font-size: 20px;
 }
 
-.journal-container p {
+.appointment-container p {
   font-size: 16px;
-  margin: 10px 0px 10px 0px;
 }
 
-.user-name {
+.appointment-date {
   margin: 0;
 }
 
-.user-and-date {
-  padding: 5px 0px 0px 15px;
+.appointment-visit-for {
+  margin-bottom: 0px;
 }
 
-.journal-date {
-  margin: 0;
-}
-
-.journal-container {
+.appointment-container {
   overflow: auto;
   width: 275px;
   border: 1px solid black;
   border-radius: 10px;
   margin: 0 auto;
   background-color: white;
+  padding-top: 10px;
+  margin-bottom: 70px;
 }
 
-.journal-top {
-  padding: 10px 5px;
-  display: flex;
+.appointment-top {
+  padding: 5px;
+  text-align: center;
 }
 
-.journal-user {
+.appointment-user {
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -53,16 +50,17 @@
   color: $d-purple;
   cursor: pointer;
   display: inline;
+  font-weight: bold;
 }
 
-.journal-content {
+.appointment-content {
   padding: 5px 15px;
 }
 .more-text {
   display: none;
 }
 
-.journal-photo {
+.appointment-photo {
   width: 100%;
   height: 275px;
   object-fit: cover;
@@ -71,5 +69,5 @@
 }
 
 .flex-box {
-  display:flex;
+  display: flex;
 }

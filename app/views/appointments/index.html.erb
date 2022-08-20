@@ -1,0 +1,39 @@
+<div class="flex-box">
+  <%= link_to pet_path(@pet) do %>
+    <%= render 'shared/buttons/backbtn' %>
+  <% end %>
+  <%= link_to new_pet_appointment_path(@pet) do %>
+    <%= render 'shared/buttons/plusbtn' %>
+  <% end %>
+</div>
+
+<% if @appointments.present? %>
+  <% @appointments.each do |appointment| %>
+    <%= link_to pet_appointment_path(@pet, appointment) do %>
+      <div class="appointment-container mobile-margins">
+        <%# figure out how to display what is upcoming or not %>
+        <div class="appointment-top">
+          <% if appointment.time > DateTime.now %>
+            <p class="appointment-visit-for">Upcoming visit for <%= appointment.pet.name %> </p>
+          <% elsif appointment.time.month == DateTime.now.month && appointment.time.day == DateTime.now.day%>
+            <p class="appointment-visit-for">Today's visit for <%= appointment.pet.name %> </p>
+          <% else %>
+            <p class="appointment-visit-for">Past visit for <%= appointment.pet.name %> </p>
+          <% end %>
+          <small class="appointment-date"> <%= appointment.time.to_formatted_s(:long_ordinal) %> </small>
+        </div>
+        <div class="appointment-content">
+          <h2 class="appointment-name">
+            <b> <%= appointment.name.capitalize %></b>
+          </h2>
+          <p class="appointment-description">
+          <%= appointment.description.capitalize.split(' ').take(2).join(" ") %> ... <span class="see-more">More</span>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <h2>Nothing here yet.</h2>
+  <p>Add your first appointment to get started!</p>
+<% end %>

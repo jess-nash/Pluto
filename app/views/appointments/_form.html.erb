@@ -1,0 +1,26 @@
+<%= simple_form_for [@pet, @appointment] do |f| %>
+  <div class="title-input">
+    <%= f.input :name, placeholder: "Appointment name", label: "Appointment name", input_html: { class: 'rounded-box title-box' } %>
+  </div>
+  <div class="location-input">
+    <%= f.input :location, placeholder: "Location", label: "Location", input_html: { class: 'rounded-box write-something-box form-control' } %>
+  </div>
+  <div class="datetime-input">
+    <%= f.input :time, label: "Time & date", placeholder: 'time', input_html: { class: 'rounded-box datetime-box' }, html5: true %>
+  </div>
+  <div class="appointment-type-input">
+    <%= f.input :appointment_type, label: "Appointment type", as: :select, collection: ["surgery", "check-up", "illness", "injury", "vaccine", "other"], prompt: "Select appointment type", input_html: { class: 'rounded-box' } %>
+  </div>
+  <div class="description-input">
+    <%= f.input :description, placeholder: "Write something...", label: "Description", input_html: { class: 'rounded-box write-something-box' } %>
+  </div>
+  <div class="important">
+    <%= f.input :important, as: :boolean, label: 'Enable notifications', input_html: { multiple: true, class: 'rounded-box' } %>
+  </div>
+  <div class="photo-upload">
+    <%= f.input :photos, as: :file, label: false, input_html: { multiple: true, class: 'rounded-box' } %>
+  </div>
+  <div class="appointment-submit">
+    <%= f.submit 'Create' %>
+  </div>
+<% end %>

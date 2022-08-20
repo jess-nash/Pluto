@@ -1,0 +1,38 @@
+<div class="flex-box">
+  <%= link_to pet_path(@pet) do %>
+    <%= render 'shared/buttons/backbtn' %>
+  <% end %>
+  <%= link_to new_pet_meal_path(@pet) do %>
+    <%= render 'shared/buttons/plusbtn' %>
+  <% end %>
+</div>
+
+<% @meals.each do |meal| %>
+  <div class="meal-container mobile-margins">
+    <div class="meal-top">
+      <h1><%= meal.name %><h1>
+      <div class="meal-time">
+        <% meal.time.each do |item| %>
+        <h2 class ="meal-item"><%= item %></h2>
+        <% end %>
+      </div>
+    </div>
+    <div class="meal-content">
+      <h2 class="meal-title">
+        <%= meal.meal_type %> : <%= meal.serving_size %>
+      </h2>
+      <p class="meal-entry">
+        <%= meal.description %>zz
+      </p>
+    </div>
+    <div class="meal-img">
+      <% if meal.photos.present? %>
+        <% meal.photos.each do |photo|  %>
+          <%= cl_image_tag(photo.key, class: "meal-photo") %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<%= javascript_pack_tag 'seemore'%>
