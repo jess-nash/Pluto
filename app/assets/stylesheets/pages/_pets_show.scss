@@ -8,10 +8,11 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-}
 
-.pet-header {
-  padding-bottom: 15px;
+  .pet-name-home-header {
+    padding: 0;
+    margin-bottom: 0;
+  }
 }
 
 .dashboard-btn {
