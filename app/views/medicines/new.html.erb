@@ -1,26 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Medicine</title>
-  </head>
-
-<body>
-  <div class="nav-buttons">
-    <%= link_to pet_path(@pet) do %>
-      <%= render 'shared/buttons/backbtn' %>
-    <% end %>
+<div class="nav-buttons">
+  <%= link_to pet_path(@pet) do %>
+    <%= render 'shared/buttons/backbtn' %>
+  <% end %>
+</div>
+<div class="container">
+  <div class="medicine-new-header">
+    <%= cl_image_tag(@pet.photo.key, class: "pet-avatar") %>
+    <h2 class="pet-name"> Add new medicine for <%= @pet.name %></h2>
   </div>
-
-  <div class="container">
-    <div class="medicine-new-header">
-      <%= cl_image_tag(@pet.photo.key, class: "pet-avatar") %>
-      <h2 class="pet-name"> Add new medicine for <%= @pet.name %></h2>
-    </div>
-    <div class="medcine-entry-form">
-      <%= render 'form', medicine: @medicine %>
-    </div>
+  <div class="medcine-entry-form">
+    <%= render 'form', medicine: @medicine %>
   </div>
-</body>
+</div>
