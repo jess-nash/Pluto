@@ -1,21 +1,26 @@
-<h1>Your family</h1>
+<h1>My Pet family</h1>
 
-<div class="family">
+<div class="family mobile-margins">
   <% @pets.each do |pet| %>
-    <div class="family-container">
-      <%= link_to pet_path(pet), class: "text-decoration-none text-dark" do %>
-        <div class="family-container-top">
-          <%= cl_image_tag pet.photo.key, class: "pet-avatar"%>
-          <div class="family-pet">
-            <h2 class="family-pet-name"><%= pet.name %></h2>
-          </div>
+   <%= link_to pet_path(pet), class: "text-decoration-none text-dark" do %>
+      <div class="family-pet-card">
+        <%= cl_image_tag pet.photo.key, class: "family-pet-img"%>
+        <div class="family-pet-info">
+          <h2 class="family-pet-name"><%= pet.name %></h2>
+          <% if pet.sex == "Female" %>
+            <p class="pet-sex"><i class="fa-solid fa-venus"></i></p>
+          <% elsif %>
+            <p class="pet-sex"><i class="fa-solid fa-mars"></i></p>
+          <% end %>
+          <p class="pet-age"><%= pet.age %>yrs old</p>
         </div>
-        <div class="family-container-bottom">
-          <p class="pet-description">
-          <%= pet.description %>
-          </p>
+        <div class="family-user-access">
+          <%# to be updated with multiple users %>
+          <%= cl_image_tag(pet.ownerships.first.user.photo.key, class: "family-user") %>
+          <%= cl_image_tag(pet.ownerships.first.user.photo.key, class: "family-user") %>
+          <%= cl_image_tag(pet.ownerships.first.user.photo.key, class: "family-user") %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   <% end %>
 </div>
