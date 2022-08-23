@@ -1,0 +1,39 @@
+.medicine-container {
+  overflow: auto;
+  width: 275px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 16px auto;
+  background-color: white;
+}
+
+.medicine-top {
+  padding: 10px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.see-more {
+  color: $d-purple;
+  cursor: pointer;
+  display: inline;
+}
+
+.medicine-content {
+  padding: 5px 10px;
+}
+.more-text {
+  display: none;
+}
+
+.medicine-photo {
+  width: 100%;
+  height: 185px;
+  object-fit: cover;
+  border-top: solid 1px;
+  display: block;
+}
+
+.flex-box {
+  display:flex;
+}
