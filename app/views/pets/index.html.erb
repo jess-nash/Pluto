@@ -1,4 +1,4 @@
-<h1>Your family</h1>
+<h1>My family</h1>
 
 <div class="family">
   <% @pets.each do |pet| %>
@@ -19,3 +19,8 @@
     </div>
   <% end %>
 </div>
+
+
+<%= link_to new_ownership_path(@ownerships) do %>
+    <%= render 'shared/buttons/plusbtn' %>
+  <% end %>

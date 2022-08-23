@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :medicines, only: [:show]
+  resources :ownerships, only: [:new, :create]
   # yann said remove get from resources
   get "/pets/:pet_id/profile", to: "pets#profile", as: :profile
 end
