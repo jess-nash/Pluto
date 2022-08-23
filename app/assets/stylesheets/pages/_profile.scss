@@ -27,3 +27,27 @@
   border-radius: 10px;
   object-fit: cover;
 }
+
+.family-pet {
+  margin: auto;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.family-pet-name {
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.sex-icon-male {
+  padding-left: 10px;
+  font-size: 20px;
+  color: #390BBB;
+}
+
+.sex-icon-female {
+  padding-left: 10px;
+  font-size: 20px;
+  color: #E7B1F0;
+}

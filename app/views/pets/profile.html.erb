@@ -4,9 +4,16 @@
   </div>
 <% end %>
 
-<div class="mobile-center">
+<div class="pet-profile-header">
   <%= cl_image_tag @pet.photo.key, class: "pet-prof-icon" %>
-  <h2 class="text-center p-3"><%= @pet.name %></h2>
+  <div class="family-pet p-3">
+    <h2 class="family-pet-name"><%= @pet.name %></h2>
+    <% if @pet.sex == "Male" %>
+      <i class="fas fa-mars sex-icon-male"></i>
+    <% elsif @pet.sex == "Female" %>
+      <i class="fas fa-venus sex-icon-female"></i>
+    <% end %>
+  </div>
   <div class="pet-summary">
     <div class="age&weight">
       <span class="age"><%= @pet.age %> years old</span>
@@ -16,12 +23,11 @@
     <p class="pet-bio"><%= @pet.description %></p>
   </div>
 </div>
-<div >
 
 <div class="prof-journal-imgs">
   <% @pet.journal_entries.each do |journal| %>
       <% journal.photos.each do |photo|  %>
           <%= cl_image_tag(photo.key, class: "img-box-sizing") %>
         <% end %>
-<% end %>
+  <% end %>
 </div>
