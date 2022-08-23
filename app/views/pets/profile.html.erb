@@ -16,11 +16,19 @@
   </div>
   <div class="pet-summary">
     <div class="age&weight">
-      <span class="age"><%= @pet.age %> years old</span>
-      <span class="weight">| <%= @pet.weight %> lbs</span>
+      <% if @pet.age.present? %>
+        <span class="age"><%= @pet.age %> years old</span>
+      <% end %>
+      <% if @pet.age.present? %>
+        <span class="weight">| <%= @pet.weight %> lbs</span>
+      <% end %>
     </div>
-    <p class="chipnum">Chip Number: <%= @pet.chip_number %></p>
-    <p class="pet-bio"><%= @pet.description %></p>
+    <% if @pet.chip_number.present? %>
+      <p class="chipnum">Chip Number: <%= @pet.chip_number %></p>
+    <% end %>
+    <% if @pet.description.present? %>
+      <p class="pet-bio"><%= @pet.description %></p>
+    <% end %>
   </div>
 </div>
 
