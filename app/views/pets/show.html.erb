@@ -4,7 +4,7 @@
   <% end %>
 </div>
 
-<div class="container pet-home-header">
+<div class="pet-home-header">
   <div class="pet-photo">
     <% if @pet.photo.present? %>
       <%= link_to profile_path(@pet) do %>
@@ -15,8 +15,8 @@
     <% end %>
   </div>
 
-  <div class="p-3">
-    <h2><%="#{@pet.name}'s Home" %></h2>
+  <div class="pet-name-home p-3">
+    <h2 class="pet-name-home-header"><%="#{@pet.name}'s Home" %></h2>
   </div>
 </div>
 

@@ -3,6 +3,7 @@
   padding: 16px;
   border: 1px solid;
   border-radius: 10px;
+  margin: 0 8px 8px 8px;
 }
 
 .pet-prof-icon {
@@ -12,6 +13,7 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+  object-fit: cover;
 }
 
 .mobile-center {
@@ -26,4 +28,32 @@
   margin: 8px;
   border-radius: 10px;
   object-fit: cover;
+}
+
+.family-pet {
+  margin: auto;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.family-pet-name {
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.sex-icon-male {
+  padding-left: 10px;
+  font-size: 20px;
+  color: #390BBB;
+}
+
+.sex-icon-female {
+  padding-left: 10px;
+  font-size: 20px;
+  color: #E7B1F0;
+}
+
+.pet-bio {
+  margin-bottom: 0;
 }

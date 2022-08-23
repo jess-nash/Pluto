@@ -1,5 +1,6 @@
 <h1>My Pet family</h1>
 
+
 <div class="family mobile-margins">
   <% @pets.each do |pet| %>
    <%= link_to pet_path(pet), class: "text-decoration-none text-dark" do %>
@@ -15,12 +16,16 @@
           <p class="pet-age"><%= pet.age %>yrs old</p>
         </div>
         <div class="family-user-access">
-          <%# to be updated with multiple users %>
-          <%= cl_image_tag(pet.ownerships.first.user.photo.key, class: "family-user") %>
-          <%= cl_image_tag(pet.ownerships.first.user.photo.key, class: "family-user") %>
-          <%= cl_image_tag(pet.ownerships.first.user.photo.key, class: "family-user") %>
+          <% pet.ownerships.each do |relationship| %>
+            <%= cl_image_tag(relationship.user.photo.key, class: "family-user") %>
+          <% end %>
         </div>
       </div>
     <% end %>
   <% end %>
 </div>
+
+
+<%= link_to new_ownership_path(@ownerships) do %>
+  <%= render 'shared/buttons/adduserbtn' %>
+<% end %>

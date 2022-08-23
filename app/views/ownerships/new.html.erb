@@ -1,0 +1,15 @@
+<div class="nav-buttons">
+  <%= link_to pets_path do %>
+    <%= render 'shared/buttons/backbtn' %>
+  <% end %>
+</div>
+
+
+<div class="container">
+  <div class="ownership-new-header">
+      <h2 class="pet-name"> Add a new family member</h2>
+  </div>
+  <div class="ownership-form">
+    <%= render 'form', ownership: @ownership %>
+  </div>
+</div>
