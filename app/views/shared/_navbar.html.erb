@@ -30,13 +30,13 @@
     <% end %>
     <%# needs to be edited once we figure out how to manage users %>
 
-      <%= link_to root_path do%>
-        <div class="nav-item">
-          <div class="sm button">
-            <i class="dp fa-solid fa-user-gear"></i>
-          </div>
-          <p class="nav-description">User Profiles</p>
+    <%= link_to new_ownership_path(@ownerships) do %>
+      <div class="nav-item">
+        <div class="sm button">
+          <i class="dp fa-solid fa-user-gear"></i>
         </div>
+        <p class="nav-description">User Profiles</p>
+      </div>
       <% end %>
     <%# sign in btn needs to be fixed %>
 

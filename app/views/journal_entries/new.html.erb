@@ -7,7 +7,7 @@
 
 <div class="container mobile-margins">
   <div class="journal-new-header">
-    <%= cl_image_tag(@pet.ownerships.first.user.photo.key, class: "journal-user") %>
+    <%= cl_image_tag(current_user.photo.key, class: "journal-user") %>
     <div class="pet-and-date">
       <h2 class="pet-name"> New Journal Entry for <%= @pet.name %></h2>
       <small class="journal-date"> Today, <%= Date.today.to_formatted_s(:short) %> </small>

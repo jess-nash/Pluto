@@ -13,6 +13,7 @@ class JournalEntriesController < ApplicationController
 
   def create
     @journal_entry = JournalEntry.new(journal_entry_params)
+    @journal_entry.user = current_user
     @pet = Pet.find(params[:pet_id])
     @journal_entry.pet = @pet
     authorize @journal_entry

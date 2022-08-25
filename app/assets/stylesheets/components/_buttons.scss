@@ -65,7 +65,7 @@ a > .button {
 
 .btn-main-db-lg::before {
   border-radius: 10px;
-  content: "log in";
+  content: attr(data-content);
   border: 1px solid $d-purple;
   height: 40px;
   line-height: 40px;
@@ -73,7 +73,7 @@ a > .button {
   top: -8px;
   left: 8px;
   position: absolute;
-  background-color: $d-blue;
+  background-color: $l-blue;
 }
 
 .btn-main-db-lg:active::before {
