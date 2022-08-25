@@ -9,7 +9,7 @@
 
 <% if @appointments.present? %>
   <% @appointments.each do |appointment| %>
-    <%= link_to pet_appointment_path(@pet, appointment) do %>
+    <%= link_to appointment_path(appointment) do %>
       <div class="appointment-container mobile-margins">
         <%# figure out how to display what is upcoming or not %>
         <div class="appointment-top">
