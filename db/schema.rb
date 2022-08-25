@@ -108,9 +108,9 @@ ActiveRecord::Schema.define(version: 2022_08_23_111130) do
     t.integer "weight"
     t.text "description"
     t.string "chip_number"
-    t.string "sex"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "sex"
   end
 
   create_table "users", force: :cascade do |t|
