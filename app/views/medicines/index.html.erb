@@ -16,20 +16,23 @@
         <div class="medicine-top">
           <h1><%= medicine.name %><h1>
         </div>
-        <div class="medicine-content">
-          <h2 class="medicine-title">
-            <%= medicine.medicine_type %> : <%= medicine.dosage %>
-          </h2>
-          <p class="medicine-entry">
-            <%= medicine.description %>zz
-          </p>
-        </div>
-        <div class="medicine-img">
-          <% if medicine.photos.present? %>
-            <% medicine.photos.each do |photo|  %>
-              <%= cl_image_tag(photo.key, class: "medicine-photo", width: "300px", height: "300px") %>
-            <% end %>
+        <div class="medicine-dates">
+          <% if medicine.start_date.present? && medicine.start_date.present? %>
+            <i class="fas fa-calendar-week"></i>
+            <h4><%= medicine.start_date.to_formatted_s(:short) %>  -  <%= medicine.end_date.to_formatted_s(:short) %> </h4>
           <% end %>
+        </div>
+        <div class="medicine-content">
+          <h4 class="medicine-title">
+            <%= medicine.medicine_type %> - <%= medicine.dosage %>
+          </h4>
+          <p class="medicine-entry">
+            <% if medicine.description.present? %>
+              <%= medicine.description.capitalize.split(' ').take(3).join(" ") %> ... <span class="see-more">More</span>
+            <% else %>
+              <span class="see-more">See More</span>
+            <% end %>
+          </p>
         </div>
       </div>
     <% end %>
