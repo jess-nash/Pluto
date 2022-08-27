@@ -1,37 +1,36 @@
-<div class="mobile-margins">
-  <div class="title-box">
-    <h1 class="pet-family-title">My Pet family</h1>
-  </div>
-  <div class="family mobile-margins">
-    <% @pets.each do |pet| %>
-      <%= link_to pet_path(pet), class: "text-decoration-none text-dark" do %>
-        <div class="family-pet-card-<%= pet.sex == 'Female' ? 'f' : 'm' %> ">
-          <%= cl_image_tag pet.photo.key, class: "family-pet-img"%>
-          <div class="family-pet-info">
-            <h2 class="family-pet-name"><%= pet.name.capitalize %></h2>
-            <% if pet.sex == 'Female' %>
-              <p class="pet-sex-f"> <i class="fa-solid fa-venus"></i> </p>
-            <% else %>
-              <p class="pet-sex-m"> <i class="fa-solid fa-mars"></i></p>
-            <% end %>
-            <% if pet.age.present? %>
-              <div class="family-pet-age <%= pet.sex == 'Female' ? 'female' : 'male' %>">
-                <p class="pet-age"> <%= pet.age %> y/o</p>
-              </div>
-            <% end %>
-          </div>
-          <div class="family-user-access">
-            <% pet.ownerships.each do |relationship| %>
-              <%= cl_image_tag(relationship.user.photo.key, class: "family-user") %>
-            <% end %>
-          </div>
+<div class="page-title-box">
+  <h1 class="pet-family-title">My Pet Family</h1>
+</div>
+<div class="family mobile-margins">
+  <% @pets.each do |pet| %>
+    <%= link_to pet_path(pet), class: "text-decoration-none text-dark" do %>
+      <div class="family-pet-card-<%= pet.sex == 'Female' ? 'f' : 'm' %> ">
+        <%= cl_image_tag pet.photo.key, class: "family-pet-img"%>
+        <div class="family-pet-info">
+          <h2 class="family-pet-name"><%= pet.name.capitalize %></h2>
+          <% if pet.sex == 'Female' %>
+            <p class="pet-sex-f"> <i class="fa-solid fa-venus"></i> </p>
+          <% else %>
+            <p class="pet-sex-m"> <i class="fa-solid fa-mars"></i></p>
+          <% end %>
+          <% if pet.age.present? %>
+            <div class="family-pet-age <%= pet.sex == 'Female' ? 'female' : 'male' %>">
+              <p class="pet-age"> <%= pet.age %> y/o</p>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+        <div class="family-user-access">
+          <% pet.ownerships.each do |relationship| %>
+            <%= cl_image_tag(relationship.user.photo.key, class: "family-user") %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
-  </div>
-  <%= link_to new_ownership_path(@ownerships) do %>
-    <div class="add-user-btn">
-      <p>add a user to family</p>
-    </div>
   <% end %>
+</div>
+<%= link_to new_ownership_path(@ownerships) do %>
+  <div class="add-user-btn">
+    <p>add a user to family</p>
+  </div>
+<% end %>
 </div>
