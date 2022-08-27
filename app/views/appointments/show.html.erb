@@ -9,18 +9,20 @@
     <% if @appointment.time > DateTime.now %>
       <p class="appointment-visit-for">Upcoming visit for <%= @appointment.pet.name %> </p>
     <% elsif @appointment.time.month == DateTime.now.month && @appointment.time.day == DateTime.now.day%>
-      <p class="appointment-visit-for">Today's visit for <%= @appointment.pet.name %> </p>
+      <p class="appointment-visit-for">Today's visit for <%= @appointment.pet.name.capitalize %> </p>
     <% else %>
-      <p class="appointment-visit-for">Past visit for <%= @appointment.pet.name %> </p>
+      <p class="appointment-visit-for">Past visit for <%= @appointment.pet.name.capitalize %> </p>
     <% end %>
     <small class="appointment-date"> <%= @appointment.time.to_formatted_s(:long_ordinal) %> </small>
   </div>
   <div class="appointment-content">
-    <h1 class="appointment-name"><%= @appointment.name %></h1>
-    <p class="appointment-location"><%= @appointment.location %> <i class="fa-solid fa-location-dot"></i></p>
-    <p class="appointment-type">Appointment type: <%= @appointment.appointment_type %></p>
+    <h1 class="appointment-name"><%= @appointment.name.capitalize %></h1>
+    <div class="appointment-location-container">
+      <i class="fa-solid fa-location-dot appointment-location-icon"></i><p class="appointment-location"><%= @appointment.location.capitalize %></p>
+    </div>
+    <p class="appointment-type">Appointment type: <%= @appointment.appointment_type.capitalize %></p>
 
-    <p class="appointment-description"><%= @appointment.description %></p>
+    <p class="appointment-description"><%= @appointment.description.capitalize %></p>
 
     <% if @appointment.important %>
       <p><u>Notifications are enabled for this appointment.<u></p>
