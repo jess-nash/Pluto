@@ -119,7 +119,7 @@ def create_pets
       age: 7,
       weight: 14,
       chip_number: "LW484",
-      sex: "Female",
+      sex: "Male",
       url: "https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=662&q=80"
     },
 
@@ -153,32 +153,35 @@ end
 
 def create_ownerships(users, pets)
   pets.each_slice(2).with_index do |(pet_1, pet_2), i|
-    Ownership.create(user: users[i], pet: pet_1)
-    Ownership.create(user: users[i], pet: pet_2)
+    Ownership.create(user: users[i], pet: pet_1, main: true)
+    Ownership.create(user: users[i], pet: pet_2, main: true)
   end
 end
 
 def create_journals
-  journal1 = JournalEntry.create(
+  journal1 = JournalEntry.create!(
     name: Faker::Lorem.sentence(word_count: 3),
     content: Faker::JapaneseMedia::StudioGhibli.quote,
-    pet: Pet.last
+    pet: Pet.last,
+    user: User.first
   )
   file = URI.open("https://api.kyivindependent.com/storage/2021/12/loveyoustepan.-instagram-1024x683.jpg")
   journal1.photos.attach(io: file, filename: 'journal.jpg', content_type: 'image/jpg')
 
-  journal2 = JournalEntry.create(
-    name: Faker::Lorem.sentence(word_count: 5),
+  journal2 = JournalEntry.create!(
+    name: Faker::Lorem.sentence(word_count: 4),
     content: Faker::JapaneseMedia::StudioGhibli.quote,
-    pet: Pet.first
+    pet: Pet.first,
+    user: User.last
   )
   file = URI.open("https://i.imgur.com/LRoLTlK.jpeg")
   journal2.photos.attach(io: file, filename: 'journal.jpg', content_type: 'image/jpg')
 
-  journal3 = JournalEntry.create(
+  journal3 = JournalEntry.create!(
     name: Faker::Lorem.sentence(word_count: 2),
     content: Faker::JapaneseMedia::StudioGhibli.quote,
-    pet: Pet.first
+    pet: Pet.first,
+    user: User.first
   )
   file = URI.open("https://i.imgur.com/xBntSnV.jpeg")
   journal3.photos.attach(io: file, filename: 'journal.jpg', content_type: 'image/jpg')

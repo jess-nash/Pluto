@@ -7,7 +7,7 @@
 
 <div class="container">
   <div class="meal-new-header">
-      <h2 class="pet-name"> Create a new meal for <%= @pet.name %></h2>
+      <h2 class="pet-name"> Create a new meal for <%= @pet.name.capitalize %></h2>
   </div>
   <div class="meal-form">
     <%= render 'form', meal: @meal %>

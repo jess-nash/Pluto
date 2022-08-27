@@ -63,8 +63,9 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-#added gems
+# added gems
 gem 'pundit'
 gem 'devise'
 gem 'cloudinary', '~> 1.16.0'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'acts_as_favoritor' # for the like btn

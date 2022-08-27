@@ -41,6 +41,7 @@
 .journal-top {
   padding: 10px 5px;
   display: flex;
+  position: relative;
 }
 
 .journal-user {
@@ -71,5 +72,9 @@
 }
 
 .flex-box {
-  display:flex;
+  display: flex;
+}
+
+.icon-sizing > h1 {
+  font-size: 40px;
 }

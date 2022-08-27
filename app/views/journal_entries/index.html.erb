@@ -6,19 +6,23 @@
     <%= render 'shared/buttons/plusbtn' %>
   <% end %>
 </div>
-
+<%# Fix spacing later on %>
+<div class="icon-sizing mb-4">
+  <h1 class="text-center"><i class="fa-solid fa-book"></i> Journals</h1>
+</div>
 <% @journal_entries.each do |journal| %>
-  <div class="journal-container mobile-margins">
+  <div class="journal-container ">
     <div class="journal-top">
-      <%= cl_image_tag(journal.pet.ownerships.first.user.photo.key, class: "journal-user") %>
+      <%= render 'journal_entries/like_button.html.erb', journal_entry: @journal_entry, pet: @pet %>
+      <%= cl_image_tag(journal.user.photo.key, class: "journal-user") %>
       <div class="user-and-date">
-        <h2 class="user-name"> <%= journal.pet.ownerships.first.user.name%></h2>
+        <h2 class="user-name"> <%= journal.user.name %></h2>
         <small class="journal-date"> <%= journal.created_at.to_formatted_s(:short) %> </small>
       </div>
     </div>
     <div class="journal-content">
       <h2 class="journal-title">
-        <b> <%= journal.name %></b>
+        <b> <%= journal.name.capitalize %></b>
       </h2>
       <p class="journal-entry">
         <%= journal.content %>
@@ -33,5 +37,5 @@
     </div>
   </div>
 <% end %>
-
 <%= javascript_pack_tag 'seemore'%>
+<%= javascript_pack_tag 'likes.js' %>

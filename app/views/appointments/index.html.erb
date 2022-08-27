@@ -6,19 +6,21 @@
     <%= render 'shared/buttons/plusbtn' %>
   <% end %>
 </div>
-
+<div class="icon-sizing mb-4">
+  <h1 class="text-center"><i class="fa-solid fa-calendar-days"></i> Appointments </h1>
+</div>
 <% if @appointments.present? %>
   <% @appointments.each do |appointment| %>
-    <%= link_to pet_appointment_path(@pet, appointment) do %>
-      <div class="appointment-container mobile-margins">
+    <%= link_to appointment_path(appointment) do %>
+      <div class="appointment-container">
         <%# figure out how to display what is upcoming or not %>
         <div class="appointment-top">
           <% if appointment.time > DateTime.now %>
-            <p class="appointment-visit-for">Upcoming visit for <%= appointment.pet.name %> </p>
+            <p class="appointment-visit-for">Upcoming visit for <%= appointment.pet.name.capitalize %> </p>
           <% elsif appointment.time.month == DateTime.now.month && appointment.time.day == DateTime.now.day%>
-            <p class="appointment-visit-for">Today's visit for <%= appointment.pet.name %> </p>
+            <p class="appointment-visit-for">Today's visit for <%= appointment.pet.name.capitalize %> </p>
           <% else %>
-            <p class="appointment-visit-for">Past visit for <%= appointment.pet.name %> </p>
+            <p class="appointment-visit-for">Past visit for <%= appointment.pet.name.capitalize %> </p>
           <% end %>
           <small class="appointment-date"> <%= appointment.time.to_formatted_s(:long_ordinal) %> </small>
         </div>
@@ -27,7 +29,7 @@
             <b> <%= appointment.name.capitalize %></b>
           </h2>
           <p class="appointment-description">
-          <%= appointment.description.capitalize.split(' ').take(2).join(" ") %> ... <span class="see-more">More</span>
+            <%= appointment.description.capitalize.split(' ').take(3).join(" ") %> ... <span class="see-more">More</span>
           </p>
         </div>
       </div>

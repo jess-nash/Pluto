@@ -65,7 +65,7 @@ a > .button {
 
 .btn-main-db-lg::before {
   border-radius: 10px;
-  content: "log in";
+  content: attr(data-content);
   border: 1px solid $d-purple;
   height: 40px;
   line-height: 40px;
@@ -73,7 +73,7 @@ a > .button {
   top: -8px;
   left: 8px;
   position: absolute;
-  background-color: $d-blue;
+  background-color: $l-blue;
 }
 
 .btn-main-db-lg:active::before {
@@ -108,13 +108,48 @@ a > .button {
 
 .journal-btn {
   background-color: #3E1E99;
+  font-size: 66px;
+  color: white;
+  a:hover {
+    color: black; //not important for mobile, only desktop. for some reason all the other btns do this so added just to unify
+  }
 }
 .meals-btn {
   background-color: #81C8EF;
+  font-size: 66px;
+  color: white;
 }
 .medicine-btn {
-  background-color: #E7B1F0;
+  // background-color: #E7B1F0;
+  background-color: #81C8EF;
+  font-size: 66px;
+  color: white;
 }
 .appointments-btn {
-  background-color: #C1F0B1;
+  // background-color: #C1F0B1;
+  background-color: #3E1E99;
+  color: white;
+  font-size: 66px;
+
+}
+
+.like-btn {
+  color: $l-purple;
+  position: absolute;
+  z-index: 10;
+  top: 15px;
+  left: 230px;
+}
+
+.add-user-btn {
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  width: 300px;
+  border: 1px solid #3E1E99;
+  cursor: pointer;
+  background-color: white ;
+  border-radius: 10px;
+  box-shadow: 10px 6px $l-blue, 10px 6px  0px 1px $d-purple;
+  margin: 0 auto;
 }

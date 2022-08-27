@@ -19,7 +19,7 @@
       <% if @pet.age.present? %>
         <span class="age"><%= @pet.age %> years old</span>
       <% end %>
-      <% if @pet.age.present? %>
+      <% if @pet.weight.present? %>
         <span class="weight">| <%= @pet.weight %> lbs</span>
       <% end %>
     </div>
@@ -39,3 +39,5 @@
         <% end %>
   <% end %>
 </div>
+
+<%# delete this comment %>

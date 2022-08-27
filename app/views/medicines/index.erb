@@ -6,8 +6,9 @@
     <%= render 'shared/buttons/plusbtn' %>
   <% end %>
 </div>
-
-<h1><%= "#{@pet.name}'s Medicine" %></h1>
+<div class="icon-sizing">
+  <h1 class="text-center"><i class="fa-solid fa-file-prescription"></i> Medicine </h1>
+</div>
 
 <% @medicines.each do |medicine| %>
   <div class="medicine-container mobile-margins">

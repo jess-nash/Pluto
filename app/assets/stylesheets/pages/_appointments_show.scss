@@ -15,4 +15,14 @@
   .appointment-location {
     margin-bottom: 0;
   }
+
+  .appointment-location-container {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: nowrap;
+  }
+
+  .appointment-location-icon {
+    padding: 5px;
+  }
 }

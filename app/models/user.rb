@@ -18,6 +18,8 @@ class User < ApplicationRecord
 
   has_many :journal_entries_as_owner, through: :pets, source: :journal_entries
 
+  acts_as_favoritor
+
   def send_line_message
     destination = self.line_id
     return unless destination

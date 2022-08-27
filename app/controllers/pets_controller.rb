@@ -1,7 +1,7 @@
 class PetsController < ApplicationController
 
   def index
-    @pets = policy_scope(Pet)
+    @pets = policy_scope(Pet).includes(:ownerships).order('ownerships.updated_at ASC')
   end
 
   def show
@@ -11,6 +11,15 @@ class PetsController < ApplicationController
 
   def new
     @pet = Pet.new
+  end
+
+  def create
+    @pet = Pet.new(pet_params)
+    if @pet.save
+      redirect_to new_pet_ownership_path(pet_id: @pet.id)
+    else
+      render :new
+    end
   end
 
   def profile

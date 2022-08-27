@@ -1,0 +1,95 @@
+.pet-family-title {
+  color: $d-purple;
+  font-size: 50px;
+  background-color: white;
+}
+.page-title-box {
+  height: 60px;
+  text-align: center;
+  padding: 80px 0px 20px 0px;
+}
+.family {
+  h2, p {
+    margin: 0;
+  }
+}
+.family {
+  display: flex;
+  justify-content: space-evenly;
+}
+.family-pet-card-f {
+  margin: auto;
+  margin-bottom: 70px;
+  height: 230px;
+  width: 150px;
+  border-radius: 10px;
+  border: 1px solid #3E1E99;
+  cursor: pointer;
+  background-color: white;
+  box-shadow: 10px 6px $l-purple, 10px 6px  0px 1px $d-purple;
+  position: relative;
+}
+
+.family-pet-card-m {
+  margin: auto;
+  margin-bottom: 70px;
+  height: 230px;
+  width: 150px;
+  border-radius: 10px;
+  border: 1px solid #3E1E99;
+  cursor: pointer;
+  background-color: white;
+  box-shadow: 10px 6px $d-purple, 10px 6px  0px 1px $d-purple;
+  position: relative;
+}
+
+.family-pet-img {
+  height: 150px;
+  width: 149px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: solid 1px #3E1E99;
+  border-right: solid 1px #3E1E99;
+  margin-bottom: 5px;
+}
+
+.family-pet-info {
+  display: flex;
+  justify-content: center;
+}
+.family-user-access {
+  display: flex;
+  justify-content: space-evenly;
+}
+.family-user {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.family-pet-age {
+  z-index: 10;
+  position: absolute;
+  display: flex;
+  border-radius: 10px;
+  top: 115px;
+  left: 89px;
+  width: 70px;
+  padding: 3px 5px;
+  justify-content: space-evenly;
+}
+.female {
+  background-color: $l-purple;
+}
+.male {
+  background-color: $d-purple;
+  color: white;
+}
+.pet-sex-f {
+  color: $l-purple;
+}
+
+.pet-sex-m {
+  color: $d-blue;
+}
