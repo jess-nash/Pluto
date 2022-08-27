@@ -1,9 +1,8 @@
-<%= simple_form_for (@ownership) do |f| %>
-  <div class="name-input">
-    <%= f.input :user, placeholder: 'Find a user by name', label: 'User', collection: @users, input_html: { class: 'rounded-box title-box' } %>
-  </div>
-
-  <div class="user-submit">
-    <%= f.submit 'Add' %>
-  </div>
+<%= form_tag new_ownership_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "pluto@gmail.com"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>

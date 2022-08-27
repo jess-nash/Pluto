@@ -8,8 +8,38 @@
 <div class="container">
   <div class="ownership-new-header">
       <h2 class="pet-name"> Add a new family member</h2>
+      <p>Enter the email of the person you want to add to your family</p>
   </div>
   <div class="ownership-form">
     <%= render 'form', ownership: @ownership %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-8">
+      <div id="users">
+        <% if @users.present? %>
+          <% @users.each do |user| %>
+            <div class="user">
+              <div class="user_email">
+                <h4><%= user.name %></h4>
+                <p><%= user.email %></p>
+              </div>
+              <div class="add_button">
+                <%= simple_form_for (@ownership) do |f| %>
+                  <div class="name-input">
+                    <%= f.input :user, as: :hidden, input_html: { value: user.id } %>
+                  </div>
+                <div class="user-submit">
+                  <%= f.submit 'Add' %>
+                </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
