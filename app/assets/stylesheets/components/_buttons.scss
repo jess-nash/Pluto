@@ -108,13 +108,35 @@ a > .button {
 
 .journal-btn {
   background-color: #3E1E99;
+  font-size: 66px;
+  color: white;
+  a:hover {
+    color: black; //not important for mobile, only desktop. for some reason all the other btns do this so added just to unify
+  }
 }
 .meals-btn {
   background-color: #81C8EF;
+  font-size: 66px;
+  color: white;
 }
 .medicine-btn {
-  background-color: #E7B1F0;
+  // background-color: #E7B1F0;
+  background-color: #81C8EF;
+  font-size: 66px;
+  color: white;
 }
 .appointments-btn {
-  background-color: #C1F0B1;
+  // background-color: #C1F0B1;
+  background-color: #3E1E99;
+  color: white;
+  font-size: 66px;
+
+}
+
+.like-btn {
+  color: $l-purple;
+  position: absolute;
+  z-index: 10;
+  top: 15px;
+  left: 230px;
 }

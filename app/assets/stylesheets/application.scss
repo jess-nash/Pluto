@@ -15,3 +15,26 @@
 @media(min-width: 768px) {
 
 }
+
+body {
+  //background-image: url('https://i.imgur.com/2q2SrMz.png'); spacey
+  background-image: url('https://i.imgur.com/sl3bbMJ.png');
+  background-color: white;
+}
+
+.mobile-margins {
+  margin-top: 70px;
+  flex-wrap: wrap;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: black;
+}
+
+h1 {
+  font-family: 'Fredoka One', cursive;
+}
