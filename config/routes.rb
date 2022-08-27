@@ -6,9 +6,10 @@ Rails.application.routes.draw do
     resources :journal_entries, only: [:index, :new, :create]
     resources :meals, only: [:index, :new, :create]
     resources :medicines, only: [:index, :new, :create]
-    resources :appointments, only: [:index, :show, :new, :create]
+    resources :appointments, only: [:index, :new, :create]
   end
 
+  resources :appointments, only: [:show]
   resources :medicines, only: [:show]
   resources :ownerships, only: [:new, :create]
   # yann said remove get from resources

@@ -7,9 +7,10 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    @pet = Pet.find(params[:pet_id])
-    authorize @pet
+    # @pet = Pet.find(params[:pet_id])
     @appointment = Appointment.find(params[:id])
+    authorize @appointment
+    @pet = @appointment.pet
   end
 
   def new
