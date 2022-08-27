@@ -11,12 +11,14 @@ User.destroy_all
 
 def create_users
   password = "123456"
+  static_lineid= "U29fc2d282dce3a16c412ad7c1556725e"
 
   nicole = User.create(
     name: "Nicole",
     email: "nicole@gmail.com",
     password: password,
-    username: "Nicole"
+    username: "Nicole",
+    line_id: static_lineid
   )
   file = URI.open("https://avatars.githubusercontent.com/u/74501096?v=4")
   nicole.photo.attach(io: file, filename: 'nicole.jpg', content_type: 'image/jpg')
@@ -25,7 +27,8 @@ def create_users
     name: "Tyler",
     email: "tyler@gmail.com",
     password: password,
-    username: "Tyler"
+    username: "Tyler",
+    line_id: static_lineid
   )
   file = URI.open("https://avatars.githubusercontent.com/u/101543224?v=4")
   tyler.photo.attach(io: file, filename: 'tyler.jpg', content_type: 'image/jpg')
@@ -34,7 +37,8 @@ def create_users
     name: "Jessica",
     email: "jessica@gmail.com",
     password: password,
-    username: "Jessica"
+    username: "Jessica",
+    line_id: static_lineid
   )
   file = URI.open("https://avatars.githubusercontent.com/u/97200803?v=4")
   jessica.photo.attach(io: file, filename: 'jess.jpg', content_type: 'image/jpg')
@@ -43,7 +47,8 @@ def create_users
     name: "Ken",
     email: "ken@gmail.com",
     password: password,
-    username: "Ken"
+    username: "Ken",
+    line_id: static_lineid
   )
   file = URI.open("https://avatars.githubusercontent.com/u/100769790?v=4")
   ken.photo.attach(io: file, filename: 'ken.jpg', content_type: 'image/jpg')

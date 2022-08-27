@@ -6,7 +6,7 @@ class LineController < ApplicationController
     events.each do |event|
       id = event['source']['userId']
       unless User.exists?(line_id: id)
-        client.reply_message(event['replyToken'], { type: 'text', text: 'Please sign up with LINE on www.midorin.one'})
+        client.reply_message(event['replyToken'], { type: 'text', text: 'Please sign up with LINE'})
       end
       user = User.find_by(line_id: id)
       return user
