@@ -1,7 +1,7 @@
 class PetsController < ApplicationController
 
   def index
-    @pets = policy_scope(Pet)
+    @pets = policy_scope(Pet).includes(:ownerships).order('ownerships.updated_at ASC')
   end
 
   def show
