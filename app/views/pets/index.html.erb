@@ -1,19 +1,30 @@
-<h1>My Pet family</h1>
-
+<div class="mobile-margins">
+  <div class="title-box">
+    <h1 class="pet-family-title">My Pet family</h1>
+  </div>
 
 <div class="family mobile-margins">
   <% @pets.each do |pet| %>
-   <%= link_to pet_path(pet), class: "text-decoration-none text-dark" do %>
-      <div class="family-pet-card">
+  <%= link_to pet_path(pet), class: "text-decoration-none text-dark" do %>
+    <% if pet.sex == "Female" %>
+      <div class="family-pet-card-f">
+    <% else %>
+      <div class="family-pet-card-m">
+    <% end %>
         <%= cl_image_tag pet.photo.key, class: "family-pet-img"%>
         <div class="family-pet-info">
           <h2 class="family-pet-name"><%= pet.name.capitalize %></h2>
           <% if pet.sex == "Female" %>
-            <p class="pet-sex"><i class="fa-solid fa-venus"></i></p>
+            <p class="pet-sex-f"> <i class="fa-solid fa-venus"></i> </p>
+            <div class="family-pet-age female">
           <% elsif %>
-            <p class="pet-sex"><i class="fa-solid fa-mars"></i></p>
+            <p class="pet-sex-m"> <i class="fa-solid fa-mars"></i> </p>
+            <div class="family-pet-age male">
           <% end %>
-          <p class="pet-age"><%= pet.age %>yrs old</p>
+              <% if pet.age.present? %>
+                <p class="pet-age"> <%= pet.age %> y/o</p>
+              <% end %>
+            </div>
         </div>
         <div class="family-user-access">
           <% pet.ownerships.each do |relationship| %>
@@ -21,11 +32,14 @@
           <% end %>
         </div>
       </div>
-    <% end %>
+      <% end %>
   <% end %>
 </div>
 
 
+
 <%= link_to new_ownership_path(@ownerships) do %>
-  <%= render 'shared/buttons/adduserbtn' %>
+  <div class="add-user-btn">
+    <p>add a user to family</p>
+  </div>
 <% end %>

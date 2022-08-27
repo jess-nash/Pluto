@@ -1,0 +1,36 @@
+<div class="nav-buttons">
+  <%= link_to pet_path(@pet) do %>
+    <%= render 'shared/buttons/backbtn' %>
+  <% end %>
+  <%= link_to new_pet_medicine_path(@pet) do %>
+    <%= render 'shared/buttons/plusbtn' %>
+  <% end %>
+</div>
+<div class="icon-sizing">
+  <h1 class="text-center"><i class="fa-solid fa-file-prescription"></i> Medicine </h1>
+</div>
+
+<% @medicines.each do |medicine| %>
+  <div class="medicine-container mobile-margins">
+    <div class="medicine-top">
+      <h1><%= medicine.name %><h1>
+    </div>
+    <div class="medicine-content">
+      <h2 class="medicine-title">
+        <%= medicine.medicine_type %> : <%= medicine.dosage %>
+      </h2>
+      <p class="medicine-entry">
+        <%= medicine.description %>zz
+      </p>
+    </div>
+    <div class="medicine-img">
+      <% if medicine.photos.present? %>
+        <% medicine.photos.each do |photo|  %>
+          <%= cl_image_tag(photo.key, class: "medicine-photo", width: "300px", height: "300px") %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<%= javascript_pack_tag 'seemore'%>

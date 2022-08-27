@@ -1,6 +1,6 @@
 .dashboard-btns {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 15px;
 }
 
@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color: white;
 
   .pet-name-home-header {
     padding: 0;
@@ -23,20 +24,11 @@
   align-items: center;
   justify-content: center;
   font-size: 15px;
+  border-radius: 10px;
+  border: 1px solid #3E1E99;
+  box-shadow: 10px 6px white, 10px 6px  0px 1px $d-purple;
 
   .journal-btn {
     color: white;
-  }
-
-  .meals-btn {
-
-  }
-
-  .medicine-btn {
-
-  }
-
-  .appointments-btn {
-
   }
 }
