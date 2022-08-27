@@ -1,8 +1,16 @@
 <%= form_tag new_ownership_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "pluto@gmail.com"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <div class="ownership-form">
+    <div class="user-search-bar">
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control user-search-input rounded-box",
+        placeholder: "pluto@gmail.com"
+      %>
+    </div>
+    <div class="">
+      <%= button_tag(type: "submit", class: "user-search-btn") do %>
+        <i class="fas fa-magnifying-glass"></i>
+      <% end %>
+    </div>
+  </div>
 <% end %>

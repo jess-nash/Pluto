@@ -1,0 +1,20 @@
+.ownership-form {
+  display: flex;
+  margin-bottom: 20px;
+
+  .user-search-input {
+    border-color: $d-purple;
+  }
+
+  .user-search-bar {
+  width: 100%;
+  padding-right: 8px;
+  }
+
+  .user-search-btn {
+    border: 1px solid $d-purple;;
+    border-radius: 10px;
+    height: 100%;
+    width: 125%;
+  }
+}
