@@ -14,11 +14,11 @@
         <%# figure out how to display what is upcoming or not %>
         <div class="appointment-top">
           <% if appointment.time > DateTime.now %>
-            <p class="appointment-visit-for">Upcoming visit for <%= appointment.pet.name %> </p>
+            <p class="appointment-visit-for">Upcoming visit for <%= appointment.pet.name.capitalize %> </p>
           <% elsif appointment.time.month == DateTime.now.month && appointment.time.day == DateTime.now.day%>
-            <p class="appointment-visit-for">Today's visit for <%= appointment.pet.name %> </p>
+            <p class="appointment-visit-for">Today's visit for <%= appointment.pet.name.capitalize %> </p>
           <% else %>
-            <p class="appointment-visit-for">Past visit for <%= appointment.pet.name %> </p>
+            <p class="appointment-visit-for">Past visit for <%= appointment.pet.name.capitalize %> </p>
           <% end %>
           <small class="appointment-date"> <%= appointment.time.to_formatted_s(:long_ordinal) %> </small>
         </div>

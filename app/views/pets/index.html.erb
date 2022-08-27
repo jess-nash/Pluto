@@ -7,7 +7,7 @@
       <div class="family-pet-card">
         <%= cl_image_tag pet.photo.key, class: "family-pet-img"%>
         <div class="family-pet-info">
-          <h2 class="family-pet-name"><%= pet.name %></h2>
+          <h2 class="family-pet-name"><%= pet.name.capitalize %></h2>
           <% if pet.sex == "Female" %>
             <p class="pet-sex"><i class="fa-solid fa-venus"></i></p>
           <% elsif %>

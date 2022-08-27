@@ -10,7 +10,7 @@
 <% @meals.each do |meal| %>
   <div class="meal-container mobile-margins">
     <div class="meal-top">
-      <h1><%= meal.name %><h1>
+      <h1><%= meal.name.capitalize %><h1>
       <div class="meal-time">
         <% meal.time.each do |item| %>
         <h2 class ="meal-item"><%= item %></h2>
@@ -19,10 +19,10 @@
     </div>
     <div class="meal-content">
       <h2 class="meal-title">
-        <%= meal.meal_type %> : <%= meal.serving_size %>
+        <%= meal.meal_type.capitalize %> : <%= meal.serving_size %>
       </h2>
       <p class="meal-entry">
-        <%= meal.description %>
+        <%= meal.description.capitalize %>
       </p>
     </div>
     <div class="meal-img">
