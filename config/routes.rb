@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :ownerships, only: [:new, :create]
   # yann said remove get from resources
   get "/pets/:pet_id/profile", to: "pets#profile", as: :profile
+
+  post "/callback", to: "line#callback"
 end
