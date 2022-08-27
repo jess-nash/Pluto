@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_27_024755) do
+ActiveRecord::Schema.define(version: 2022_08_27_074222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(version: 2022_08_27_024755) do
     t.bigint "pet_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "main", default: false
     t.index ["pet_id"], name: "index_ownerships_on_pet_id"
     t.index ["user_id"], name: "index_ownerships_on_user_id"
   end
@@ -131,6 +132,10 @@ ActiveRecord::Schema.define(version: 2022_08_27_024755) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "sex"
+    t.bigint "user_id"
+    t.bigint "main_user_id"
+    t.index ["main_user_id"], name: "index_pets_on_main_user_id"
+    t.index ["user_id"], name: "index_pets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -156,4 +161,6 @@ ActiveRecord::Schema.define(version: 2022_08_27_024755) do
   add_foreign_key "medicines", "pets"
   add_foreign_key "ownerships", "pets"
   add_foreign_key "ownerships", "users"
+  add_foreign_key "pets", "users"
+  add_foreign_key "pets", "users", column: "main_user_id"
 end

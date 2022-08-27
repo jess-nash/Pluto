@@ -3,7 +3,6 @@
     <%= render 'shared/buttons/backbtn' %>
   <% end %>
 </div>
-
 <div class="pet-home-header">
   <div class="pet-photo">
     <% if @pet.photo.present? %>
@@ -14,13 +13,11 @@
       <img class= "avatar-large" src="@pet.photo" alt="Pet Avatar">
     <% end %>
   </div>
-
-  <div class="pet-name-home p-3">
-    <h2 class="pet-name-home-header"><%="#{@pet.name.capitalize}'s Home" %></h2>
+  <div class="page-title-box p-3">
+    <h1 class="pet-show pet-family-title"><%="#{@pet.name.capitalize}'s Home" %></h1>
   </div>
 </div>
-
-<div class="dashboard-nav">
+<div class="dashboard-nav mt-3">
   <div class="dashboard-btns">
     <div class="dashboard-btn journal-btn">
       <%= link_to pet_journal_entries_path(@pet), class:"journal-btn" do %>
@@ -35,9 +32,9 @@
   </div>
   <div class="dashboard-btns">
     <div class="dashboard-btn medicine-btn">
-    <%= link_to pet_medicines_path(@pet), class:"medicine-btn" do %>
-      <i class="fa-solid fa-file-prescription"></i>
-    <% end %>
+      <%= link_to pet_medicines_path(@pet), class:"medicine-btn" do %>
+        <i class="fa-solid fa-capsules"></i>
+      <% end %>
     </div>
     <div class="dashboard-btn appointments-btn">
       <%= link_to pet_appointments_path(@pet), class:"appointments-btn" do %>
