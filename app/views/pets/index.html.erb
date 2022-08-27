@@ -4,7 +4,7 @@
   </div>
 
 <div class="family mobile-margins">
-  <% @pets.each do |pet| %>
+  <% @pets.order(created_at: :asc).each do |pet| %>
   <%= link_to pet_path(pet), class: "text-decoration-none text-dark" do %>
     <% if pet.sex == "Female" %>
       <div class="family-pet-card-f">

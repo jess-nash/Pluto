@@ -9,7 +9,10 @@ class OwnershipsController < ApplicationController
   end
 
   def create
-    pets = current_user.pets
+    main_ownerships = current_user.ownerships.where(main: true)
+    pets = main_ownerships.map do |ownership|
+        ownership.pet
+      end
     user = User.find(params[:ownership][:user])
     ownerships = pets.map do |pet|
       ownership = Ownership.new({pet: pet, user: user})
@@ -20,6 +23,17 @@ class OwnershipsController < ApplicationController
       redirect_to pets_path, notice: 'Family member was added!'
     else
       flash.now[:alert] = "That person is already added to your family!"
+      render :new
+    end
+  end
+
+  def create_ownership_from_pet
+    @pet = Pet.find(params[:pet_id])
+    ownership = Ownership.new({pet: @pet, user: current_user, main: true})
+    authorize ownership
+    if ownership.save
+      redirect_to pets_path
+    else
       render :new
     end
   end
