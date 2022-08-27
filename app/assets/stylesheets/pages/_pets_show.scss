@@ -1,3 +1,5 @@
+// Page name is Miels Home
+
 .dashboard-btns {
   display: flex;
   justify-content: space-around;
@@ -8,7 +10,6 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: white;
 
   .pet-name-home-header {
     padding: 0;
@@ -31,4 +32,14 @@
   .journal-btn {
     color: white;
   }
+}
+
+.pet-show {
+  padding-bottom: 20px;
+}
+
+.white-bg {
+  background-color: white;
+  height: 100%;
+  width: 100%;
 }

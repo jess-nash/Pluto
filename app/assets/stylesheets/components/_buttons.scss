@@ -140,3 +140,16 @@ a > .button {
   top: 15px;
   left: 230px;
 }
+
+.add-user-btn {
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  width: 300px;
+  border: 1px solid #3E1E99;
+  cursor: pointer;
+  background-color: white ;
+  border-radius: 10px;
+  box-shadow: 10px 6px $l-blue, 10px 6px  0px 1px $d-purple;
+  margin: 0 auto;
+}

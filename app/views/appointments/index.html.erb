@@ -6,15 +6,13 @@
     <%= render 'shared/buttons/plusbtn' %>
   <% end %>
 </div>
-
-<div class="icon-sizing">
+<div class="icon-sizing mb-4">
   <h1 class="text-center"><i class="fa-solid fa-calendar-days"></i> Appointments </h1>
 </div>
-
 <% if @appointments.present? %>
   <% @appointments.each do |appointment| %>
     <%= link_to appointment_path(appointment) do %>
-      <div class="appointment-container mobile-margins">
+      <div class="appointment-container">
         <%# figure out how to display what is upcoming or not %>
         <div class="appointment-top">
           <% if appointment.time > DateTime.now %>
@@ -31,7 +29,7 @@
             <b> <%= appointment.name.capitalize %></b>
           </h2>
           <p class="appointment-description">
-          <%= appointment.description.capitalize.split(' ').take(3).join(" ") %> ... <span class="see-more">More</span>
+            <%= appointment.description.capitalize.split(' ').take(3).join(" ") %> ... <span class="see-more">More</span>
           </p>
         </div>
       </div>

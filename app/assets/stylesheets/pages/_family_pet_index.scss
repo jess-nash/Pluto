@@ -1,10 +1,12 @@
 .pet-family-title {
   color: $d-purple;
-}
-.title-box {
-  width: 200px;
+  font-size: 50px;
   background-color: white;
-  margin: 0 auto;
+}
+.page-title-box {
+  height: 60px;
+  text-align: center;
+  padding: 80px 0px 20px 0px;
 }
 .family {
   h2, p {
@@ -90,17 +92,4 @@
 
 .pet-sex-m {
   color: $d-blue;
-}
-
-.add-user-btn {
-  height: 36px;
-  line-height: 36px;
-  text-align: center;
-  width: 300px;
-  border: 1px solid #3E1E99;
-  cursor: pointer;
-  background-color: white ;
-  border-radius: 10px;
-  box-shadow: 10px 6px $l-blue, 10px 6px  0px 1px $d-purple;
-  margin: 0 auto;
 }
