@@ -14,7 +14,7 @@
     <%= link_to medicine_path(medicine) do %>
       <div class="medicine-container mobile-margins">
         <div class="medicine-top">
-          <h1><%= medicine.name %><h1>
+          <h1><%= medicine.name.capitalize %><h1>
         </div>
         <div class="medicine-dates">
           <% if medicine.start_date.present? && medicine.start_date.present? %>
@@ -24,11 +24,11 @@
         </div>
         <div class="medicine-content">
           <h4 class="medicine-title">
-            <%= medicine.medicine_type %> - <%= medicine.dosage %>
+            <%= medicine.medicine_type.capitalize %> - <%= medicine.dosage.capitalize %>
           </h4>
           <p class="medicine-entry">
             <% if medicine.description.present? %>
-              <%= medicine.description.capitalize.split(' ').take(3).join(" ") %> ... <span class="see-more">More</span>
+              <%= medicine.description.capitalize.split(' ').take(3).join(" ") %> ... <span class="see-more">See More</span>
             <% else %>
               <span class="see-more">See More</span>
             <% end %>

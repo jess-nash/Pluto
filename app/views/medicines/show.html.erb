@@ -6,7 +6,7 @@
 
 <div class="container medicine-show">
   <div class="medicine-top">
-    <h1 class="medicine-name"><%= @medicine.name %></h1>
+    <h1 class="medicine-name"><%= @medicine.name.capitalize %></h1>
     <h2 class="medicine-expiration-date">
     <% if @medicine.expiration_date.present? %>
       Expires <%= @medicine.expiration_date.to_formatted_s(:short) %>, <%= @medicine.expiration_date.year %>
@@ -21,15 +21,15 @@
     <% end %>
   </div>
   <div class="medicine-content">
-    <h3 class="medicine-period">
-      Period<br>
+    <div class="medicine-period">
       <% if @medicine.start_date.present? && @medicine.start_date.present? %>
           <i class="fas fa-calendar-week"></i>
           <h4><%= @medicine.start_date.to_formatted_s(:short) %>  -  <%= @medicine.end_date.to_formatted_s(:short) %> </h4>
       <% end %>
-    <h4 class="medicine-type">Medicine type: <%= @medicine.medicine_type %></h4>
-    <h5 class="medicine-dosage">Dosage: <%= @medicine.dosage %></h5>
-    <p class="medicine-description"><%= @medicine.description %></p>
+    </div>
+    <h4 class="medicine-type">Medicine type: <%= @medicine.medicine_type.capitalize %></h4>
+    <h5 class="medicine-dosage">Dosage: <%= @medicine.dosage.capitalize %></h5>
+    <p class="medicine-description"><%= @medicine.description.capitalize %></p>
 
     <% if @medicine.important %>
       <p><u>Notifications are enabled for this medicine.<u></p>
