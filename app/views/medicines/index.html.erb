@@ -6,13 +6,13 @@
     <%= render 'shared/buttons/plusbtn' %>
   <% end %>
 </div>
-<div class="icon-sizing">
+<div class="icon-sizing mb-4">
   <h1 class="text-center white-bg"><i class="fa-solid fa-capsules"></i> Medicine</h1>
 </div>
 <% if @medicines.present? %>
   <% @medicines.each do |medicine| %>
     <%= link_to medicine_path(medicine) do %>
-      <div class="medicine-container mobile-margins">
+      <div class="medicine-container">
         <div class="medicine-top">
           <h1><%= medicine.name.capitalize %>
             <h1>

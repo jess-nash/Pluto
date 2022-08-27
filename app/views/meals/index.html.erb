@@ -6,37 +6,35 @@
     <%= render 'shared/buttons/plusbtn' %>
   <% end %>
 </div>
-
-<div class="icon-sizing">
+<div class="icon-sizing mb-4">
   <h1 class="text-center"><i class="fa-solid fa-bowl-food"></i> Meals </h1>
 </div>
-
 <% @meals.each do |meal| %>
-  <div class="meal-container mobile-margins">
+  <div class="meal-container">
     <div class="meal-top">
-      <h1><%= meal.name.capitalize %><h1>
-      <div class="meal-time">
-        <% meal.time.each do |item| %>
-        <h2 class ="meal-item"><%= item %></h2>
-        <% end %>
+      <h1><%= meal.name.capitalize %>
+        <h1>
+          <div class="meal-time">
+            <% meal.time.each do |item| %>
+              <h2 class ="meal-item"><%= item %></h2>
+            <% end %>
+          </div>
+        </div>
+        <div class="meal-content">
+          <h2 class="meal-title">
+            <%= meal.meal_type.capitalize %> : <%= meal.serving_size %>
+          </h2>
+          <p class="meal-entry">
+            <%= meal.description.capitalize %>
+          </p>
+        </div>
+        <div class="meal-img">
+          <% if meal.photos.present? %>
+            <% meal.photos.each do |photo|  %>
+              <%= cl_image_tag(photo.key, class: "meal-photo") %>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <div class="meal-content">
-      <h2 class="meal-title">
-        <%= meal.meal_type.capitalize %> : <%= meal.serving_size %>
-      </h2>
-      <p class="meal-entry">
-        <%= meal.description.capitalize %>
-      </p>
-    </div>
-    <div class="meal-img">
-      <% if meal.photos.present? %>
-        <% meal.photos.each do |photo|  %>
-          <%= cl_image_tag(photo.key, class: "meal-photo") %>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-<% end %>
-
-<%= javascript_pack_tag 'seemore'%>
+    <% end %>
+    <%= javascript_pack_tag 'seemore'%>
