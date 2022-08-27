@@ -10,11 +10,14 @@ Rails.application.routes.draw do
     end
     resources :meals, only: [:index, :new, :create]
     resources :medicines, only: [:index, :new, :create]
-    resources :appointments, only: [:index, :show, :new, :create]
+    resources :appointments, only: [:index, :new, :create]
   end
 
+  resources :appointments, only: [:show]
   resources :medicines, only: [:show]
   resources :ownerships, only: [:new, :create]
   # yann said remove get from resources
   get "/pets/:pet_id/profile", to: "pets#profile", as: :profile
+
+  post "/callback", to: "line#callback"
 end

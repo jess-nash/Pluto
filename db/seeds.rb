@@ -164,7 +164,7 @@ def create_journals
   journal1.photos.attach(io: file, filename: 'journal.jpg', content_type: 'image/jpg')
 
   journal2 = JournalEntry.create!(
-    name: Faker::Lorem.sentence(word_count: 5),
+    name: Faker::Lorem.sentence(word_count: 4),
     content: Faker::JapaneseMedia::StudioGhibli.quote,
     pet: Pet.first,
     user: User.last
