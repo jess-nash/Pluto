@@ -114,7 +114,7 @@ def create_pets
       age: 7,
       weight: 14,
       chip_number: "LW484",
-      sex: "Female",
+      sex: "Male",
       url: "https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=662&q=80"
     },
 
@@ -148,8 +148,8 @@ end
 
 def create_ownerships(users, pets)
   pets.each_slice(2).with_index do |(pet_1, pet_2), i|
-    Ownership.create(user: users[i], pet: pet_1)
-    Ownership.create(user: users[i], pet: pet_2)
+    Ownership.create(user: users[i], pet: pet_1, main: true)
+    Ownership.create(user: users[i], pet: pet_2, main: true)
   end
 end
 
