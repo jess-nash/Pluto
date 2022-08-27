@@ -1,0 +1,44 @@
+.user-result-card {
+  margin: auto;
+  // margin-bottom: 70px;
+  height: 300px;
+  width: 250px;
+  border-radius: 10px;
+  border: 1px solid #3E1E99;
+  cursor: pointer;
+  background-color: white;
+  box-shadow: 10px 6px #e7b1f0, 10px 6px 0px 1px #3e1e99;
+  position: relative;
+  margin-top: 90px;
+}
+
+.user-submit {
+  display: flex;
+}
+
+.user-results-info {
+  height: 100%;
+  margin-bottom: 26px;
+
+
+  .user-results-name {
+    display: flex;
+    justify-content: center;
+    padding: 11px 0;
+  }
+
+  .user-results-name > h3 {
+    margin-bottom: 0;
+  }
+
+  .user-results-avatar {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: solid 1px #3E1E99;
+    border-right: solid 1px #3E1E99;
+    margin-bottom: 0;
+  }
+}
