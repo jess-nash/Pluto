@@ -6,40 +6,40 @@
     <%= render 'shared/buttons/plusbtn' %>
   <% end %>
 </div>
-
-<h1><%= "#{@pet.name}'s Medicine" %></h1>
-
+<div class="icon-sizing">
+  <h1 class="text-center white-bg"><i class="fa-solid fa-capsules"></i> Medicine</h1>
+</div>
 <% if @medicines.present? %>
   <% @medicines.each do |medicine| %>
     <%= link_to medicine_path(medicine) do %>
       <div class="medicine-container mobile-margins">
         <div class="medicine-top">
-          <h1><%= medicine.name.capitalize %><h1>
-        </div>
-        <div class="medicine-dates">
-          <% if medicine.start_date.present? && medicine.start_date.present? %>
-            <i class="fas fa-calendar-week"></i>
-            <h4><%= medicine.start_date.to_formatted_s(:short) %>  -  <%= medicine.end_date.to_formatted_s(:short) %> </h4>
-          <% end %>
-        </div>
-        <div class="medicine-content">
-          <h4 class="medicine-title">
-            <%= medicine.medicine_type.capitalize %> - <%= medicine.dosage.capitalize %>
-          </h4>
-          <p class="medicine-entry">
-            <% if medicine.description.present? %>
-              <%= medicine.description.capitalize.split(' ').take(3).join(" ") %> ... <span class="see-more">See More</span>
-            <% else %>
-              <span class="see-more">See More</span>
-            <% end %>
-          </p>
-        </div>
-      </div>
+          <h1><%= medicine.name.capitalize %>
+            <h1>
+            </div>
+            <div class="medicine-dates">
+              <% if medicine.start_date.present? && medicine.start_date.present? %>
+                <i class="fas fa-calendar-week"></i>
+                <h4><%= medicine.start_date.to_formatted_s(:short) %>  -  <%= medicine.end_date.to_formatted_s(:short) %> </h4>
+              <% end %>
+            </div>
+            <div class="medicine-content">
+              <h4 class="medicine-title">
+                <%= medicine.medicine_type.capitalize %> - <%= medicine.dosage.capitalize %>
+              </h4>
+              <p class="medicine-entry">
+                <% if medicine.description.present? %>
+                  <%= medicine.description.capitalize.split(' ').take(3).join(" ") %> ... <span class="see-more">See More</span>
+                <% else %>
+                  <span class="see-more">See More</span>
+                <% end %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <h2>No medicines in sight.</h2>
+      <p>Add a medicine to keep track of.</p>
     <% end %>
-  <% end %>
-<% else %>
-  <h2>No medicines in sight.</h2>
-  <p>Add a medicine to keep track of.</p>
-<% end %>
-
-<%= javascript_pack_tag 'seemore'%>
+    <%= javascript_pack_tag 'seemore'%>
