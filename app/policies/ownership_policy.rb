@@ -13,4 +13,8 @@ class OwnershipPolicy < ApplicationPolicy
   def create?
     record.pet.users.include?(user)
   end
+
+  def create_ownership_from_pet?
+    return true
+  end
 end

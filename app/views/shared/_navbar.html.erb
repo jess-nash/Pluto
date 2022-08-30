@@ -2,7 +2,7 @@
 </div>
 <nav>
   <div class="pet-icon-container">
-    <% if @pet %>
+    <% if @pet && @pet.photo.attached? %>
       <%= cl_image_tag(@pet.photo.key, class: "current-pet-icon") %>
     <% elsif user_signed_in? %>
       <%= cl_image_tag(current_user.photo.key, class: "current-pet-icon") %>
@@ -18,7 +18,7 @@
           <p class="nav-description">My Pet family</p>
         </div>
     <% end %>
-    <% if @pet %>
+    <% if @pet && @pet.id.present? %>
       <%= link_to pet_path(@pet) do%>
         <div class="nav-item">
           <div class="sm button">
