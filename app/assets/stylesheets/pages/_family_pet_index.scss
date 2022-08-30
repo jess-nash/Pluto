@@ -92,6 +92,13 @@
   background-color: $d-purple;
   color: white;
 }
+
+.pet-sex-icon {
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}
+
 .pet-sex-f {
   color: $l-purple;
 }
