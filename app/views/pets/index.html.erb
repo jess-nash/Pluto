@@ -9,9 +9,9 @@
         <div class="family-pet-info">
           <h2 class="family-pet-name"><%= pet.name.capitalize %></h2>
           <% if pet.sex == 'Female' %>
-            <p class="pet-sex-f"> <i class="fa-solid fa-venus"></i> </p>
+            <p class="pet-sex-icon pet-sex-f"> <i class="fa-solid fa-venus"></i> </p>
           <% else %>
-            <p class="pet-sex-m"> <i class="fa-solid fa-mars"></i></p>
+            <p class="pet-sex-icon pet-sex-m"> <i class="fa-solid fa-mars"></i></p>
           <% end %>
           <% if pet.age.present? %>
             <div class="family-pet-age <%= pet.sex == 'Female' ? 'female' : 'male' %>">
