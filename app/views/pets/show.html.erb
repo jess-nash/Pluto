@@ -5,12 +5,12 @@
 </div>
 <div class="pet-home-header">
   <div class="pet-photo">
-    <% if @pet.photo.present? %>
-      <%= link_to profile_path(@pet) do %>
+    <%= link_to profile_path(@pet) do %>
+      <% if @pet.photo.present? %>
         <%= cl_image_tag @pet.photo.key, class: "pet-prof-icon" %>
+      <% else  %>
+        <%= image_tag("pluto.png", alt: "pluto", class: "pet-prof-icon") %>
       <% end %>
-    <% else  %>
-      <img class= "avatar-large" src="@pet.photo" alt="Pet Avatar">
     <% end %>
   </div>
   <div class="page-title-box p-3">

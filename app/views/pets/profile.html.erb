@@ -5,7 +5,11 @@
 <% end %>
 
 <div class="pet-profile-header">
-  <%= cl_image_tag @pet.photo.key, class: "pet-prof-icon" %>
+  <% if @pet.photo.present? %>
+    <%= cl_image_tag @pet.photo.key, class: "pet-prof-icon" %>
+  <% else  %>
+      <%= image_tag("pluto.png", alt: "pluto", class: "pet-prof-icon") %>
+  <% end %>
   <div class="family-pet p-3">
     <h2 class="family-pet-name"><%= @pet.name %></h2>
     <% if @pet.sex == "Male" %>

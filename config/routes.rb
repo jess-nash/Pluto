@@ -21,5 +21,5 @@ Rails.application.routes.draw do
 
   post "/callback", to: "line#callback"
 
-  get "/new_pet_ownership", to: "ownership#create_ownership_from_pet"
+  get "/new_pet_ownership", to: "ownerships#create_ownership_from_pet"
 end
