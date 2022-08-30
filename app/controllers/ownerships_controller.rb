@@ -4,7 +4,7 @@ class OwnershipsController < ApplicationController
     authorize @ownership
     # @ownerships = Ownership.where(title: params[:query])
     if params[:query].present?
-      @users = User.where(email: params[:query])
+      @users = User.where(email: params[:query].downcase)
     end
   end
 
