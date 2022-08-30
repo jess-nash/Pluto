@@ -132,10 +132,6 @@ ActiveRecord::Schema.define(version: 2022_08_27_074222) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "sex"
-    t.bigint "user_id"
-    t.bigint "main_user_id"
-    t.index ["main_user_id"], name: "index_pets_on_main_user_id"
-    t.index ["user_id"], name: "index_pets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -161,6 +157,4 @@ ActiveRecord::Schema.define(version: 2022_08_27_074222) do
   add_foreign_key "medicines", "pets"
   add_foreign_key "ownerships", "pets"
   add_foreign_key "ownerships", "users"
-  add_foreign_key "pets", "users"
-  add_foreign_key "pets", "users", column: "main_user_id"
 end
