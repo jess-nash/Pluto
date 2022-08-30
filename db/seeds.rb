@@ -160,30 +160,30 @@ end
 
 def create_journals
   journal1 = JournalEntry.create!(
-    name: Faker::Lorem.sentence(word_count: 3),
-    content: Faker::JapaneseMedia::StudioGhibli.quote,
+    name: "Battled the Vaccuum Cleaner",
+    content: "The vacuum cleaner Ken bought yesterday seemed to boil up some sort of hidden rage for #{Pet.last.name}. I hope it lasts...",
     pet: Pet.last,
     user: User.first
   )
-  file = URI.open("https://api.kyivindependent.com/storage/2021/12/loveyoustepan.-instagram-1024x683.jpg")
+  file = URI.open("https://img-9gag-fun.9cache.com/photo/a1rEV2R_460swp.jpg")
   journal1.photos.attach(io: file, filename: 'journal.jpg', content_type: 'image/jpg')
 
   journal2 = JournalEntry.create!(
-    name: Faker::Lorem.sentence(word_count: 4),
-    content: Faker::JapaneseMedia::StudioGhibli.quote,
+    name: "Paint me like one of your French Pets",
+    content: "#{Pet.first.name} is definitely one of the sweetest pets I've pet-sitted for. And to be honest, she's a bit of a supermodel.",
     pet: Pet.first,
     user: User.last
   )
-  file = URI.open("https://i.imgur.com/LRoLTlK.jpeg")
+  file = URI.open("https://i.imgur.com/9WaaESN.jpg")
   journal2.photos.attach(io: file, filename: 'journal.jpg', content_type: 'image/jpg')
 
   journal3 = JournalEntry.create!(
-    name: Faker::Lorem.sentence(word_count: 2),
-    content: Faker::JapaneseMedia::StudioGhibli.quote,
+    name: "Cuddling up on the couch",
+    content: "This is her new most favorite place to sleep and its absolutely adorable. Sometimes I cuddle up with her.",
     pet: Pet.first,
     user: User.first
   )
-  file = URI.open("https://i.imgur.com/xBntSnV.jpeg")
+  file = URI.open("https://i.imgur.com/QNwnSXy.jpg")
   journal3.photos.attach(io: file, filename: 'journal.jpg', content_type: 'image/jpg')
 end
 
