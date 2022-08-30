@@ -2,8 +2,9 @@
 
 .dashboard-btns {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 15px;
+  margin-right: 10px;
 }
 
 .pet-home-header {
@@ -14,6 +15,12 @@
   .pet-name-home-header {
     padding: 0;
     margin-bottom: 0;
+  }
+
+  .page-title-box-home {
+    height: 125px;
+    text-align: center;
+    padding: 80px 0px 20px 0px;
   }
 }
 
