@@ -12,8 +12,8 @@
 <% @meals.each do |meal| %>
   <div class="meal-container">
     <div class="meal-top">
-      <h1><%= meal.name.capitalize %>
-        <h1>
+      <h2><%= meal.name.capitalize %>
+        <h2>
           <div class="meal-time">
             <% meal.time.each do |item| %>
               <h2 class ="meal-item"><%= item %></h2>
