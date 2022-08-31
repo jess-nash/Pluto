@@ -3,6 +3,7 @@
     <%= render 'shared/buttons/backbtn' %>
   <% end %>
 </div>
+
 <div class="container appointment-show">
   <div class="appointment-top">
     <% if @appointment.time > DateTime.now %>
@@ -15,7 +16,7 @@
     <small class="appointment-date"> <%= @appointment.time.to_formatted_s(:long_ordinal) %> </small>
   </div>
   <div class="appointment-content">
-    <h1 class="appointment-name"><%= @appointment.name.capitalize %></h1>
+    <h1 class="appointment-name py-2"><%= @appointment.name.capitalize %></h1>
     <div class="appointment-location-container">
       <i class="fa-solid fa-location-dot appointment-location-icon"></i>
       <p class="appointment-location"><%= @appointment.location.capitalize %></p>
@@ -24,15 +25,15 @@
     <p class="appointment-description"><%= @appointment.description.capitalize %></p>
     <% if @appointment.important %>
       <p><u>Notifications are enabled for this appointment.<u></p>
-        <% end %>
-        <div class="appointment-img">
-          <% if @appointment.photos.present? %>
-            <% @appointment.photos.each do |photo|  %>
-              <%= link_to photo do %>
-                <%= cl_image_tag(photo.key, class: "apt-img") %>
-              <% end %>
-            <% end %>
+    <% end %>
+    <div class="appointment-img-container">
+      <% if @appointment.photos.present? %>
+        <% @appointment.photos.each do |photo|  %>
+          <%= link_to photo do %>
+            <%= cl_image_tag(photo.key, class: "apt-img") %>
           <% end %>
-        </div>
-      </div>
+        <% end %>
+      <% end %>
     </div>
+  </div>
+</div>

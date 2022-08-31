@@ -6,37 +6,44 @@
     <%= render 'shared/buttons/plusbtn' %>
   <% end %>
 </div>
+
 <div class="icon-sizing mb-4">
   <h1 class="text-center"><i class="fa-solid fa-bowl-food"></i> Meals </h1>
 </div>
-<% @meals.each do |meal| %>
-  <div class="meal-container">
-    <div class="meal-top">
-      <h2><%= meal.name.capitalize %>
-        <h2>
-          <div class="meal-time">
-            <% meal.time.each do |item| %>
-              <h2 class ="meal-item"><%= item %></h2>
-            <% end %>
-          </div>
-        </div>
-        <div class="meal-content">
-          <h2 class="meal-title">
-            <%= meal.meal_type.capitalize %> : <%= meal.serving_size %>
-          </h2>
-          <p class="meal-entry">
-            <%= meal.description.capitalize %>
-          </p>
-        </div>
-        <div class="meal-img">
-          <% if meal.photos.present? %>
-            <% meal.photos.each do |photo|  %>
-              <%= link_to photo do %>
-                <%= cl_image_tag(photo.key, class: "meal-photo") %>
-              <% end %>
-            <% end %>
+
+<% if @meals.present? %>
+  <% @meals.each do |meal| %>
+    <div class="meal-container">
+      <div class="meal-top">
+        <h2><%= meal.name.capitalize %></h2>
+        <div class="meal-time">
+          <% meal.time.each do |item| %>
+            <h2 class ="meal-item"><%= item %></h2>
           <% end %>
         </div>
       </div>
-    <% end %>
-    <%= javascript_pack_tag 'seemore'%>
+      <div class="meal-content">
+        <h2 class="meal-title">
+          <%= meal.meal_type.capitalize %> : <%= meal.serving_size %>
+        </h2>
+        <p class="meal-entry">
+          <%= meal.description.capitalize %>
+        </p>
+      </div>
+      <div class="meal-img">
+        <% if meal.photos.present? %>
+          <% meal.photos.each do |photo|  %>
+            <%= link_to photo do %>
+              <%= cl_image_tag(photo.key, class: "meal-photo") %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <h3 class="px-2 text-center">No meals for this pet yet.</h3>
+  <p class="px-2 text-center">Add your first meal to get started!</p>
+<% end %>
+
+<%= javascript_pack_tag 'seemore'%>
