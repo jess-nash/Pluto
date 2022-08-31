@@ -6,9 +6,11 @@
     <%= render 'shared/buttons/plusbtn' %>
   <% end %>
 </div>
+
 <div class="icon-sizing mb-4">
   <h1 class="text-center"><i class="fa-solid fa-calendar-days"></i> Appointments </h1>
 </div>
+
 <% if @appointments.present? %>
   <% @appointments.each do |appointment| %>
     <%= link_to appointment_path(appointment) do %>
@@ -36,6 +38,6 @@
     <% end %>
   <% end %>
 <% else %>
-  <h2>Nothing here yet.</h2>
-  <p>Add your first appointment to get started!</p>
+  <h3 class="px-2 text-center">No appointments for this pet yet.</h3>
+  <p class="px-2 text-center">Add your first appointment to get started!</p>
 <% end %>

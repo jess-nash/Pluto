@@ -3,36 +3,36 @@
     <%= render 'shared/buttons/backbtn' %>
   <% end %>
 </div>
-
 <div class="container medicine-show">
   <div class="medicine-top">
     <h1 class="medicine-name"><%= @medicine.name.capitalize %></h1>
-    <h2 class="medicine-expiration-date">
     <% if @medicine.expiration_date.present? %>
-      Expires <%= @medicine.expiration_date.to_formatted_s(:short) %>, <%= @medicine.expiration_date.year %>
+      <h2 class="medicine-expiration-date">
+        Expires <%= @medicine.expiration_date.to_formatted_s(:short) %>, <%= @medicine.expiration_date.year %>
+      </h2>
     <% end %>
-    </h2>
   </div>
   <div class="medicine-img">
     <% if @medicine.photos.present? %>
       <% @medicine.photos.each do |photo|  %>
-        <%= cl_image_tag(photo.key, class: "med-img") %>
+        <%= link_to photo do %>
+          <%= cl_image_tag(photo.key, class: "med-img") %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
   <div class="medicine-content">
     <div class="medicine-period">
       <% if @medicine.start_date.present? && @medicine.start_date.present? %>
-          <i class="fas fa-calendar-week"></i>
-          <h4><%= @medicine.start_date.to_formatted_s(:short) %>  -  <%= @medicine.end_date.to_formatted_s(:short) %> </h4>
+        <i class="fas fa-calendar-week"></i>
+        <h4><%= @medicine.start_date.to_formatted_s(:short) %>  -  <%= @medicine.end_date.to_formatted_s(:short) %> </h4>
       <% end %>
     </div>
     <h4 class="medicine-type">Medicine type: <%= @medicine.medicine_type.capitalize %></h4>
     <h5 class="medicine-dosage">Dosage: <%= @medicine.dosage.capitalize %></h5>
     <p class="medicine-description"><%= @medicine.description.capitalize %></p>
-
     <% if @medicine.important %>
       <p><u>Notifications are enabled for this medicine.<u></p>
-    <% end %>
-  </div>
-</div>
+        <% end %>
+      </div>
+    </div>

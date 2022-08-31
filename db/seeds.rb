@@ -394,21 +394,21 @@ end
 def create_meals
   meals = [
     {
-      name: "Petsmile morning cuisine",
+      name: "IAMS proactive health",
       meal_type: "Dry food",
-      description: "Chicken flavored. Best given first thing in the morning",
+      description: "For urinary tract health. As per doctor's recommendation",
       serving_size: "50 grams",
       time: ["Breakfast", "Lunch"],
-      url: "https://images.unsplash.com/photo-1589924691995-400dc9ecc119?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
+      url: "https://photos-us.bazaarvoice.com/photo/2/cGhvdG86aWFtcy1jYQ/0576a15a-9b2e-50fe-b81d-93abfe740794"
     },
 
     {
-      name: "BisKitt",
+      name: "Milk-Bone Grain Free biscuits",
       meal_type: "Dry food",
       description: "Le Wagon's signature treat for your pet",
-      serving_size: "1 stick",
+      serving_size: "1-2 sticks",
       time: ["Snack"],
-      url: "https://images.unsplash.com/photo-1592468257342-8375cb556a69?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
+      url: "https://assets.petco.com/petco/image/upload/f_auto,q_auto/3121027-center-1"
     },
 
     {
@@ -421,21 +421,21 @@ def create_meals
     },
 
     {
-      name: "Steak",
+      name: "Pure - White mill",
       meal_type: "Dry food",
-      description: "Good ol' steak",
-      serving_size: "200 g",
+      description: "He really loves this stuff and no artificial fragrances, colors or flavors. So healthy!",
+      serving_size: "30 g",
       time: ["Lunch", "Dinner"],
-      url: "https://images.unsplash.com/photo-1613454320437-0c228c8b1723?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+      url: "https://photos-us.bazaarvoice.com/photo/2/cGhvdG86cGV0Y28/675e6c2d-c36e-57f3-b6c3-06c750b2557b"
     },
 
     {
       name: "Homemade treat",
       meal_type: "Dry food",
-      description: "Sugar water flour",
+      description: "Ingredients: 2 cups water, 1 egg, 1 Tablespoon Catnip, 2 cups dry cat food. Blend ingredients, and divide into small balls and bake for 15 min.",
       serving_size: "1 treat",
       time: ["Snack"],
-      url: "https://images.unsplash.com/photo-1582798358481-d199fb7347bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+      url: "https://healthhomeandhappiness.com/wp-content/uploads/2020/01/Homemade-kitten-food-frozen-338x450.jpg"
     },
 
     {
@@ -448,21 +448,21 @@ def create_meals
     },
 
     {
-      name: "Yann's Organic pet jerky",
+      name: "Jerky strips",
       meal_type: "Dry food",
-      description: "Some energetic Frenchman in a V-neck sold this to me",
-      serving_size: "2 pieces",
+      description: "grass fed bison jerky-- protein, grain free jerky treats",
+      serving_size: "1 jerky",
       time: ["Snack"],
-      url: "https://images.unsplash.com/photo-1566802516196-1bb541e324e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
+      url: "https://seattlebackpackersmagazine.com/wp-content/uploads/2019/09/Only-Natural-Pet-Jerky-Strips-Dog-Treat-Natural-Grain-Free-Bison-Bag-415x600.jpg"
     },
 
     {
-      name: "Pet friendly chips",
+      name: "Healthy Pet - cold",
       meal_type: "Dry food",
-      description: "Little sus but whatever",
-      serving_size: "1 pack",
+      description: "This is the food that she has liked the most since the start of the diet!",
+      serving_size: "50g",
       time: ["Lunch", "Dinner"],
-      url: "https://images.unsplash.com/photo-1614633836648-68ddff9f7553?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80"
+      url: "https://cf.shopee.co.id/file/8cad35d5da1d44b2cfd831761f8c4f91"
     }
   ]
 

@@ -6,10 +6,11 @@
     <%= render 'shared/buttons/plusbtn' %>
   <% end %>
 </div>
-<%# Fix spacing later on %>
+
 <div class="icon-sizing mb-4">
   <h1 class="text-center"><i class="fa-solid fa-book"></i> Journals</h1>
 </div>
+
 <% if @journal_entries.present? %>
   <% @journal_entries.each do |journal| %>
     <div class="journal-container ">
@@ -40,14 +41,18 @@
       <div class="journal-img">
         <% if journal.photos.present? %>
           <% journal.photos.each do |photo|  %>
-            <%= cl_image_tag(photo.key, class: "journal-photo") %>
+            <%= link_to photo do %>
+              <%= cl_image_tag(photo.key, class: "journal-photo") %>
+            <% end %>
           <% end %>
         <% end %>
       </div>
     </div>
   <% end %>
 <% else %>
-  <h3>There are currently no journal entries for this pet, add a new one to get started!</h3>
+  <h3 class="px-2 text-center">No journal entries for this pet yet.</h3>
+  <p class="px-2 text-center">Add your first journal to get started!</p>
 <% end %>
+
 <%= javascript_pack_tag 'seemore'%>
 <%= javascript_pack_tag 'likes.js' %>
