@@ -3,42 +3,45 @@
     <%= render 'shared/buttons/backbtn' %>
   <% end %>
 </div>
-<div class="pet-home-header">
-  <div class="pet-photo">
-    <%= link_to profile_path(@pet) do %>
-      <% if @pet.photo.present? %>
-        <%= cl_image_tag @pet.photo.key, class: "pet-prof-icon" %>
-      <% else  %>
-        <%= image_tag("pluto.png", alt: "pluto", class: "pet-prof-icon") %>
+
+<div class="pet-show-container">
+  <div class="pet-home-header">
+    <div class="pet-photo">
+      <%= link_to profile_path(@pet) do %>
+        <% if @pet.photo.present? %>
+          <%= cl_image_tag @pet.photo.key, class: "pet-prof-icon" %>
+        <% else  %>
+          <%= image_tag("pluto.png", alt: "pluto", class: "pet-prof-icon") %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+    <div class="page-title-box-home">
+      <h1 class="pet-show pet-family-title"><%="#{@pet.name.capitalize}'s Home" %></h1>
+    </div>
   </div>
-  <div class="page-title-box-home p-3">
-    <h1 class="pet-show pet-family-title"><%="#{@pet.name.capitalize}'s Home" %></h1>
-  </div>
+  <div class="dashboard-nav mt-3">
+    <div class="dashboard-btns">
+      <div class="dashboard-btn journal-btn">
+        <%= link_to pet_journal_entries_path(@pet), class:"journal-btn" do %>
+          <i class="fa-solid fa-book"></i>
+        <% end %>
+      </div>
+      <div class="dashboard-btn meals-btn">
+        <%= link_to pet_meals_path(@pet), class:"meals-btn" do %>
+          <i class="fa-solid fa-bowl-food"></i>
+        <% end %>
+      </div>
+    </div>
+    <div class="dashboard-btns">
+      <div class="dashboard-btn medicine-btn">
+        <%= link_to pet_medicines_path(@pet), class:"medicine-btn" do %>
+          <i class="fa-solid fa-capsules"></i>
+        <% end %>
+      </div>
+      <div class="dashboard-btn appointments-btn">
+        <%= link_to pet_appointments_path(@pet), class:"appointments-btn" do %>
+          <i class="fa-solid fa-calendar-days"></i>
+        <% end %>
+      </div>
+    </div>
 </div>
-<div class="dashboard-nav mt-3">
-  <div class="dashboard-btns">
-    <div class="dashboard-btn journal-btn">
-      <%= link_to pet_journal_entries_path(@pet), class:"journal-btn" do %>
-        <i class="fa-solid fa-book"></i>
-      <% end %>
-    </div>
-    <div class="dashboard-btn meals-btn">
-      <%= link_to pet_meals_path(@pet), class:"meals-btn" do %>
-        <i class="fa-solid fa-bowl-food"></i>
-      <% end %>
-    </div>
-  </div>
-  <div class="dashboard-btns">
-    <div class="dashboard-btn medicine-btn">
-      <%= link_to pet_medicines_path(@pet), class:"medicine-btn" do %>
-        <i class="fa-solid fa-capsules"></i>
-      <% end %>
-    </div>
-    <div class="dashboard-btn appointments-btn">
-      <%= link_to pet_appointments_path(@pet), class:"appointments-btn" do %>
-        <i class="fa-solid fa-calendar-days"></i>
-      <% end %>
-    </div>
-  </div>
