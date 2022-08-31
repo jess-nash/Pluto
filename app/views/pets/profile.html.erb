@@ -18,17 +18,35 @@
     <% end %>
   </div>
   <div class="pet-summary">
-    <div class="age&weight">
-      <% if @pet.age.present? %>
-        <span class="age"><%= @pet.age %> years old</span>
-      <% end %>
-      <% if @pet.weight.present? %>
-        <span class="weight">| <%= @pet.weight %> lbs</span>
-      <% end %>
+    <div class="pet-info-2-columns">
+      <div class="update-delete-pet">
+        <div class="update-pet row">
+          <% if policy(@pet).edit? %>
+            <%= link_to 'Update info', edit_pet_path(@pet), class: "btn btn-info" %>
+          <% end %>
+        </div>
+        <%# <div class="delete-pet row"> %>
+          <%# if policy(@pet).destroy? %>
+            <%#= link_to 'Delete pet', pet_path(@pet), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%# end %>
+        <%# </div> %>
+      </div>
+      <div class="age-weight-chip">
+        <div class="age&weight">
+          <% if @pet.age.present? %>
+            <span class="age"><%= @pet.age %> years old</span>
+          <% end %>
+          <% if @pet.weight.present? %>
+            <span class="weight">| <%= @pet.weight %> lbs</span>
+          <% end %>
+        </div>
+        <div class="chip-number">
+          <% if @pet.chip_number.present? %>
+            <p class="chipnum">Chip Number: <%= @pet.chip_number %></p>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <% if @pet.chip_number.present? %>
-      <p class="chipnum">Chip Number: <%= @pet.chip_number %></p>
-    <% end %>
     <% if @pet.description.present? %>
       <p class="pet-bio"><%= @pet.description %></p>
     <% end %>
