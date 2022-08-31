@@ -8,15 +8,14 @@
       <%= cl_image_tag(current_user.photo.key, class: "current-pet-icon") %>
     <% end  %>
   </div>
-
   <div class="nav-popout">
     <%= link_to pets_path do%>
-        <div class="nav-item">
-          <div class="sm button">
-            <i class="dp fa-solid fa-house-chimney-window"></i>
-          </div>
-          <p class="nav-description">My Pet family</p>
+      <div class="nav-item">
+        <div class="sm button">
+          <i class="dp fa-solid fa-house-chimney-window"></i>
         </div>
+        <p class="nav-description">My Pet family</p>
+      </div>
     <% end %>
     <% if @pet && @pet.id.present? %>
       <%= link_to pet_path(@pet) do%>
@@ -29,17 +28,15 @@
       <% end %>
     <% end %>
     <%# needs to be edited once we figure out how to manage users %>
-
     <%= link_to new_ownership_path(@ownerships) do %>
       <div class="nav-item">
         <div class="sm button">
-          <i class="dp fa-solid fa-user-gear"></i>
+          <i class="fa-solid fa-user-plus"></i>
         </div>
-        <p class="nav-description">User Profiles</p>
+        <p class="nav-description">Add user</p>
       </div>
-      <% end %>
+    <% end %>
     <%# sign in btn needs to be fixed %>
-
     <% if user_signed_in? %>
       <%= link_to destroy_user_session_path, method: "delete" do %>
         <div class="button center btn-main-lp" data-content= "log out">
@@ -51,8 +48,6 @@
         </div>
       <% end %>
     <% end %>
-
   </div>
 </nav>
-
 <%= javascript_pack_tag 'navbar'%>
