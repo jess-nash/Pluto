@@ -6,11 +6,11 @@
 <div class="container medicine-show">
   <div class="medicine-top">
     <h1 class="medicine-name"><%= @medicine.name.capitalize %></h1>
-    <h2 class="medicine-expiration-date">
-      <% if @medicine.expiration_date.present? %>
+    <% if @medicine.expiration_date.present? %>
+      <h2 class="medicine-expiration-date">
         Expires <%= @medicine.expiration_date.to_formatted_s(:short) %>, <%= @medicine.expiration_date.year %>
-      <% end %>
-    </h2>
+      </h2>
+    <% end %>
   </div>
   <div class="medicine-img">
     <% if @medicine.photos.present? %>
