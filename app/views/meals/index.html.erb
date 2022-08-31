@@ -31,7 +31,9 @@
         <div class="meal-img">
           <% if meal.photos.present? %>
             <% meal.photos.each do |photo|  %>
-              <%= cl_image_tag(photo.key, class: "meal-photo") %>
+              <%= link_to photo do %>
+                <%= cl_image_tag(photo.key, class: "meal-photo") %>
+              <% end %>
             <% end %>
           <% end %>
         </div>

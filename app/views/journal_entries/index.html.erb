@@ -40,7 +40,9 @@
       <div class="journal-img">
         <% if journal.photos.present? %>
           <% journal.photos.each do |photo|  %>
-            <%= cl_image_tag(photo.key, class: "journal-photo") %>
+            <%= link_to photo do %>
+              <%= cl_image_tag(photo.key, class: "journal-photo") %>
+            <% end %>
           <% end %>
         <% end %>
       </div>
