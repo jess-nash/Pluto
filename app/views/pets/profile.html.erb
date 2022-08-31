@@ -3,12 +3,11 @@
     <%= render 'shared/buttons/backbtn' %>
   </div>
 <% end %>
-
 <div class="pet-profile-header">
   <% if @pet.photo.present? %>
     <%= cl_image_tag @pet.photo.key, class: "pet-prof-icon" %>
   <% else  %>
-      <%= image_tag("pluto.png", alt: "pluto", class: "pet-prof-icon") %>
+    <%= image_tag("pluto.png", alt: "pluto", class: "pet-prof-icon") %>
   <% end %>
   <div class="family-pet p-3">
     <h2 class="family-pet-name"><%= @pet.name %></h2>
@@ -35,13 +34,12 @@
     <% end %>
   </div>
 </div>
-
 <div class="prof-journal-imgs">
   <% @pet.journal_entries.each do |journal| %>
-      <% journal.photos.each do |photo|  %>
-          <%= cl_image_tag(photo.key, class: "img-box-sizing") %>
-        <% end %>
+    <% journal.photos.each do |photo|  %>
+      <%= link_to photo do %>
+        <%= cl_image_tag(photo.key, class: "img-box-sizing") %>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
-
-<%# delete this comment %>
