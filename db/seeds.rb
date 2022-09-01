@@ -63,7 +63,7 @@ def create_pets
       description: "Only ever responds to Micchan. Is a calico and siamese mix from Osaka. She has bright blue eyes and loves most humans. Does not like being picked up! Favorite snack is chururu.",
       age: 8,
       weight: 7,
-      chip_number: "LW123",
+      chip_number: "APTX4869",
       sex: "Female",
       url: "https://i.imgur.com/ry15K1x.jpg"
     },
