@@ -24,22 +24,14 @@
   }
 }
 
-.journal-entry-form {
-  .title-input {
-    // font-size: 20px;
-    // height: 45px;
-    // text-align: center;
-  }
-
-  .description-input {
-    // height: 300px;
-  }
-
-  .photo-upload {
-
-  }
-
-  .journal-submit {
-
-  }
+.journal-form-submit-btn {
+  margin-top: 10px;
+  height: 36px;
+  text-align: center;
+  width: 330px;
+  border: 1px solid #3E1E99;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 10px 6px #81c8ef, 10px 6px 0px 1px #3e1e99;
 }
