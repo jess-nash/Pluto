@@ -7,7 +7,6 @@
   left: 1rem;
 }
 
-
 .meal-container h2 {
   font-size: 18px;
 }
@@ -16,10 +15,6 @@
   font-size: 16px;
   margin: 10px 0px 10px 0px;
 }
-
-// .user-name {
-//   margin: 0;
-// }
 
 .meal-time {
   padding: 5px 0px 0px 15px;
@@ -33,10 +28,6 @@
   padding: 4px;
   text-align: center;
 }
-
-// .meal-date {
-//   margin: 0;
-// }
 
 .meal-container {
   overflow: auto;
@@ -52,12 +43,6 @@
   display: flex;
   justify-content: space-between;
 }
-
-// .meal-user {
-//   height: 50px;
-//   width: 50px;
-//   border-radius: 50%;
-// }
 
 .see-more {
   color: $d-purple;
@@ -82,4 +67,16 @@
 
 .flex-box {
   display:flex;
+}
+
+.meal-form-submit-btn {
+  margin-top: 10px;
+  height: 36px;
+  text-align: center;
+  width: 330px;
+  border: 1px solid #3E1E99;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 10px 6px #81c8ef, 10px 6px 0px 1px #3e1e99;
 }

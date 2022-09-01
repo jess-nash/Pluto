@@ -29,6 +29,28 @@ class PetsController < ApplicationController
     authorize @pet
   end
 
+  def edit
+    @pet = Pet.find(params[:id])
+    authorize @pet
+  end
+
+  def update
+    @pet = Pet.find(params[:id])
+    authorize @pet
+    if @pet.update(pet_params)
+      redirect_to @pet, notice: "Pet info successfuly updated."
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @pet = Pet.find(params[:id])
+    authorize @pet
+    @pet.destroy
+    redirect_to @pet, notice: 'Pet was successfully deleted.'
+  end
+
   private
 
   def pet_params
