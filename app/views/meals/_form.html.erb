@@ -19,7 +19,7 @@
       <%= f.input :photos, as: :file, label: 'Picture', input_html: { multiple: true, class: 'rounded-box' } %>
     </div>
     <div class="important">
-      <%= f.input :important, as: :boolean, label: 'Enable notifications', input_html: { multiple: true, class: 'rounded-box' } %>
+      <%= f.input :important, as: :boolean, label: 'Enable notifications', input_html: { class: 'rounded-box' } %>
     </div>
     <div class="meal-submit ">
       <%= f.submit 'Create', class: "meal-form-submit-btn" %>

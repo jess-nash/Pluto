@@ -15,7 +15,7 @@
     <%= f.input :description, placeholder: "Write something...", label: "Description", input_html: { class: 'rounded-box write-something-box' } %>
   </div>
   <div class="important">
-    <%= f.input :important, as: :boolean, label: 'Enable notifications', input_html: { multiple: true, class: 'rounded-box' } %>
+    <%= f.input :important, as: :boolean, label: 'Enable notifications', input_html: { class: 'rounded-box' } %>
   </div>
   <div class="photo-upload">
     <%= f.input :photos, as: :file, label: false, input_html: { multiple: true, class: 'rounded-box' } %>
