@@ -60,12 +60,12 @@ def create_pets
   pets = [
     {
       name: "Miel",
-      description: "Miichan is the cutest kitty ever. I wub her so so much ♥ ♥ ♥",
-      age: 2,
+      description: "Only ever responds to Micchan. Is a calico and siamese mix from Osaka. She has bright blue eyes and loves most humans. Does not like being picked up! Favorite snack is chururu.",
+      age: 8,
       weight: 7,
       chip_number: "LW123",
       sex: "Female",
-      url: "https://images.unsplash.com/photo-1618826411640-d6df44dd3f7a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+      url: "https://i.imgur.com/ry15K1x.jpg"
     },
 
     {
