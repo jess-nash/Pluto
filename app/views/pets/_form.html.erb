@@ -28,10 +28,10 @@
       </div>
 
       <div class="Pet-add">
-        <% if @pet.save %>
-          <%= f.submit 'Update pet' %>
+        <% if @pet.persisted? %>
+          <%= f.submit 'Update pet', class: "add-user-btn" %>
         <% else %>
-          <%= f.submit 'Add pet' %>
+          <%= f.submit 'Add pet', class: "add-user-btn" %>
         <% end %>
       </div>
     </div>
