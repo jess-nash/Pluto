@@ -18,7 +18,7 @@ def create_users
     email: "nicole@gmail.com",
     password: password,
     username: "Nicole",
-    line_id: static_lineid
+    line_id: "Uc214a5d215697d397d8f7dd69b374b13"
   )
   file = URI.open("https://avatars.githubusercontent.com/u/74501096?v=4")
   nicole.photo.attach(io: file, filename: 'nicole.jpg', content_type: 'image/jpg')
@@ -38,7 +38,7 @@ def create_users
     email: "jessica@gmail.com",
     password: password,
     username: "Jessica",
-    line_id: static_lineid
+    line_id: "Uaa7264d74fbc491ef41fb1fee6823b5f"
   )
   file = URI.open("https://avatars.githubusercontent.com/u/97200803?v=4")
   jessica.photo.attach(io: file, filename: 'jess.jpg', content_type: 'image/jpg')
@@ -48,7 +48,7 @@ def create_users
     email: "ken@gmail.com",
     password: password,
     username: "Ken",
-    line_id: static_lineid
+    line_id: "Uf563eeb1d1be9817bca3fb413b272f53"
   )
   file = URI.open("https://avatars.githubusercontent.com/u/100769790?v=4")
   ken.photo.attach(io: file, filename: 'ken.jpg', content_type: 'image/jpg')
