@@ -1,5 +1,5 @@
-<%= link_to toggle_favorite_pet_journal_entry_path(@journal_entries, @pet), remote: true, method: :post do %>
+<%= link_to toggle_favorite_pet_journal_entry_path(journal_entry_id: journal.id), remote: true, method: :post do %>
   <p class="like-btn">
-    <i id="likes" class="likes fa-regular fa-heart"></i></span>
-  </p>
+    <i class="likes fa-regular fa-heart"></i></span>
+</p>
 <% end %>

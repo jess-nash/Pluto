@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="pet-form">
+    <%= simple_form_for @pet do |f| %>
+      <div class="photo-upload">
+        <%= f.input :photo, as: :file, label: 'Add a photo', input_html: { class: 'rounded-box' } %>
+      </div>
+
+      <div class="name-input">
+        <%= f.input :name, placeholder: 'Pluto', label: 'Name', input_html: { class: 'rounded-box title-box' } %>
+      <div class="row">
+        <div class="col-12">
+          <%= f.input :age, label: 'Age (years old)', input_html: { class: 'rounded-box' } %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <%= f.input :weight, label: 'Weight (lbs)', input_html: { class: 'rounded-box write-something-box' } %>
+        </div>
+      <div class="sex">
+        <%= f.input :sex, :collection => ['Male', 'Female'], label: 'Sex', input_html: { class: 'form-control rounded-box' }  %>
+      </div>
+        <div class="chip-number">
+          <%= f.input :chip_number, label: 'Chip number', input_html: { class: 'rounded-box' } %>
+        </div>
+        <div class="description">
+          <%= f.input :description, as: :text, label: 'Description', input_html: { class: 'form-control rounded-box' }  %>
+        </div>
+      </div>
+
+      <div class="Pet-add">
+        <% if @pet.save %>
+          <%= f.submit 'Update pet' %>
+        <% else %>
+          <%= f.submit 'Add pet' %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

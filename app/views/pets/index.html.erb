@@ -5,13 +5,17 @@
   <% @pets.each do |pet| %>
     <%= link_to pet_path(pet), class: "text-decoration-none text-dark" do %>
       <div class="family-pet-card-<%= pet.sex == 'Female' ? 'f' : 'm' %> ">
-        <%= cl_image_tag pet.photo.key, class: "family-pet-img"%>
+        <% if pet.photo.attached? %>
+          <%= cl_image_tag pet.photo.key, class: "family-pet-img"%>
+        <% else %>
+          <%= image_tag("pluto.png", alt: "pluto", class: "family-pet-img") %>
+        <% end %>
         <div class="family-pet-info">
           <h2 class="family-pet-name"><%= pet.name.capitalize %></h2>
           <% if pet.sex == 'Female' %>
-            <p class="pet-sex-f"> <i class="fa-solid fa-venus"></i> </p>
+            <p class="pet-sex-icon pet-sex-f"> <i class="fa-solid fa-venus"></i> </p>
           <% else %>
-            <p class="pet-sex-m"> <i class="fa-solid fa-mars"></i></p>
+            <p class="pet-sex-icon pet-sex-m"> <i class="fa-solid fa-mars"></i></p>
           <% end %>
           <% if pet.age.present? %>
             <div class="family-pet-age <%= pet.sex == 'Female' ? 'female' : 'male' %>">
@@ -28,9 +32,9 @@
     <% end %>
   <% end %>
 </div>
-<%= link_to new_ownership_path(@ownerships) do %>
+<%= link_to new_pet_path do %>
   <div class="add-user-btn">
-    <p>add a user to family</p>
+    <p>add a pet to your family</p>
   </div>
 <% end %>
 </div>

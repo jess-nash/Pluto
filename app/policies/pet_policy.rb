@@ -11,12 +11,16 @@ class PetPolicy < ApplicationPolicy
     return true
   end
 
+  def new?
+    return true
+  end
+
   def create?
     return true
   end
 
   def edit?
-    user == record.user
+    record.users.include?(user)
   end
 
   def update?
@@ -24,7 +28,7 @@ class PetPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    record.users.include?(user)
   end
 
   def profile?

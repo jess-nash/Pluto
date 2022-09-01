@@ -1,40 +1,36 @@
-
-<div class="container-fluid">
+<div class="container-fluid white-bg-s ">
   <div class="medicine-form">
     <%= simple_form_for [@pet, @medicine] do |f| %>
-    <div class="description-input">
-      <%= f.input :name, placeholder: 'Write something...', label: 'Medication name', input_html: { class: 'rounded-box title-box' } %>
-      <div class="row">
-        <div class="col-6">
-          <%= f.input :medicine_type, :collection => ['Pills', 'Chewable', 'Liquid', 'Other'], placeholder: 'Select', label: 'Medicine type', input_html: { class: 'rounded-box' } %>
+      <div class="description-input">
+        <%= f.input :name, placeholder: 'Write something...', label: 'Medication name', input_html: { class: 'rounded-box title-box' } %>
+        <div class="row">
+          <div class="col-6">
+            <%= f.input :medicine_type, :collection => ['Pills', 'Chewable', 'Liquid', 'Other'], placeholder: 'Select', label: 'Medicine type', input_html: { class: 'rounded-box' } %>
+          </div>
+          <div class="col-6">
+            <%= f.input :dosage, placeholder: '(Ex. 1 spoonful, 2 pills, etc.)' , label: 'Dosage', input_html: { class: 'rounded-box' } %>
+          </div>
         </div>
-        <div class="col-6">
-          <%= f.input :dosage, placeholder: '(Ex. 1 spoonful, 2 pills, etc.)' , label: 'Dosage', input_html: { class: 'rounded-box' } %>
+        <%= f.input :description, as: :text, label: false, placeholder: 'Description', input_html: { class: 'rounded-box write-something-box' } %>
+        <div class="row">
+          <div class="col-6">
+            <%= f.input :start_date, as: :date, html5: true, label: 'Start date', input_html: { class: 'form-control rounded-box no-margin-form' } %>
+          </div>
+          <div class="col-6">
+            <%= f.input :end_date, as: :date, html5: true, label: 'End date', input_html: { class: 'form-control rounded-box no-margin-form' }  %>
+          </div>
         </div>
+        <%= f.input :expiration_date, as: :date, html5: true, label: 'Expiration date', input_html: { class: 'rounded-box expiration-date-box no-margin-form' } %>
       </div>
-      <%= f.input :description, as: :text, label: false, placeholder: 'Description', input_html: { class: 'rounded-box write-something-box' } %>
-      <div class="row">
-        <div class="col-6">
-          <%= f.input :start_date, as: :date, html5: true, label: 'Start date', input_html: { class: 'form-control rounded-box' } %>
-        </div>
-        <div class="col-6">
-          <%= f.input :end_date, as: :date, html5: true, label: 'End date', input_html: { class: 'form-control rounded-box' }  %>
-        </div>
+      <div class="photo-upload">
+        <%= f.input :photos, as: :file, label: false, input_html: { multiple: true, class: 'rounded-box p-1' } %>
       </div>
-      <%= f.input :expiration_date, as: :date, html5: true, label: 'Expiration date', input_html: { class: 'rounded-box' } %>
-    </div>
-
-    <div class="important">
-      <%= f.input :important, as: :boolean, label: 'Enable notifications', input_html: { multiple: true, class: 'rounded-box' } %>
-    </div>
-
-    <div class="photo-upload">
-      <%= f.input :photos, as: :file, label: false, input_html: { multiple: true, class: 'rounded-box' } %>
-    </div>
-
-    <div class="Medicine-add">
-      <%= f.submit 'Add medicine' %>
-    </div>
-  <% end %>
+      <div class="important">
+        <%= f.input :important, as: :boolean, label: 'Enable notifications', input_html: { class: 'rounded-box' } %>
+      </div>
+      <div class="Medicine-add">
+        <%= f.submit 'Add medicine', class: "medicine-form-submit-btn" %>
+      </div>
+    <% end %>
   </div>
 </div>

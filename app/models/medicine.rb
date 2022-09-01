@@ -6,4 +6,5 @@ class Medicine < ApplicationRecord
   validates :description, length: { in: 0..1_000 }
 
   has_many_attached :photos
+
 end

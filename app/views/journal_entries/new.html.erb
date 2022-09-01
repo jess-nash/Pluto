@@ -3,10 +3,8 @@
     <%= render 'shared/buttons/backbtn' %>
   <% end %>
 </div>
-
-
 <div class="container">
-  <div class="journal-new-header">
+  <div class="journal-new-header white-bg-s">
     <%= cl_image_tag(current_user.photo.key, class: "journal-user") %>
     <div class="pet-and-date">
       <h2 class="pet-name"> New Journal Entry for <%= @pet.name %></h2>

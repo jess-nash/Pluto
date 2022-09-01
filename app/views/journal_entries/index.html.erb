@@ -6,36 +6,53 @@
     <%= render 'shared/buttons/plusbtn' %>
   <% end %>
 </div>
-<%# Fix spacing later on %>
+
 <div class="icon-sizing mb-4">
   <h1 class="text-center"><i class="fa-solid fa-book"></i> Journals</h1>
 </div>
-<% @journal_entries.each do |journal| %>
-  <div class="journal-container ">
-    <div class="journal-top">
-      <%= render 'journal_entries/like_button.html.erb', journal_entry: @journal_entry, pet: @pet %>
-      <%= cl_image_tag(journal.user.photo.key, class: "journal-user") %>
-      <div class="user-and-date">
-        <h2 class="user-name"> <%= journal.user.name %></h2>
-        <small class="journal-date"> <%= journal.created_at.to_formatted_s(:short) %> </small>
+
+<% if @journal_entries.present? %>
+  <% @journal_entries.each do |journal| %>
+    <div class="journal-container ">
+      <div class="journal-top">
+        <%= link_to toggle_favorite_pet_journal_entry_path(id: journal.id), remote: true, method: :post do %>
+          <p class="like-btn">
+            <% if current_user.favorited?(journal) %>
+              <span><i class="likes fa-solid fa-heart"></i></span>
+            <% else %>
+              <span><i class="likes fa-regular fa-heart"></i></span>
+            <% end %>
+          </p>
+        <% end %>
+        <%= cl_image_tag(journal.user.photo.key, class: "journal-user") %>
+        <div class="user-and-date">
+          <h2 class="user-name"> <%= journal.user.name %></h2>
+          <small class="journal-date"> <%= journal.created_at.to_formatted_s(:short) %> </small>
+        </div>
+      </div>
+      <div class="journal-content">
+        <h2 class="journal-title">
+          <b> <%= journal.name.capitalize %></b>
+        </h2>
+        <p class="journal-entry">
+          <%= journal.content %>
+        </p>
+      </div>
+      <div class="journal-img">
+        <% if journal.photos.present? %>
+          <% journal.photos.each do |photo|  %>
+            <%= link_to photo do %>
+              <%= cl_image_tag(photo.key, class: "journal-photo") %>
+            <% end %>
+          <% end %>
+        <% end %>
       </div>
     </div>
-    <div class="journal-content">
-      <h2 class="journal-title">
-        <b> <%= journal.name.capitalize %></b>
-      </h2>
-      <p class="journal-entry">
-        <%= journal.content %>
-      </p>
-    </div>
-    <div class="journal-img">
-      <% if journal.photos.present? %>
-        <% journal.photos.each do |photo|  %>
-          <%= cl_image_tag(photo.key, class: "journal-photo") %>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
+  <% end %>
+<% else %>
+  <h3 class="px-2 text-center">No journal entries for this pet yet.</h3>
+  <p class="px-2 text-center">Add your first journal to get started!</p>
 <% end %>
+
 <%= javascript_pack_tag 'seemore'%>
 <%= javascript_pack_tag 'likes.js' %>

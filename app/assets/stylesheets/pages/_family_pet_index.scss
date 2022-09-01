@@ -2,6 +2,7 @@
   color: $d-purple;
   font-size: 50px;
   background-color: white;
+  border-radius: 30px;
 }
 .page-title-box {
   height: 60px;
@@ -54,7 +55,7 @@
   border-right: solid 1px #3E1E99;
   border-left: solid .5px #3E1E99;
   position: relative;
-  bottom: .8px;
+  bottom: .5px;
   right: 0.9px;
 
 }
@@ -92,6 +93,13 @@
   background-color: $d-purple;
   color: white;
 }
+
+.pet-sex-icon {
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}
+
 .pet-sex-f {
   color: $l-purple;
 }

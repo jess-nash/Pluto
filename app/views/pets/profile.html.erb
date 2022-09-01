@@ -1,11 +1,22 @@
 <div class="nav-buttons">
-  <%= link_to pet_path(@pet) do%>
+  <%= link_to pet_path(@pet) do %>
     <%= render 'shared/buttons/backbtn' %>
+  <% end %>
+  <div class="update-pet row">
+    <% if policy(@pet).edit? %>
+      <%= link_to edit_pet_path(@pet) do %>
+        <%= render 'shared/buttons/editbtn' %>
+      <% end %>
+    <% end %>
   </div>
-<% end %>
+</div>
 
 <div class="pet-profile-header">
-  <%= cl_image_tag @pet.photo.key, class: "pet-prof-icon" %>
+  <% if @pet.photo.present? %>
+    <%= cl_image_tag @pet.photo.key, class: "pet-prof-icon" %>
+  <% else  %>
+    <%= image_tag("pluto.png", alt: "pluto", class: "pet-prof-icon") %>
+  <% end %>
   <div class="family-pet p-3">
     <h2 class="family-pet-name"><%= @pet.name %></h2>
     <% if @pet.sex == "Male" %>
@@ -15,29 +26,41 @@
     <% end %>
   </div>
   <div class="pet-summary">
-    <div class="age&weight">
-      <% if @pet.age.present? %>
-        <span class="age"><%= @pet.age %> years old</span>
-      <% end %>
-      <% if @pet.weight.present? %>
-        <span class="weight">| <%= @pet.weight %> lbs</span>
-      <% end %>
+    <div class="pet-info-2-columns">
+      <div class="update-delete-pet">
+        <%# <div class="delete-pet row"> %>
+          <%# if policy(@pet).destroy? %>
+            <%#= link_to 'Delete pet', pet_path(@pet), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%# end %>
+        <%# </div> %>
+      </div>
+      <div class="age-weight-chip">
+        <div class="age&weight">
+          <% if @pet.age.present? %>
+            <span class="age"><%= @pet.age %> years old</span>
+          <% end %>
+          <% if @pet.weight.present? %>
+            <span class="weight">| <%= @pet.weight %> lbs</span>
+          <% end %>
+        </div>
+        <div class="chip-number">
+          <% if @pet.chip_number.present? %>
+            <p class="chipnum">Chip Number: <%= @pet.chip_number %></p>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <% if @pet.chip_number.present? %>
-      <p class="chipnum">Chip Number: <%= @pet.chip_number %></p>
-    <% end %>
     <% if @pet.description.present? %>
       <p class="pet-bio"><%= @pet.description %></p>
     <% end %>
   </div>
 </div>
-
 <div class="prof-journal-imgs">
   <% @pet.journal_entries.each do |journal| %>
-      <% journal.photos.each do |photo|  %>
-          <%= cl_image_tag(photo.key, class: "img-box-sizing") %>
-        <% end %>
+    <% journal.photos.each do |photo|  %>
+      <%= link_to photo do %>
+        <%= cl_image_tag(photo.key, class: "img-box-sizing") %>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
-
-<%# delete this comment %>

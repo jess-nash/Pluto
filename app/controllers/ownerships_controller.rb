@@ -4,7 +4,7 @@ class OwnershipsController < ApplicationController
     authorize @ownership
     # @ownerships = Ownership.where(title: params[:query])
     if params[:query].present?
-      @users = User.where(email: params[:query])
+      @users = User.where(email: params[:query].downcase)
     end
   end
 
@@ -29,7 +29,7 @@ class OwnershipsController < ApplicationController
 
   def create_ownership_from_pet
     @pet = Pet.find(params[:pet_id])
-    ownership = Ownership.new({pet: @pet, user: current_user, main: true})
+    ownership = Ownership.new({ pet: @pet, user: current_user, main: true })
     authorize ownership
     if ownership.save
       redirect_to pets_path

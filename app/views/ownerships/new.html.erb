@@ -3,43 +3,48 @@
     <%= render 'shared/buttons/backbtn' %>
   <% end %>
 </div>
-
-
 <div class="user-search container">
-  <div class="ownership-new-header">
-      <h2 class="pet-name"> Add a new family member</h2>
-      <p>Enter the email of the person you want to add to your family:</p>
+  <div class="ownership-new-header white-bg-np">
+    <h2 class="pet-name"> Add a new family member</h2>
+    <p>Enter the email of the person you want to add to your family:</p>
   </div>
   <div class="ownership-form-container">
     <%= render 'form', ownership: @ownership %>
   </div>
 </div>
-
 <div class="user-results container">
   <div class="user-search-results">
     <% if @users.present? %>
       <% @users.each do |user| %>
-        <div class="user-result-card">
-          <div class="user-results-info">
-            <div class="user-results-avatar-container">
-              <%= cl_image_tag(user.photo.key, class: "user-results-avatar") %>
+        <% if user.email == current_user.email %>
+          <p>You cannot add yourself to your family</p>
+        <% else %>
+          <div class="user-result-card">
+            <div class="user-results-info">
+              <div class="user-results-avatar-container">
+                <%= cl_image_tag(user.photo.key, class: "user-results-avatar") %>
+              </div>
+              <div class="user-results-name">
+                <h3><%= user.name %></h3>
+              </div>
             </div>
-            <div class="user-results-name">
-              <h3><%= user.name %></h3>
+            <div class="add-user-btn-form">
+              <%= simple_form_for (@ownership) do |f| %>
+                <div class="name-input">
+                  <%= f.input :user, as: :hidden, input_html: { value: user.id } %>
+                </div>
+                <div class="user-submit">
+                  <p>
+                    <%= f.submit 'Add', class: "add-user-btn"%>
+                  </p>
+                </div>
+              <% end %>
             </div>
           </div>
-          <div class="add-user-btn-form">
-            <%= simple_form_for (@ownership) do |f| %>
-              <div class="name-input">
-                <%= f.input :user, as: :hidden, input_html: { value: user.id } %>
-              </div>
-              <div class="user-submit">
-                <%= f.submit 'Add', class: "add-user-btn"%>
-              </div>
-            <% end %>
-          </div>
-        </div>
+        <% end %>
       <% end %>
+    <% elsif !@users.present? && @users %>
+      <p class="add-user-bg">No results</p>
     <% end %>
   </div>
 </div>

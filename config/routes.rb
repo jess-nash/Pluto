@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  resources :pets, only: [:index, :show, :new, :create] do
+  resources :pets, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :journal_entries, only: [:index, :new, :create] do
       member do
         post 'toggle_favorite', to: "journal_entries#toggle_favorite"
@@ -21,5 +21,5 @@ Rails.application.routes.draw do
 
   post "/callback", to: "line#callback"
 
-  get "/new_pet_ownership", to: "ownership#create_ownership_from_pet"
+  get "/new_pet_ownership", to: "ownerships#create_ownership_from_pet"
 end
