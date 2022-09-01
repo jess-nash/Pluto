@@ -41,7 +41,7 @@
           </div>
         <% end %>
       <% end %>
-    <% else %>
+    <% elsif !@users.present? && @users %>
       <p class="add-user-bg">No results</p>
     <% end %>
   </div>
