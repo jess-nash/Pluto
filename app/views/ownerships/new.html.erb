@@ -4,7 +4,7 @@
   <% end %>
 </div>
 <div class="user-search container">
-  <div class="ownership-new-header">
+  <div class="ownership-new-header white-bg-np">
     <h2 class="pet-name"> Add a new family member</h2>
     <p>Enter the email of the person you want to add to your family:</p>
   </div>
@@ -34,14 +34,14 @@
                   <%= f.input :user, as: :hidden, input_html: { value: user.id } %>
                 </div>
                 <div class="user-submit">
-                  <%= f.submit 'Add', class: "add-user-btn"%>
+                    <%= f.submit 'Add', class: "add-item-btn"%>
                 </div>
               <% end %>
             </div>
           </div>
         <% end %>
       <% end %>
-    <% else %>
+    <% elsif !@users.present? && @users %>
       <p class="add-user-bg">No results</p>
     <% end %>
   </div>

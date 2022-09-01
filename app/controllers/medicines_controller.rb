@@ -8,6 +8,7 @@ class MedicinesController < ApplicationController
     @medicine = Medicine.find(params[:id])
     authorize @medicine
     @pet = @medicine.pet
+    @pet.medicine_notifications.update(important: false)
   end
 
   def new
@@ -33,7 +34,7 @@ class MedicinesController < ApplicationController
 
   def medicine_params
     params.require(:medicine).permit(
-      :name, :dosage, :start_date, :end_date, :expiration_date, :description, :medicine_type, photos: []
+      :name, :dosage, :start_date, :end_date, :expiration_date, :description, :medicine_type, :important, photos: []
     )
   end
 end
