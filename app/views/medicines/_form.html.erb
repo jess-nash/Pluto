@@ -26,7 +26,7 @@
         <%= f.input :photos, as: :file, label: false, input_html: { multiple: true, class: 'rounded-box p-1' } %>
       </div>
       <div class="important">
-        <%= f.input :important, as: :boolean, label: 'Enable notifications', input_html: { class: 'rounded-box' } %>
+        <%= f.input :important, label: 'Enable notifications', input_html: { class: 'rounded-box' } %>
       </div>
       <div class="Medicine-add">
         <%= f.submit 'Add medicine', class: "medicine-form-submit-btn" %>

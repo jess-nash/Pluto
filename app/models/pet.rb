@@ -12,20 +12,14 @@ class Pet < ApplicationRecord
   has_one_attached :photo
 
   def has_notifications?
-    unless medicines.where(important: true).empty? && appointments.where(important: true).empty?
-      true
-    end
+    medicine_notifications.exists? || appointment_notifications.exists?
   end
 
-  def has_medicine_notifications?
-    unless medicines.where(important: true).empty?
-      true
-    end
+  def medicine_notifications
+    medicines.where(expiration_date: (Time.now).beginning_of_day..(Time.now+7.day).end_of_day).where(important: true)
   end
 
-  def has_appointment_notifications?
-    unless appointments.where(important: true).empty?
-      true
-    end
+  def appointment_notifications
+    appointments.where(time: (Time.now+1.day).beginning_of_day..(Time.now+3.day).end_of_day).where(important: true)
   end
 end

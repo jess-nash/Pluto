@@ -4,6 +4,7 @@ class AppointmentsController < ApplicationController
     @pet = Pet.find(params[:pet_id])
     # @appointments = @pet.appointments.order(time: :desc)
     @appointments = @pet.appointments.order(created_at: :desc)
+    @pet.appointment_notifications.update(important: false)
   end
 
   def show
