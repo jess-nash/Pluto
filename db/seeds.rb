@@ -362,6 +362,20 @@ def create_medicine
   file = URI.open("https://cdn.shopify.com/s/files/1/1624/5131/products/Heargard_PLus_Brown_Front.jpg?v=1587522123")
   heartgard.photos.attach(io: file, filename: 'medicine.jpg', content_type: 'image/jpg')
 
+  dekisan = Medicine.create(
+    name: "Dekisan VG",
+    dosage: "1 dab",
+    medicine_type: "liquid",
+    start_date: Faker::Date.forward(days: 150),
+    end_date: Faker::Date.forward(days: 90),
+    expiration_date: Date.today,
+    description: "Originally got for small nose rash, works for feline acne as well.",
+    important: true,
+    pet: Pet.first
+  )
+  file = URI.open("https://i.imgur.com/HU7Qz9C.jpg")
+  dekisan.photos.attach(io: file, filename: 'medicine.jpg', content_type: 'image/jpg')
+
   simparica = Medicine.create(
     name: "simparica",
     dosage: "1 in the late afternoon",
