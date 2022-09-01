@@ -1,0 +1,12 @@
+//white bg to make text on show pages more visible when directly above the colored shapes bg, also added to forms
+
+//for mostly show pages
+.white-bg-s {
+  background-color: white;
+  padding-bottom: 16px;
+}
+
+//-title is only on one line titles etc : -np is for no padding non titles
+.white-bg-title, .white-bg-np {
+  background-color: white;
+}
