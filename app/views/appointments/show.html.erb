@@ -3,8 +3,7 @@
     <%= render 'shared/buttons/backbtn' %>
   <% end %>
 </div>
-
-<div class="container appointment-show">
+<div class="container appointment-show white-bg-s ">
   <div class="appointment-top">
     <% if @appointment.time > DateTime.now %>
       <p class="appointment-visit-for">Upcoming visit for <%= @appointment.pet.name %> </p>
@@ -25,15 +24,15 @@
     <p class="appointment-description"><%= @appointment.description.capitalize %></p>
     <% if @appointment.important %>
       <p><u>Notifications are enabled for this appointment.<u></p>
-    <% end %>
-    <div class="appointment-img-container">
-      <% if @appointment.photos.present? %>
-        <% @appointment.photos.each do |photo|  %>
-          <%= link_to photo do %>
-            <%= cl_image_tag(photo.key, class: "apt-img") %>
-          <% end %>
         <% end %>
-      <% end %>
+        <div class="appointment-img-container">
+          <% if @appointment.photos.present? %>
+            <% @appointment.photos.each do |photo|  %>
+              <%= link_to photo do %>
+                <%= cl_image_tag(photo.key, class: "apt-img") %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
