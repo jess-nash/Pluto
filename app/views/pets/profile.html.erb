@@ -1,8 +1,16 @@
 <div class="nav-buttons">
-  <%= link_to pet_path(@pet) do%>
+  <%= link_to pet_path(@pet) do %>
     <%= render 'shared/buttons/backbtn' %>
+  <% end %>
+  <div class="update-pet row">
+    <% if policy(@pet).edit? %>
+      <%= link_to edit_pet_path(@pet) do %>
+        <%= render 'shared/buttons/editbtn' %>
+      <% end %>
+    <% end %>
   </div>
-<% end %>
+</div>
+
 <div class="pet-profile-header">
   <% if @pet.photo.present? %>
     <%= cl_image_tag @pet.photo.key, class: "pet-prof-icon" %>
@@ -20,11 +28,6 @@
   <div class="pet-summary">
     <div class="pet-info-2-columns">
       <div class="update-delete-pet">
-        <div class="update-pet row">
-          <% if policy(@pet).edit? %>
-            <%= link_to 'Update info', edit_pet_path(@pet), class: "btn btn-info" %>
-          <% end %>
-        </div>
         <%# <div class="delete-pet row"> %>
           <%# if policy(@pet).destroy? %>
             <%#= link_to 'Delete pet', pet_path(@pet), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>

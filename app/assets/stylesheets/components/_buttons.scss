@@ -4,6 +4,7 @@
   border-radius: 10px;
   text-align: center;
   margin: 10px;
+
 }
 
 a > .button {
@@ -152,4 +153,8 @@ a > .button {
   border-radius: 10px;
   box-shadow: 10px 6px $l-blue, 10px 6px  0px 1px $d-purple;
   margin: 0 auto;
+}
+
+.back-btn {
+  padding-left: 5px;
 }
