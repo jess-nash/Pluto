@@ -11,6 +11,8 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:id])
     authorize @appointment
     @pet = @appointment.pet
+    # when you click on one notif, all vanish instead of the specific one
+    @pet.appointment_notifications.update(important: false)
   end
 
   def new

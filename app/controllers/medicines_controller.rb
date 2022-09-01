@@ -8,6 +8,7 @@ class MedicinesController < ApplicationController
     @medicine = Medicine.find(params[:id])
     authorize @medicine
     @pet = @medicine.pet
+    @pet.medicine_notifications.update(important: false)
   end
 
   def new
