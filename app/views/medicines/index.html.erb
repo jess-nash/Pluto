@@ -6,14 +6,15 @@
     <%= render 'shared/buttons/plusbtn' %>
   <% end %>
 </div>
-
 <div class="icon-sizing mb-4">
   <h1 class="text-center white-bg"><i class="fa-solid fa-capsules"></i> Medicine</h1>
 </div>
-
 <% if @medicines.present? %>
   <% @medicines.each do |medicine| %>
     <%= link_to medicine_path(medicine) do %>
+      <div class="notification meds-show <%= @pet.medicine_notifications.exists? ? 'on' : 'off' %>">
+        <i class="fa-solid fa-bell"></i>
+      </div>
       <div class="medicine-container">
         <div class="medicine-top">
           <h2><%= medicine.name.capitalize %></h2>
@@ -43,5 +44,4 @@
   <h3 class="px-2 text-center">No medicine for this pet yet.</h3>
   <p class="px-2 text-center">Add your first medicine to get started!</p>
 <% end %>
-
 <%= javascript_pack_tag 'seemore'%>

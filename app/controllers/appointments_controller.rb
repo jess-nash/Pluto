@@ -4,7 +4,6 @@ class AppointmentsController < ApplicationController
     @pet = Pet.find(params[:pet_id])
     # @appointments = @pet.appointments.order(time: :desc)
     @appointments = @pet.appointments.order(created_at: :desc)
-    @pet.appointment_notifications.update(important: false)
   end
 
   def show
@@ -12,6 +11,8 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:id])
     authorize @appointment
     @pet = @appointment.pet
+    # when you click on one notif, all vanish instead of the specific one
+    @pet.appointment_notifications.update(important: false)
   end
 
   def new

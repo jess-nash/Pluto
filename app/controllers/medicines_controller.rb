@@ -2,13 +2,13 @@ class MedicinesController < ApplicationController
   def index
     @pet = Pet.find(params[:pet_id])
     @medicines = policy_scope(Medicine).where(pet: @pet)
-    @pet.medicine_notifications.update(important: false)
   end
 
   def show
     @medicine = Medicine.find(params[:id])
     authorize @medicine
     @pet = @medicine.pet
+    @pet.medicine_notifications.update(important: false)
   end
 
   def new
