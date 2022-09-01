@@ -14,19 +14,19 @@
         <%= f.input :description, as: :text, label: false, placeholder: 'Description', input_html: { class: 'rounded-box write-something-box' } %>
         <div class="row">
           <div class="col-6">
-            <%= f.input :start_date, as: :date, html5: true, label: 'Start date', input_html: { class: 'form-control rounded-box' } %>
+            <%= f.input :start_date, as: :date, html5: true, label: 'Start date', input_html: { class: 'form-control rounded-box no-margin-form' } %>
           </div>
           <div class="col-6">
-            <%= f.input :end_date, as: :date, html5: true, label: 'End date', input_html: { class: 'form-control rounded-box' }  %>
+            <%= f.input :end_date, as: :date, html5: true, label: 'End date', input_html: { class: 'form-control rounded-box no-margin-form' }  %>
           </div>
         </div>
-        <%= f.input :expiration_date, as: :date, html5: true, label: 'Expiration date', input_html: { class: 'rounded-box' } %>
+        <%= f.input :expiration_date, as: :date, html5: true, label: 'Expiration date', input_html: { class: 'rounded-box expiration-date-box no-margin-form' } %>
       </div>
       <div class="photo-upload">
-        <%= f.input :photos, as: :file, label: false, input_html: { multiple: true, class: 'rounded-box' } %>
+        <%= f.input :photos, as: :file, label: false, input_html: { multiple: true, class: 'rounded-box p-1' } %>
       </div>
       <div class="Medicine-add">
-        <%= f.submit 'Add medicine' %>
+        <%= f.submit 'Add medicine', class: "medicine-form-submit-btn" %>
       </div>
     <% end %>
   </div>

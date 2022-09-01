@@ -21,8 +21,8 @@
     <div class="important">
       <%= f.input :important, as: :boolean, label: 'Enable notifications', input_html: { multiple: true, class: 'rounded-box' } %>
     </div>
-    <div class="meal-submit">
-      <%= f.submit 'Create' %>
+    <div class="meal-submit ">
+      <%= f.submit 'Create', class: "meal-form-submit-btn" %>
     </div>
   <% end %>
 </div>
