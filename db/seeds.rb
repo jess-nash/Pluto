@@ -60,9 +60,9 @@ def create_pets
   pets = [
     {
       name: "Miel",
-      description: "Miichan is the cutest kitty ever. I wub her so so much ♥ ♥ ♥",
+      description: "Miichan is the cutest kitty ever. I love her so so much ♥ ♥ ♥",
       age: 2,
-      weight: 7,
+      weight: 9,
       chip_number: "LW123",
       sex: "Female",
       url: "https://images.unsplash.com/photo-1618826411640-d6df44dd3f7a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
@@ -70,9 +70,9 @@ def create_pets
 
     {
       name: "TJ",
-      description: "Tyler Jr is my favoritest thing in the entire world. He protects me when I'm scared of the clown that lives under my bed.",
+      description: "He protec, he attac, but most importantly, I love him and he loves me bac.",
       age: 8,
-      weight: 20,
+      weight: 60,
       chip_number: "LW456",
       sex: "Male",
       url: "https://images.unsplash.com/photo-1620001796685-adf7110fe1a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
@@ -81,33 +81,34 @@ def create_pets
     {
       name: "Shitzu",
       description: "I went to a zoo and they only had one dog there. It was a...",
-      weight: 2,
+      age: 12,
+      weight: 13,
       sex: "Male",
       url: "https://images.unsplash.com/photo-1588178393136-4b0950f78c38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
     },
 
     {
-      name: "Basura",
-      description: "I don't even like it. Hamtaro looking ass",
+      name: "Hamish",
+      description: "Cuter than Hamtaro.",
       age: 1,
-      weight: 1,
+      weight: 6,
       sex: "Male",
       url: "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1476&q=80"
     },
 
     {
-      name: "Catapult",
-      description: "She likes flying through the air.",
+      name: "Luna",
+      description: "My sweet baby balloon.",
       age: 5,
-      weight: 5,
+      weight: 15,
       chip_number: "LW789",
       sex: "Female",
       url: "https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
     },
 
     {
-      name: "Doggobot",
-      description: "Why does he have such cold dead eyes...",
+      name: "Pugsly",
+      description: "He's a rescue.",
       chip_number: "LW848",
       sex: "Male",
       url: "https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
@@ -115,9 +116,9 @@ def create_pets
 
     {
       name: "Miel",
-      description: "Miichan is the cutest doggo ever. I wub him so so much ♥ ♥ ♥",
+      description: "The cutest doggo ever. Great with people, kind of scared of small dogs.",
       age: 7,
-      weight: 14,
+      weight: 70,
       chip_number: "LW484",
       sex: "Male",
       url: "https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=662&q=80"
@@ -125,7 +126,7 @@ def create_pets
 
     {
       name: "Valkyrie",
-      description: "This cat is lowkey evil",
+      description: "This cat is lowkey evil...but I love her.",
       age: 6,
       weight: 10,
       sex: "Female",
