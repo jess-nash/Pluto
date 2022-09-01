@@ -370,7 +370,7 @@ def create_medicine
     start_date: Faker::Date.forward(days: 150),
     end_date: Faker::Date.forward(days: 90),
     expiration_date: Date.today,
-    description: "Originally got for small nose rash, works for feline acne as well.",
+    description: "Originally got for small nose rash, works for feline acne as well!",
     important: true,
     pet: Pet.first
   )
