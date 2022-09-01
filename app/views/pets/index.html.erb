@@ -4,7 +4,10 @@
 <div class="family mobile-margins">
   <% @pets.each do |pet| %>
     <%= link_to pet_path(pet), class: "text-decoration-none text-dark" do %>
-      <div class="family-pet-card-<%= pet.sex == 'Female' ? 'f' : 'm' %> ">
+      <div class="family-pet-card-<%= pet.sex == 'Female' ? 'f' : 'm' %>">
+        <div class="notification fam <%= pet.has_notifications? ? 'on' : 'off' %>">
+          <i class="fa-solid fa-bell"></i>
+        </div>
         <% if pet.photo.attached? %>
           <%= cl_image_tag pet.photo.key, class: "family-pet-img"%>
         <% else %>
@@ -33,7 +36,7 @@
   <% end %>
 </div>
 <%= link_to new_pet_path do %>
-  <div class="add-user-btn">
+  <div class="add-item-btn width-300">
     <p>add a pet to your family</p>
   </div>
 <% end %>

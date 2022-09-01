@@ -1,11 +1,12 @@
 <div class="nav-buttons">
-  <%= link_to pets_path do %>
+  <%= link_to profile_path(@pet) do %>
     <%= render 'shared/buttons/backbtn' %>
   <% end %>
 </div>
-<div class="container white-bg-s">
+
+<div class="container">
   <div class="pet-new-header">
-    <h2 class="new-pet-name"> Add a new pet</h2>
+    <h2 class="new-pet-name"> Update <%= @pet.name %>'s info</h2>
   </div>
   <div class="pet-entry-form">
     <%= render 'form' %>

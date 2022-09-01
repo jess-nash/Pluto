@@ -3,11 +3,9 @@
     <%= render 'shared/buttons/backbtn' %>
   <% end %>
 </div>
-
-
 <div class="container">
   <div class="meal-new-header">
-      <h2 class="pet-name"> Create a new meal for <%= @pet.name.capitalize %></h2>
+    <h2 class="pet-name white-bg-title"> Create a new meal for <%= @pet.name.capitalize %></h2>
   </div>
   <div class="meal-form">
     <%= render 'form', meal: @meal %>

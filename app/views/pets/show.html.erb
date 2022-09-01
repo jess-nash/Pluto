@@ -3,7 +3,6 @@
     <%= render 'shared/buttons/backbtn' %>
   <% end %>
 </div>
-
 <div class="pet-show-container">
   <div class="pet-home-header">
     <div class="pet-photo">
@@ -35,14 +34,21 @@
     <div class="dashboard-btns">
       <div class="dashboard-btn medicine-btn">
         <%= link_to pet_medicines_path(@pet), class:"medicine-btn" do %>
+          <div class="notification meds <%= @pet.medicine_notifications.exists? ? 'on' : 'off' %>">
+            <i class="fa-solid fa-bell"></i>
+          </div>
           <i class="fa-solid fa-capsules"></i>
         <% end %>
       </div>
       <div class="dashboard-btn appointments-btn">
         <%= link_to pet_appointments_path(@pet), class:"appointments-btn" do %>
+          <div class="notification appo <%= @pet.appointment_notifications.exists? ? 'on' : 'off' %>">
+            <i class="fa-solid fa-bell"></i>
+          </div>
           <i class="fa-solid fa-calendar-days"></i>
         <% end %>
       </div>
     </div>
   </div>
 </div>
+<%= javascript_pack_tag 'notifications.js' %>

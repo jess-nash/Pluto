@@ -1,0 +1,43 @@
+.notification {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 50;
+  background-color: #c03939;
+  color: white;
+  font-size: 18px !important;
+  line-height: 32px;
+  text-align: center;
+}
+
+.fam {
+  right: -16px;
+  top: -12px;
+}
+.appo {
+  right: 21px;
+  top: 581px;
+}
+
+.meds {
+  left: 161px;
+  top: 581px;
+}
+.on {
+  visibility: visible;
+}
+
+.off {
+  visibility: hidden;
+}
+
+// individual page icons
+.appo-show {
+  right: 21px;
+}
+
+.meds-show {
+  right: 64px;
+  top: 581px;
+}

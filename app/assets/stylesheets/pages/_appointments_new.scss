@@ -14,13 +14,18 @@
   .datetime-box {
     margin-right: 0 !important;
     margin-left: 0 !important;
+    height: 40px;
   }
 }
 
-// .location-input {
-//   width: 50%;
-// }
-
-// .appointment-type-input {
-//   width: 50%;
-// }
+.appointment-form-submit-btn {
+  margin-top: 10px;
+  height: 36px;
+  text-align: center;
+  width: 331px;
+  border: 1px solid #3E1E99;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 10px 6px #81c8ef, 10px 6px 0px 1px #3e1e99;
+}

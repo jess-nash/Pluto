@@ -59,3 +59,20 @@
 .pet-bio {
   margin-bottom: 0;
 }
+
+.pet-info-2-columns {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.update-pet {
+  padding-right: 10px;
+
+  .btn {
+    font-size: 10px;
+    background: $l-blue;
+    border-radius: 5px;
+    border: 1px solid black;
+  }
+}

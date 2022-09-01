@@ -20,7 +20,7 @@ class PetPolicy < ApplicationPolicy
   end
 
   def edit?
-    user == record.user
+    record.users.include?(user)
   end
 
   def update?
@@ -28,7 +28,7 @@ class PetPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    record.users.include?(user)
   end
 
   def profile?
