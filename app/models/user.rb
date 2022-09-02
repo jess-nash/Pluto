@@ -71,19 +71,19 @@ class User < ApplicationRecord
     message_text = ""
     medicine_3days = Medicine.where(pet_id: self.pets.pluck(:id)).where(expiration_date: (Time.zone.now+3.day).beginning_of_day..(Time.zone.now+3.day).end_of_day)
     pet_names_3 = medicine_3days.map(&:pet).map(&:name)
-    message_text + " 🐾 Hey, just a heads up, #{pet_names_3.join(", ")}'s medication expires in 3 days! 💊" if pet_names_3.any?
+    message_text += " 🐾 Hey, just a heads up, #{pet_names_3.join(", ")}'s medication expires in 3 days! 💊" if pet_names_3.any?
 
     medicine_2days = Medicine.where(pet_id: self.pets.pluck(:id)).where(expiration_date: (Time.zone.now+2.day).beginning_of_day..(Time.zone.now+2.day).end_of_day)
     pet_names_2 = medicine_2days.map(&:pet).map(&:name)
-    message_text + " 🐾 Hey, just a heads up, #{pet_names_2.join(", ")}'s medication expires in 2 days! 💊" if pet_names_2.any?
+    message_text += " 🐾 Hey, just a heads up, #{pet_names_2.join(", ")}'s medication expires in 2 days! 💊" if pet_names_2.any?
 
     medicine_tomorrow = Medicine.where(pet_id: self.pets.pluck(:id)).where(expiration_date: (Time.zone.now+1.day).beginning_of_day..(Time.zone.now+1.day).end_of_day)
     pet_names_tomorrow = medicine_tomorrow.map(&:pet).map(&:name)
-    message_text +" ⚠ #{pet_names_tomorrow.join(", ")}'s medication expires tomorrow! ⚠" if pet_names_tomorrow.any?
+    message_text +=" ⚠ #{pet_names_tomorrow.join(", ")}'s medication expires tomorrow! ⚠" if pet_names_tomorrow.any?
 
     medicine_today = Medicine.where(pet_id: self.pets.pluck(:id)).where("expiration_date = ?", Date.today)
     pet_names_today = medicine_today.map(&:pet).map(&:name)
-    message_text +" ⚠ #{pet_names_today.join(", ")}'s medication expires today! ⚠" if pet_names_today.any?
+    message_text += " ⚠ #{pet_names_today.join(", ")}'s medication expires today! ⚠" if pet_names_today.any?
     message_text.empty? ? "" : message_text
   end
 
