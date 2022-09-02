@@ -12,10 +12,10 @@
 <% if @appointments.present? %>
   <% @appointments.each do |appointment| %>
     <%= link_to appointment_path(appointment) do %>
-      <div class="notification appo-show <%= @pet.appointment_notifications.exists? ? 'on' : 'off' %>">
-        <i class="fa-solid fa-bell"></i>
-      </div>
       <div class="appointment-container">
+        <div class="notification appo-show <%= @pet.appointment_notifications.exists? ? 'on' : 'off' %>">
+          <i class="fa-solid fa-bell"></i>
+        </div>
         <div class="appointment-top">
           <% if appointment.time > DateTime.now %>
             <p class="appointment-visit-for">Upcoming visit for <%= appointment.pet.name.capitalize %> </p>
