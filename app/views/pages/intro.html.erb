@@ -1,0 +1,20 @@
+<div class="home-sky-bg">
+  <div class="landing-format text-center">
+    <div class="landing-text">
+      <h1 class="main-title">pluto</h1>
+      <h2 class="mini-title">For happier and healthier pet families</h2>
+    </div>
+    <img class="pluto-icon" src="https://i.imgur.com/GYiozOj.png" alt="">
+    <div class="call-to-action">
+      <%= link_to new_user_registration_path do %>
+        <div class="get-started button center btn-main-lp" data-content= "get started">
+        </div>
+      <% end %>
+      <p class="login">Already a member?
+        <%= link_to new_user_session_path do %>
+          <span >Log in</span>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>

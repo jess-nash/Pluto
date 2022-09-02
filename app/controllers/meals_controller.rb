@@ -11,7 +11,6 @@ class MealsController < ApplicationController
   end
 
   def create
-    binding.pry
     @meal = Meal.new(meal_params)
     @pet = Pet.find(params[:pet_id])
     @meal.pet = @pet
