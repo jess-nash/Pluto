@@ -33,9 +33,9 @@ class User < ApplicationRecord
     linebot = LineBot.new(destination)
 
     message = "👋 Hello #{self.name}! 🐶🐱"
-    appointment_message = format_appointments_message
-    appointment_message_today = format_appointments_message_today
-    medication_expiration_message = format_medicines_expiration_message
+   p appointment_message = format_appointments_message
+   p appointment_message_today = format_appointments_message_today
+   p  medication_expiration_message = format_medicines_expiration_message
     # medicine_message = format_medicines_message
     # message += format_meals_message
 
@@ -48,8 +48,8 @@ class User < ApplicationRecord
 
   def format_appointments_message
     message_text = ""
-  appointments = Appointment.where(pet_id: self.pets.pluck(:id)).where(time: (Time.now+1.day).beginning_of_day..(Time.now+1.day).end_of_day)
-  # appointments = pets.appointments.where(time: (Time.now+1.day).beginning_of_day..(Time.now+1.day).end_of_day, important: true)
+  appointments = Appointment.where(pet_id: self.pets.pluck(:id)).where(time: (Time.zone.now+1.day).beginning_of_day..(Time.zone.now+1.day).end_of_day)
+  # appointments = pets.appointments.where(time: (Time.zone.now+1.day).beginning_of_day..(Time.zone.now+1.day).end_of_day, important: true)
   appointments = appointments.select { |appointment| appointment.important }
   return "" if appointments.empty?
     # byebug if self.email == "tyler@gmail.com"
@@ -59,7 +59,7 @@ class User < ApplicationRecord
 
   def format_appointments_message_today
     message_text = ""
-    appointments = Appointment.where(pet_id: self.pets.pluck(:id)).where(time: Time.now.beginning_of_day..Time.now.end_of_day)
+    appointments = Appointment.where(pet_id: self.pets.pluck(:id)).where(time: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
     appointments = appointments.select { |appointment| appointment.important }
     return "" if appointments.empty?
     # byebug if self.email == "tyler@gmail.com"
@@ -69,19 +69,19 @@ class User < ApplicationRecord
 
   def format_medicines_expiration_message
     message_text = ""
-    medicine_3days = Medicine.where(pet_id: self.pets.pluck(:id)).where(expiration_date: (Time.now+3.day).beginning_of_day..(Time.now+3.day).end_of_day)
+    medicine_3days = Medicine.where(pet_id: self.pets.pluck(:id)).where(expiration_date: (Time.zone.now+3.day).beginning_of_day..(Time.zone.now+3.day).end_of_day)
     pet_names_3 = medicine_3days.map(&:pet).map(&:name)
     message_text + " 🐾 Hey, just a heads up, #{pet_names_3.join(", ")}'s medication expires in 3 days! 💊" if pet_names_3.any?
 
-    medicine_2days = Medicine.where(pet_id: self.pets.pluck(:id)).where(expiration_date: (Time.now+2.day).beginning_of_day..(Time.now+2.day).end_of_day)
+    medicine_2days = Medicine.where(pet_id: self.pets.pluck(:id)).where(expiration_date: (Time.zone.now+2.day).beginning_of_day..(Time.zone.now+2.day).end_of_day)
     pet_names_2 = medicine_2days.map(&:pet).map(&:name)
     message_text + " 🐾 Hey, just a heads up, #{pet_names_2.join(", ")}'s medication expires in 2 days! 💊" if pet_names_2.any?
 
-    medicine_tomorrow = Medicine.where(pet_id: self.pets.pluck(:id)).where(expiration_date: (Time.now+1.day).beginning_of_day..(Time.now+1.day).end_of_day)
+    medicine_tomorrow = Medicine.where(pet_id: self.pets.pluck(:id)).where(expiration_date: (Time.zone.now+1.day).beginning_of_day..(Time.zone.now+1.day).end_of_day)
     pet_names_tomorrow = medicine_tomorrow.map(&:pet).map(&:name)
     message_text +" ⚠ #{pet_names_tomorrow.join(", ")}'s medication expires tomorrow! ⚠" if pet_names_tomorrow.any?
 
-    medicine_today = Medicine.where(pet_id: self.pets.pluck(:id)).where("expiration_date < ?", Time.now.end_of_day)
+    medicine_today = Medicine.where(pet_id: self.pets.pluck(:id)).where("expiration_date < ?", Time.zone.now.end_of_day)
     pet_names_today = medicine_today.map(&:pet).map(&:name)
     message_text +" ⚠ #{pet_names_today.join(", ")}'s medication expires today! ⚠" if pet_names_today.any?
     message_text.empty? ? "" : message_text

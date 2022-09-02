@@ -42,10 +42,10 @@ class Pet < ApplicationRecord
   end
 
   def medicine_notifications
-    medicines.where(expiration_date: (Time.now).beginning_of_day..(Time.now+7.day).end_of_day).where(important: true)
+    medicines.where(expiration_date: (Time.zone.now).beginning_of_day..(Time.zone.now+7.day).end_of_day).where(important: true)
   end
 
   def appointment_notifications
-    appointments.where(time: (Time.now+1.day).beginning_of_day..(Time.now+3.day).end_of_day).where(important: true)
+    appointments.where(time: (Time.zone.now+1.day).beginning_of_day..(Time.zone.now+3.day).end_of_day).where(important: true)
   end
 end
