@@ -60,12 +60,12 @@ def create_pets
   pets = [
     {
       name: "Miel",
-      description: "Miichan is the cutest kitty ever. I love her so so much ♥ ♥ ♥",
-      age: 2,
-      weight: 9,
-      chip_number: "LW123",
+      description: "Only ever responds to Micchan. Is a calico and siamese mix from Osaka. She has bright blue eyes and loves most humans. Does not like being picked up! Favorite snack is chururu.",
+      age: 8,
+      weight: 7,
+      chip_number: "APTX4869",
       sex: "Female",
-      url: "https://images.unsplash.com/photo-1618826411640-d6df44dd3f7a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+      url: "https://i.imgur.com/ry15K1x.jpg"
     },
 
     {
@@ -362,6 +362,20 @@ def create_medicine
   )
   file = URI.open("https://cdn.shopify.com/s/files/1/1624/5131/products/Heargard_PLus_Brown_Front.jpg?v=1587522123")
   heartgard.photos.attach(io: file, filename: 'medicine.jpg', content_type: 'image/jpg')
+
+  dekisan = Medicine.create(
+    name: "Dekisan VG",
+    dosage: "1 dab",
+    medicine_type: "liquid",
+    start_date: Faker::Date.forward(days: 150),
+    end_date: Faker::Date.forward(days: 90),
+    expiration_date: Date.today,
+    description: "Originally got for small nose rash, works for feline acne as well!",
+    important: true,
+    pet: Pet.first
+  )
+  file = URI.open("https://i.imgur.com/HU7Qz9C.jpg")
+  dekisan.photos.attach(io: file, filename: 'medicine.jpg', content_type: 'image/jpg')
 
   simparica = Medicine.create(
     name: "simparica",
