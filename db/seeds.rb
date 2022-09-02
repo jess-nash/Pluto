@@ -115,7 +115,7 @@ def create_pets
     },
 
     {
-      name: "Miel",
+      name: "Air Bud",
       description: "The cutest doggo ever. Great with people, kind of scared of small dogs.",
       age: 7,
       weight: 70,
@@ -126,7 +126,7 @@ def create_pets
 
     {
       name: "Valkyrie",
-      description: "This cat is lowkey evil...but I love her.",
+      description: "This cat is lowkey evil...but I love her. She only responds to being called Val!",
       age: 6,
       weight: 10,
       sex: "Female",
@@ -476,7 +476,7 @@ def create_meals
       meal_type: "Dry food",
       description: "This is the food that she has liked the most since the start of the diet!",
       serving_size: "50g",
-      time: ["Lunch", "Dinner"],
+      time: ["Lunch", "Dinner", "Breakfast"],
       url: "https://cf.shopee.co.id/file/8cad35d5da1d44b2cfd831761f8c4f91"
     }
   ]
