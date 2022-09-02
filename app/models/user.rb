@@ -81,7 +81,7 @@ class User < ApplicationRecord
     pet_names_tomorrow = medicine_tomorrow.map(&:pet).map(&:name)
     message_text +" ⚠ #{pet_names_tomorrow.join(", ")}'s medication expires tomorrow! ⚠" if pet_names_tomorrow.any?
 
-    medicine_today = Medicine.where(pet_id: self.pets.pluck(:id)).where("expiration_date < ?", Time.zone.now.end_of_day)
+    medicine_today = Medicine.where(pet_id: nicole.pets.pluck(:id)).where("expiration_date = ?", Date.today)
     pet_names_today = medicine_today.map(&:pet).map(&:name)
     message_text +" ⚠ #{pet_names_today.join(", ")}'s medication expires today! ⚠" if pet_names_today.any?
     message_text.empty? ? "" : message_text
