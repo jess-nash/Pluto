@@ -1,10 +1,19 @@
 <p align="center">
   <h1>Pluto: For happier and healthier pet families</h1>
-<img src="https://user-images.githubusercontent.com/97200803/187920130-c6f49690-3f15-48ac-b940-3c611a5644f0.jpg" width="auto">
+<div style="display: flex" align="center">
+<img src="https://user-images.githubusercontent.com/74501096/188362094-22046560-dd36-40f1-8623-3b9e7f08d8e6.jpg" width="225px">
+<img src="https://user-images.githubusercontent.com/74501096/188362086-950851d7-0e20-41a8-ae49-9d48b5df358d.jpg" width="225px">
+<img src="https://user-images.githubusercontent.com/74501096/188362092-a26f72cd-cdf7-4a70-914b-c98a175d195e.jpg" width="225px">
+<img src="https://user-images.githubusercontent.com/74501096/188362080-fa0b3c36-f52e-4eaf-9bff-efb045900133.jpg" width="225px">
+
+
+
+</div>
 </p>
 <div class="table-of-contents">
   <ul>
     <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#setup">Setting Up</a></li>
     <li><a href="#techstack">Tech Stack</a></li>
     <li><a href="#viewlive">View Live App</a></li>
     <li><a href="#demo">Demo (Coming soon)</a></li>
@@ -16,6 +25,40 @@
   <p>Pets are precious living creatures and there are lots of things you need to do to make sure they live both happy and healthy lives.</p>
   <p>Pluto is a one stop app where you can log your pets medical information, make daily journal entries and much more. Furthermore, Pluto makes it easy to share this information between family members and pet sitters alike. </p>
   <p>This app was made with love by <a href="#devteam">Our Pluto Team</a> as the final project for Le Wagon Tokyo #batch848.</p>
+</div>
+<div id="setup">
+<h1>Setup</h1>
+
+Install gems
+```
+bundle install
+```
+Install JS packages
+```
+yarn install
+```
+
+### ENV Variables
+Create `.env` file
+```
+touch .env
+```
+Inside `.env`, set these variables. For any APIs, see group Slack channel.
+```
+CLOUDINARY_URL=your_own_cloudinary_url_key
+```
+
+### DB Setup
+```
+rails db:create
+rails db:migrate
+rails db:seed
+```
+
+### Run a server
+```
+rails s
+```
 </div>
 
 <div id="techstack">
@@ -31,7 +74,7 @@
 </div>
 
 <div id="demo">
-  <h2>Watch out demo day presentation</h2>
+  <h2>Watch our demo day presentation</h2>
   <h3>Coming Soon...</h3>
 </div>
 
