@@ -75,7 +75,7 @@ rails s
 
 <div id="demo">
   <h2>Watch our demo day presentation</h2>
-  <h3>Coming Soon...</h3>
+  <h3><a href="https://youtu.be/yh8iZUNj8B8?t=910" target="_blank">Youtube</h3>
 </div>
 
 <div id="devteam">
