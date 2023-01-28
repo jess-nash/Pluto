@@ -1,10 +1,8 @@
 <p align="center">
   <h1>Pluto: For happier and healthier pet families</h1>
 <div style="display: flex" align="center">
-<img src="https://user-images.githubusercontent.com/74501096/188362094-22046560-dd36-40f1-8623-3b9e7f08d8e6.jpg" width="225px">
-<img src="https://user-images.githubusercontent.com/74501096/188362086-950851d7-0e20-41a8-ae49-9d48b5df358d.jpg" width="225px">
-<img src="https://user-images.githubusercontent.com/74501096/188362092-a26f72cd-cdf7-4a70-914b-c98a175d195e.jpg" width="225px">
-<img src="https://user-images.githubusercontent.com/74501096/188362080-fa0b3c36-f52e-4eaf-9bff-efb045900133.jpg" width="225px">
+
+![Pluto-main](https://user-images.githubusercontent.com/74501096/209076462-bad7a82b-a3f4-4a84-b913-05b63a3b47cc.png)
 
 
 
@@ -75,7 +73,7 @@ rails s
 
 <div id="demo">
   <h2>Watch our demo day presentation</h2>
-  <h3>Coming Soon...</h3>
+  <h3><a href="https://youtu.be/yh8iZUNj8B8?t=910" target="_blank">Youtube</h3>
 </div>
 
 <div id="devteam">
